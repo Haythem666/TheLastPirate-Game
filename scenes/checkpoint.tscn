@@ -1,0 +1,73 @@
+[gd_scene load_steps=15 format=3 uid="uid://bcy6m5lwm2rg1"]
+
+[ext_resource type="Script" uid="uid://jv0tcfy22nrh" path="res://scripts/checkpoint.gd" id="1_j0vas"]
+[ext_resource type="Texture2D" uid="uid://iw6ky87pdsxm" path="res://assets/sprites/Objects/Flag/Flag 01.png" id="1_ok2sx"]
+[ext_resource type="Texture2D" uid="uid://coq7ajrdahy5m" path="res://assets/sprites/Objects/Flag/Flag 02.png" id="2_j0vas"]
+[ext_resource type="Texture2D" uid="uid://r28dygm0ums1" path="res://assets/sprites/Objects/Flag/Flag 03.png" id="3_fndcu"]
+[ext_resource type="Texture2D" uid="uid://cri6krmrxsqmf" path="res://assets/sprites/Objects/Flag/Flag 04.png" id="4_e28ry"]
+[ext_resource type="Texture2D" uid="uid://dbw6w7p6ilq4r" path="res://assets/sprites/Objects/Flag/Flag 05.png" id="5_ejce6"]
+[ext_resource type="Texture2D" uid="uid://2sebx0wnkvl8" path="res://assets/sprites/Objects/Flag/Flag 06.png" id="6_jjwhk"]
+[ext_resource type="Texture2D" uid="uid://b853tw0edb00s" path="res://assets/sprites/Objects/Flag/Flag 07.png" id="7_5vg67"]
+[ext_resource type="Texture2D" uid="uid://dkuw8x20638n" path="res://assets/sprites/Objects/Flag/Flag 08.png" id="8_ceatg"]
+[ext_resource type="Texture2D" uid="uid://dkgb3u1cuqhl8" path="res://assets/sprites/Objects/Flag/Flag 09.png" id="9_wxh5a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbwmb"]
+size = Vector2(39, 96.5)
+
+[sub_resource type="Animation" id="Animation_3lops"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_ok2sx")]
+}
+
+[sub_resource type="Animation" id="Animation_6qfwh"]
+resource_name = "activated"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333, 0.333333, 0.433333, 0.533333, 0.633333, 0.7, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_ok2sx"), ExtResource("2_j0vas"), ExtResource("3_fndcu"), ExtResource("4_e28ry"), ExtResource("5_ejce6"), ExtResource("6_jjwhk"), ExtResource("7_5vg67"), ExtResource("8_ceatg"), ExtResource("9_wxh5a")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_440ol"]
+_data = {
+&"RESET": SubResource("Animation_3lops"),
+&"activated": SubResource("Animation_6qfwh")
+}
+
+[node name="Checkpoint" type="Node2D"]
+script = ExtResource("1_j0vas")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ok2sx")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -0.25)
+shape = SubResource("RectangleShape2D_pbwmb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_440ol")
+}
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

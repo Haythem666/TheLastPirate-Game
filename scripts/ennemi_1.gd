@@ -1,0 +1,40 @@
+extends CharacterBody2D
+
+
+var SPEED = -60.0
+
+var facing_right = false
+var dead = false
+
+func _ready() -> void:
+	$AnimationPlayer.play("run")
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+		
+	if !$RayCast2D.is_colliding() && is_on_floor():
+		flip()
+	
+	velocity.x=SPEED
+	move_and_slide()
+
+func flip():
+	facing_right = !facing_right
+	
+	scale.x= abs(scale.x) * -1
+	if facing_right:
+		SPEED= abs(SPEED)
+	else:
+		SPEED = abs(SPEED) * -1
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.get_parent() is Player && !dead:
+		area.get_parent().die()
+
+func die():
+	dead = true
+	SPEED = 0
+	$AnimationPlayer.play("die")
