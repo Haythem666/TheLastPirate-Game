@@ -11,7 +11,12 @@ class_name Player
 
 @export var attacking = false
 
+var max_health = 2
+var health = 0
+var can_take_damage = true
+
 func _ready() -> void:
+	health= max_health
 	GameManager.player = self
 	
 func _process(delta: float) -> void:

@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://gw34uw0l36im"]
+
+[ext_resource type="Script" uid="uid://l250yibyok3e" path="res://scripts/falling_spikes.gd" id="1_2iqdx"]
+[ext_resource type="Texture2D" uid="uid://2ys4xc6uv1k3" path="res://assets/sprites/Objects/Spikes/Spikes.png" id="1_v12vm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v12vm"]
+size = Vector2(39, 137.5)
+
+[sub_resource type="Animation" id="Animation_2iqdx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_v12vm")]
+}
+
+[sub_resource type="Animation" id="Animation_gi8wp"]
+resource_name = "shake"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_v12vm"), ExtResource("1_v12vm"), ExtResource("1_v12vm"), ExtResource("1_v12vm")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aovdo"]
+_data = {
+&"RESET": SubResource("Animation_2iqdx"),
+&"shake": SubResource("Animation_gi8wp")
+}
+
+[node name="FallingSpikes" type="Node2D"]
+script = ExtResource("1_2iqdx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 16)
+rotation = 3.14159
+texture = ExtResource("1_v12vm")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(-13, 0, -13, 6, -15, 8, -12, 14, -8, 8, -4, 13, -1, 10, 4, 16, 8, 10, 14, 12, 16, 3, 15, 0)
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+position = Vector2(-1, 68.25)
+shape = SubResource("RectangleShape2D_v12vm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_aovdo")
+}
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]

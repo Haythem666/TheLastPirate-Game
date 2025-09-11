@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://co3rxx2gdytyh"]
+
+[ext_resource type="Script" uid="uid://dpg0s2c0lyk7h" path="res://scripts/jumpad.gd" id="1_e5bxg"]
+[ext_resource type="Texture2D" uid="uid://c8l3s2n0af0lv" path="res://assets/sprites/Objects/Front Palm Trees/Front Palm Tree Top 01.png" id="1_fwppr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1pdd"]
+size = Vector2(37, 21)
+
+[node name="Jumpad" type="Node2D"]
+script = ExtResource("1_e5bxg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fwppr")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -4.5)
+shape = SubResource("RectangleShape2D_e1pdd")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
