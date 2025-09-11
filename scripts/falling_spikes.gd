@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent() is Player:
-		area.get_parent().die()
+		area.get_parent().take_damage(1)
 		queue_free()
 
 
@@ -23,7 +23,7 @@ func _on_player_detect_area_entered(area: Area2D) -> void:
 #maybe add animation
 
 func fall():
-	current_speed=speed
-	await  get_tree().create_timer(5).timeout
-	position = spawn_pos
-	current_speed=0
+	current_speed = speed
+	await get_tree().create_timer(3).timeout
+	position  = spawn_pos
+	current_speed = 0

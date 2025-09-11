@@ -16,7 +16,7 @@ var health = 0
 var can_take_damage = true
 
 func _ready() -> void:
-	health= max_health
+	health = max_health
 	GameManager.player = self
 	
 func _process(delta: float) -> void:
@@ -89,6 +89,17 @@ func update_animation() -> void:
 				animation_player.play("idle")
 	   
 			
+func take_damage(damage_amount : int):
+	if can_take_damage:
+		iframes()
+		health -= damage_amount
+		if health <= 0:
+			die()
+
+func iframes():
+	can_take_damage = false
+	await get_tree().create_timer(1).timeout
+	can_take_damage= true
 
 func die():
 	GameManager.respawn_player()
