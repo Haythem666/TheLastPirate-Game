@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwfmx00y7ug17"]
+
+[ext_resource type="Script" uid="uid://088dryommise" path="res://scripts/health_bar.gd" id="1_1bvlm"]
+
+[node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = -1.0
+offset_right = -9.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1bvlm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.003
+anchor_top = -0.002
+anchor_right = -0.003
+anchor_bottom = -0.002
+offset_left = -0.12
+offset_top = 0.08
+offset_right = 23.88
+offset_bottom = 4.08
+color = Color(0.878431, 0.27451, 0.337255, 1)

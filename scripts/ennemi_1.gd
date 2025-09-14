@@ -6,7 +6,11 @@ var SPEED = -60.0
 var facing_right = false
 var dead = false
 
+var max_health = 2
+var health
+
 func _ready() -> void:
+	health = max_health
 	$AnimationPlayer.play("run")
 
 func _physics_process(delta: float) -> void:
@@ -33,6 +37,14 @@ func flip():
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent() is Player && !dead:
 		area.get_parent().take_damage(1)
+
+func take_damage(damage_amount):
+	health -= damage_amount
+	
+	$HealthBar.update_healthbar(health,max_health)
+
+	if health <= 0 :
+		die()
 
 func die():
 	dead = true

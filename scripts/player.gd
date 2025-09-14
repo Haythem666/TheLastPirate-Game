@@ -5,11 +5,12 @@ class_name Player
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 
-@export var SPEED: float = 300.0
+@export var SPEED: float = 200.0
 @export var JUMP_VELOCITY: float = -400.0
 
 
 @export var attacking = false
+@export var hit = false
 
 var max_health = 2
 var health = 0
@@ -20,7 +21,7 @@ func _ready() -> void:
 	GameManager.player = self
 	
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") && !hit:
 		attack()
 
 func _physics_process(delta: float) -> void:
@@ -69,14 +70,14 @@ func attack():
 		
 	for area in overlapping_objects:
 		if area.get_parent().is_in_group("enemies"):
-			area.get_parent().die()
+			area.get_parent().take_damage(1)
 			
 	attacking=true
 	animation_player.play("attack")
 	
 
 func update_animation() -> void:
-	if !attacking:
+	if !attacking && !hit:
 		if not is_on_floor():  # perso en l'air
 			if velocity.y < 0:
 				animation_player.play("jump")
@@ -92,6 +93,11 @@ func update_animation() -> void:
 func take_damage(damage_amount : int):
 	if can_take_damage:
 		iframes()
+		
+		hit = true
+		attacking = false
+		animation_player.play("hit")
+		
 		health -= damage_amount
 		if health <= 0:
 			die()

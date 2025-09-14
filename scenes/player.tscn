@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ctfwc2dal3vl3"]
+[gd_scene load_steps=34 format=3 uid="uid://ctfwc2dal3vl3"]
 
 [ext_resource type="Script" uid="uid://b6qgexc2515of" path="res://scripts/player.gd" id="1_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://4wq12uhwfuak" path="res://assets/sprites/MainPerso/09-Idle Sword/Idle Sword 01.png" id="2_fjrip"]
@@ -18,6 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://jbkcd0uti76d" path="res://assets/sprites/MainPerso/17-Attack 3/Attack 3 01.png" id="16_fulsm"]
 [ext_resource type="Texture2D" uid="uid://bqcuxifr3ikmh" path="res://assets/sprites/MainPerso/17-Attack 3/Attack 3 02.png" id="17_4r5pv"]
 [ext_resource type="Texture2D" uid="uid://de366ruqw2kc6" path="res://assets/sprites/MainPerso/16-Attack 2/Attack 2 03.png" id="18_60mlk"]
+[ext_resource type="Texture2D" uid="uid://n70pqr6c5abc" path="res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 01.png" id="19_a38lo"]
+[ext_resource type="Texture2D" uid="uid://dpwee8ufdgkt5" path="res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 02.png" id="20_4ni07"]
+[ext_resource type="Texture2D" uid="uid://cda7ynqtnbueb" path="res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 03.png" id="21_l71n6"]
+[ext_resource type="Texture2D" uid="uid://cpmde3hc667uy" path="res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 04.png" id="22_ke2ow"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oprun"]
 radius = 8.0
@@ -55,6 +59,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:hit")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_i4ail"]
@@ -100,6 +116,34 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("4_ur7pv")]
+}
+
+[sub_resource type="Animation" id="Animation_31cv2"]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("19_a38lo"), ExtResource("20_4ni07"), ExtResource("21_l71n6"), ExtResource("22_ke2ow")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hit")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.233333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_jej6c"]
@@ -157,6 +201,7 @@ _data = {
 &"RESET": SubResource("Animation_f1ej7"),
 &"attack": SubResource("Animation_i4ail"),
 &"fall": SubResource("Animation_ujl30"),
+&"hit": SubResource("Animation_31cv2"),
 &"idle": SubResource("Animation_jej6c"),
 &"jump": SubResource("Animation_ke2ow"),
 &"run": SubResource("Animation_l71n6")
@@ -192,3 +237,7 @@ shape = SubResource("CircleShape2D_fulsm")
 libraries = {
 &"": SubResource("AnimationLibrary_oprun")
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true

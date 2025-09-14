@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://bl0qnacj4ggxo"]
+
+[ext_resource type="Script" uid="uid://3iocbxnrg0t0" path="res://scripts/canon_ball.gd" id="1_3yigh"]
+[ext_resource type="Texture2D" uid="uid://b17wrigoflhi4" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Cannon/Cannon Ball Idle/1.png" id="2_nt8sw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ybok"]
+radius = 7.41723
+
+[sub_resource type="Animation" id="Animation_u2qrf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fhh4a"]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.266667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_io1hl"]
+_data = {
+&"RESET": SubResource("Animation_u2qrf"),
+&"hit": SubResource("Animation_fhh4a")
+}
+
+[node name="CanonBall" type="Node2D"]
+script = ExtResource("1_3yigh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nt8sw")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.406105, 0.406101)
+shape = SubResource("CircleShape2D_8ybok")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_io1hl")
+}
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

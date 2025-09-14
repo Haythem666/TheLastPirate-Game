@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://drvjc7n7lk0me"]
+[gd_scene load_steps=20 format=3 uid="uid://drvjc7n7lk0me"]
 
 [ext_resource type="Texture2D" uid="uid://dv73mqm2mo6ha" path="res://assets/sprites/OtherPersos/Fierce Tooth/01-Idle/Idle 01.png" id="1_au2n8"]
 [ext_resource type="Script" uid="uid://bks3hj4d05osg" path="res://scripts/ennemi_1.gd" id="1_mgia5"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cvs3u7nj60ddn" path="res://assets/sprites/OtherPersos/Fierce Tooth/09-Dead Hit/Dead Hit 02.png" id="10_akc4u"]
 [ext_resource type="Texture2D" uid="uid://cunxgb5rrpsne" path="res://assets/sprites/OtherPersos/Fierce Tooth/09-Dead Hit/Dead Hit 03.png" id="11_onwva"]
 [ext_resource type="Texture2D" uid="uid://dpx8w4skmyeqn" path="res://assets/sprites/OtherPersos/Fierce Tooth/09-Dead Hit/Dead Hit 04.png" id="12_7gb7k"]
+[ext_resource type="PackedScene" uid="uid://cwfmx00y7ug17" path="res://scenes/health_bar.tscn" id="13_akc4u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kpe6i"]
 radius = 9.0
@@ -93,6 +94,12 @@ _data = {
 [node name="Ennemi1" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
 script = ExtResource("1_mgia5")
+
+[node name="HealthBar" parent="." instance=ExtResource("13_akc4u")]
+offset_left = -12.0
+offset_top = -15.0
+offset_right = -12.0
+offset_bottom = -15.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_au2n8")
