@@ -6,7 +6,7 @@ var SPEED = -60.0
 var facing_right = false
 var dead = false
 
-var max_health = 2
+var max_health = 5
 var health
 
 func _ready() -> void:
@@ -41,9 +41,10 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 func take_damage(damage_amount):
 	health -= damage_amount
 	
-	$AnimationPlayer.play("hit")
 	$HealthBar.update_healthbar(health,max_health)
-
+	$AnimationPlayer.play("hit")
+	
+	
 	if health <= 0 :
 		die()
 	else:

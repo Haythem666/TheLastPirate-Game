@@ -5,6 +5,8 @@ var current_speed= 0.0
 
 @onready var spawn_pos= global_position
 
+
+
 func _physics_process(delta: float) -> void:
 	position.y += current_speed * delta
 

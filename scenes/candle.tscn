@@ -1,0 +1,89 @@
+[gd_scene load_steps=15 format=3 uid="uid://cnlu2tu2dhmcs"]
+
+[ext_resource type="Script" uid="uid://cicctgf6n2pqt" path="res://scripts/candle.gd" id="1_6km6f"]
+[ext_resource type="Texture2D" uid="uid://db050poe2i3d6" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle/01.png" id="1_u0j7c"]
+[ext_resource type="Texture2D" uid="uid://glgghbdoo7ld" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle Light/01.png" id="2_j83ba"]
+[ext_resource type="Texture2D" uid="uid://d3na7bpl5oq8" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle/02.png" id="2_rpk0i"]
+[ext_resource type="Texture2D" uid="uid://cf8wmnrjx38k0" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle/03.png" id="3_5vpj4"]
+[ext_resource type="Texture2D" uid="uid://b85hxyfomvbx" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle/04.png" id="4_teedr"]
+[ext_resource type="Texture2D" uid="uid://b5lya8ehic1oc" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle/05.png" id="5_j83ba"]
+[ext_resource type="Texture2D" uid="uid://dj4o4grlcolkh" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle/06.png" id="6_6km6f"]
+[ext_resource type="Texture2D" uid="uid://bltyb74kr172k" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle Light/02.png" id="8_6km6f"]
+[ext_resource type="Texture2D" uid="uid://bhqqar6ijaiv0" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle Light/03.png" id="9_uglo5"]
+[ext_resource type="Texture2D" uid="uid://boc23wbyhwd55" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle Light/04.png" id="10_33je5"]
+
+[sub_resource type="Animation" id="Animation_33je5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_u0j7c")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_j83ba")]
+}
+
+[sub_resource type="Animation" id="Animation_uglo5"]
+resource_name = "candleIdle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.1, 0.2, 0.3, 0.366667, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_u0j7c"), ExtResource("2_rpk0i"), ExtResource("3_5vpj4"), ExtResource("4_teedr"), ExtResource("5_j83ba"), ExtResource("6_6km6f")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_j83ba"), ExtResource("8_6km6f"), ExtResource("9_uglo5"), ExtResource("10_33je5")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kre2l"]
+_data = {
+&"RESET": SubResource("Animation_33je5"),
+&"candleIdle": SubResource("Animation_uglo5")
+}
+
+[node name="Candle" type="Node2D"]
+script = ExtResource("1_6km6f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_u0j7c")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("2_j83ba")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kre2l")
+}

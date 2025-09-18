@@ -12,13 +12,17 @@ class_name Player
 @export var attacking = false
 @export var hit = false
 
-var max_health = 2
+var max_health = 3
 var health = 0
 var can_take_damage = true
+
+
+
 
 func _ready() -> void:
 	health = max_health
 	GameManager.player = self
+
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") && !hit:
@@ -99,6 +103,9 @@ func take_damage(damage_amount : int):
 		animation_player.play("hit")
 		
 		health -= damage_amount
+		var ui_manager = get_node("/root/Level1/UIManager")
+		ui_manager.update_health_display(health, max_health)
+		
 		if health <= 0:
 			die()
 

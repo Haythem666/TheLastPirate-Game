@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmvcn2yxkpalx"]
+[gd_scene load_steps=19 format=3 uid="uid://bmvcn2yxkpalx"]
 
 [ext_resource type="Texture2D" uid="uid://bs7ep35bqyd5r" path="res://assets/sprites/TheWorld/BackGround/Background/BG Image.png" id="1_843q2"]
 [ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="1_cd1xg"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bdwkhl8bgv77b" path="res://scenes/coin.tscn" id="6_bhu28"]
 [ext_resource type="Texture2D" uid="uid://dobrnu646puq5" path="res://assets/sprites/Gold Coin/01.png" id="7_4p75b"]
 [ext_resource type="Script" uid="uid://cbqs1x15xwyco" path="res://scripts/ui_manager.gd" id="7_y8ti4"]
+[ext_resource type="Texture2D" uid="uid://bc1ihi2mgn2ln" path="res://assets/sprites/Objects/heartIdle.png" id="10_dv7nr"]
 [ext_resource type="PackedScene" uid="uid://drvjc7n7lk0me" path="res://scenes/ennemi_1.tscn" id="10_o5wbv"]
 [ext_resource type="PackedScene" uid="uid://gw34uw0l36im" path="res://scenes/falling_spikes.tscn" id="11_s6ikc"]
 [ext_resource type="PackedScene" uid="uid://co3rxx2gdytyh" path="res://scenes/jumpad.tscn" id="12_036lt"]
@@ -782,14 +783,14 @@ sources/1 = SubResource("TileSetAtlasSource_xrbqg")
 [node name="LevelOne" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -60.0
-offset_top = -62.0
-offset_right = 1182.0
-offset_bottom = 588.0
+offset_left = -52.0
+offset_top = -47.0
+offset_right = 1190.0
+offset_bottom = 603.0
 texture = ExtResource("1_843q2")
 
 [node name="Player" parent="." instance=ExtResource("2_t18mc")]
-position = Vector2(256, 278)
+position = Vector2(251, 276)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_843q2")
@@ -841,6 +842,35 @@ offset_right = 84.0
 offset_bottom = 39.0
 theme_override_font_sizes/font_size = 25
 text = "0"
+
+[node name="Hearts" type="HBoxContainer" parent="UIManager"]
+offset_left = 87.0
+offset_top = 22.0
+offset_right = 128.0
+offset_bottom = 51.0
+
+[node name="Heart1" type="TextureRect" parent="UIManager/Hearts"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="UIManager/Hearts/Heart1"]
+scale = Vector2(4, 4)
+texture = ExtResource("10_dv7nr")
+
+[node name="Heart2" type="TextureRect" parent="UIManager/Hearts"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="UIManager/Hearts/Heart2"]
+scale = Vector2(4, 4)
+texture = ExtResource("10_dv7nr")
+
+[node name="Heart3" type="TextureRect" parent="UIManager/Hearts"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="UIManager/Hearts/Heart3"]
+scale = Vector2(4, 4)
+texture = ExtResource("10_dv7nr")
 
 [node name="Ennemi1" parent="." instance=ExtResource("10_o5wbv")]
 position = Vector2(653, 291)
