@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://dsjost7onpiyt"]
+
+[ext_resource type="Script" uid="uid://brxgyp1syp40u" path="res://scripts/ship_helm.gd" id="1_0pwlt"]
+[ext_resource type="Texture2D" uid="uid://c84atqhps5xr0" path="res://assets/sprites/Objects/Ship Helm/Ship Helm Idle 01.png" id="1_7fiog"]
+[ext_resource type="Texture2D" uid="uid://38thhaxhgksf" path="res://assets/sprites/Objects/Ship Helm/Ship Helm Turn 01.png" id="3_byu1s"]
+[ext_resource type="Texture2D" uid="uid://tu4v7ursugec" path="res://assets/sprites/Objects/Ship Helm/Ship Helm Turn 02.png" id="4_l6ykp"]
+[ext_resource type="Texture2D" uid="uid://ndt3hwuf8bum" path="res://assets/sprites/Objects/Ship Helm/Ship Helm Turn 03.png" id="5_ama5p"]
+[ext_resource type="Texture2D" uid="uid://do4uq4swmn00m" path="res://assets/sprites/Objects/Ship Helm/Ship Helm Turn 04.png" id="6_874it"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3aa7"]
+size = Vector2(30, 32)
+
+[sub_resource type="Animation" id="Animation_nnt15"]
+resource_name = "activateHelm"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_byu1s"), ExtResource("4_l6ykp"), ExtResource("5_ama5p"), ExtResource("6_874it")]
+}
+
+[sub_resource type="Animation" id="Animation_5b4ci"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_7fiog")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_axywc"]
+_data = {
+&"RESET": SubResource("Animation_5b4ci"),
+&"activateHelm": SubResource("Animation_nnt15")
+}
+
+[node name="ShipHelm" type="Node2D"]
+script = ExtResource("1_0pwlt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7fiog")
+
+[node name="HelmArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HelmArea"]
+shape = SubResource("RectangleShape2D_a3aa7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_axywc")
+}

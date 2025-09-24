@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ctfwc2dal3vl3"]
+[gd_scene load_steps=35 format=3 uid="uid://ctfwc2dal3vl3"]
 
 [ext_resource type="Script" uid="uid://b6qgexc2515of" path="res://scripts/player.gd" id="1_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://4wq12uhwfuak" path="res://assets/sprites/MainPerso/09-Idle Sword/Idle Sword 01.png" id="2_fjrip"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dpwee8ufdgkt5" path="res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 02.png" id="20_4ni07"]
 [ext_resource type="Texture2D" uid="uid://cda7ynqtnbueb" path="res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 03.png" id="21_l71n6"]
 [ext_resource type="Texture2D" uid="uid://cpmde3hc667uy" path="res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 04.png" id="22_ke2ow"]
+[ext_resource type="AudioStream" uid="uid://bvutcvnh1xgrp" path="res://assets/sounds/Run on wood - Sound Effect for editing.wav" id="23_4ni07"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oprun"]
 radius = 8.0
@@ -84,7 +85,7 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.233333),
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [ExtResource("16_fulsm"), ExtResource("17_4r5pv"), ExtResource("18_60mlk")]
@@ -241,3 +242,7 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+
+[node name="RunningSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_4ni07")
+bus = &"SoundEffects"

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu7db3lqe0jth"]
+
+[ext_resource type="Texture2D" uid="uid://d2qyjgjjy0njg" path="res://assets/sprites/14-TileSets/Decorations (32x32).png" id="1_aormq"]
+[ext_resource type="Script" uid="uid://dlljn2k5k1v8c" path="res://scripts/suspended_plateform.gd" id="1_veoyq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_veoyq"]
+size = Vector2(96, 6)
+
+[node name="SuspendedPlateform" type="StaticBody2D"]
+script = ExtResource("1_veoyq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aormq")
+region_enabled = true
+region_rect = Rect2(64.1759, 31.8886, 96.7481, 6.88008)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_veoyq")

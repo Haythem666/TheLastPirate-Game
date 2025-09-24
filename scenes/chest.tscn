@@ -1,9 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://cahrbhq18476y"]
+[gd_scene load_steps=15 format=3 uid="uid://cahrbhq18476y"]
 
 [ext_resource type="Texture2D" uid="uid://2e16vp0rmbhb" path="res://assets/sprites/Objects/Chest/Chest Close 01.png" id="1_oii8l"]
+[ext_resource type="Texture2D" uid="uid://ikkj5u21hd2v" path="res://assets/sprites/Objects/Chest/Chest Close 02.png" id="2_lfymr"]
+[ext_resource type="Texture2D" uid="uid://wy35l81mts72" path="res://assets/sprites/Objects/Chest/Chest Close 03.png" id="3_udamv"]
+[ext_resource type="Texture2D" uid="uid://dkxu6xcbckswl" path="res://assets/sprites/Objects/Chest/Chest Close 04.png" id="4_up8i7"]
+[ext_resource type="Texture2D" uid="uid://t5b22y0wlfj" path="res://assets/sprites/Objects/Chest/Chest Close 05.png" id="5_nnvde"]
+[ext_resource type="Texture2D" uid="uid://q3hl7p3ubj8w" path="res://assets/sprites/Objects/Chest/Chest Close 06.png" id="6_sj8sc"]
+[ext_resource type="Texture2D" uid="uid://dgvri6tbh1p4v" path="res://assets/sprites/Objects/Chest/Chest Close 07.png" id="7_euan8"]
+[ext_resource type="Texture2D" uid="uid://dnhesattok3pd" path="res://assets/sprites/Objects/Chest/Chest Close 08.png" id="8_g5oag"]
+[ext_resource type="Texture2D" uid="uid://wiaygdnawcqd" path="res://assets/sprites/Objects/Chest/Chest Close 09.png" id="9_0xutf"]
+[ext_resource type="Texture2D" uid="uid://ot5gvjmvvhk3" path="res://assets/sprites/Objects/Chest/Chest Close 10.png" id="10_hi67r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sy5e1"]
 size = Vector2(30, 24)
+
+[sub_resource type="Animation" id="Animation_88c7k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_oii8l")]
+}
+
+[sub_resource type="Animation" id="Animation_4jbkx"]
+resource_name = "chestAnim"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_oii8l"), ExtResource("2_lfymr"), ExtResource("3_udamv"), ExtResource("4_up8i7"), ExtResource("5_nnvde"), ExtResource("6_sj8sc"), ExtResource("7_euan8"), ExtResource("8_g5oag"), ExtResource("9_0xutf"), ExtResource("10_hi67r")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q0kb7"]
+_data = {
+&"RESET": SubResource("Animation_88c7k"),
+&"chestAnim": SubResource("Animation_4jbkx")
+}
 
 [node name="Chest" type="Node2D"]
 
@@ -16,3 +63,9 @@ texture = ExtResource("1_oii8l")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(2, 3)
 shape = SubResource("RectangleShape2D_sy5e1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q0kb7")
+}
+autoplay = "chestAnim"

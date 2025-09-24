@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://1s056ube34cb"]
+[gd_scene load_steps=34 format=3 uid="uid://1s056ube34cb"]
 
 [ext_resource type="Script" uid="uid://dijh6nd46sm2s" path="res://scripts/ennemi_2.gd" id="1_hokpg"]
 [ext_resource type="PackedScene" uid="uid://cwfmx00y7ug17" path="res://scenes/health_bar.tscn" id="2_inu4o"]
@@ -17,6 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://ctmroxc2ej8mt" path="res://assets/sprites/OtherPersos/Crabby/08-Hit/Hit 02.png" id="15_utxep"]
 [ext_resource type="Texture2D" uid="uid://dufa0t6blrp2d" path="res://assets/sprites/OtherPersos/Crabby/08-Hit/Hit 03.png" id="16_txibs"]
 [ext_resource type="Texture2D" uid="uid://b3tkm0ede1s4o" path="res://assets/sprites/OtherPersos/Crabby/08-Hit/Hit 04.png" id="17_uab22"]
+[ext_resource type="Texture2D" uid="uid://bvx7ym5ciivgu" path="res://assets/sprites/OtherPersos/Crabby/07-Attack/Attack 01.png" id="18_yqm5v"]
+[ext_resource type="Texture2D" uid="uid://tc3wptn2eyoa" path="res://assets/sprites/OtherPersos/Crabby/07-Attack/Attack 02.png" id="19_u6a6f"]
+[ext_resource type="Texture2D" uid="uid://ckyp3bq1x6rf0" path="res://assets/sprites/OtherPersos/Crabby/07-Attack/Attack 03.png" id="20_v53ug"]
+[ext_resource type="Texture2D" uid="uid://b42qfr801xpob" path="res://assets/sprites/OtherPersos/Crabby/07-Attack/Attack 04.png" id="21_5chwx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inu4o"]
 size = Vector2(51, 32)
@@ -69,6 +73,22 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_yqm5v"]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.166667, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("14_cpy8o"), ExtResource("15_utxep"), ExtResource("16_txibs"), ExtResource("17_uab22")]
+}
+
 [sub_resource type="Animation" id="Animation_7gb7k"]
 resource_name = "run"
 length = 0.5
@@ -86,9 +106,9 @@ tracks/0/keys = {
 "values": [ExtResource("7_el8m5"), ExtResource("8_cpy8o"), ExtResource("9_utxep"), ExtResource("10_txibs"), ExtResource("11_uab22"), ExtResource("12_yqm5v")]
 }
 
-[sub_resource type="Animation" id="Animation_yqm5v"]
-resource_name = "hit"
-length = 0.3
+[sub_resource type="Animation" id="Animation_b6ym4"]
+resource_name = "attack"
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,19 +116,49 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.166667, 0.266667),
+"times": PackedFloat32Array(0.0333333, 0.166667, 0.3, 0.433333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("14_cpy8o"), ExtResource("15_utxep"), ExtResource("16_txibs"), ExtResource("17_uab22")]
+"values": [ExtResource("18_yqm5v"), ExtResource("19_u6a6f"), ExtResource("20_v53ug"), ExtResource("21_5chwx")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hit"
+}, {
+"args": [],
+"method": &"end_of_hit"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uy2x8"]
 _data = {
 &"RESET": SubResource("Animation_yq3jl"),
+&"attack": SubResource("Animation_b6ym4"),
 &"die": SubResource("Animation_uy2x8"),
 &"hit": SubResource("Animation_yqm5v"),
 &"run": SubResource("Animation_7gb7k")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02bho"]
+size = Vector2(27, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0d4m"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqm5v"]
+size = Vector2(30, 17.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6a6f"]
+size = Vector2(34, 16.5)
 
 [node name="Ennemi2" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
@@ -116,33 +166,79 @@ script = ExtResource("1_hokpg")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_inu4o")]
 offset_left = -12.0
-offset_top = -22.0
+offset_top = -47.0
 offset_right = -12.0
-offset_bottom = -22.0
+offset_bottom = -47.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -19)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_hokpg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.5, 3)
+position = Vector2(4, -16)
 shape = SubResource("RectangleShape2D_inu4o")
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(31, 20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(3.5, 2.73827)
+position = Vector2(-26, -35)
 scale = Vector2(0.992697, 0.834898)
 shape = SubResource("RectangleShape2D_hokpg")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-26, 0)
-target_position = Vector2(-11, 0)
+position = Vector2(-30, -15)
+target_position = Vector2(0, 54)
+collision_mask = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_uy2x8")
 }
 
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(-34, -14)
+shape = SubResource("RectangleShape2D_02bho")
+
+[node name="PlayerDetector2" type="Area2D" parent="."]
+position = Vector2(48, 6)
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector2"]
+position = Vector2(-5, -19)
+shape = SubResource("RectangleShape2D_r0d4m")
+
+[node name="AttackDetector" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector"]
+position = Vector2(-32, -12.625)
+shape = SubResource("RectangleShape2D_yqm5v")
+debug_color = Color(0.946754, 0.210036, 0.256555, 0.42)
+
+[node name="AttackDetector2" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector2"]
+position = Vector2(39, -12.75)
+shape = SubResource("RectangleShape2D_u6a6f")
+debug_color = Color(0.974987, 0.133713, 0.216811, 0.42)
+
+[node name="WallRayCast" type="RayCast2D" parent="."]
+position = Vector2(0, -17)
+target_position = Vector2(-33, 0)
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_entered" from="PlayerDetector2" to="." method="_on_player_detector_2_body_entered"]
+[connection signal="body_entered" from="AttackDetector" to="." method="_on_attack_detector_body_entered"]
+[connection signal="body_entered" from="AttackDetector2" to="." method="_on_attack_detector_2_body_entered"]

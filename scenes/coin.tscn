@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdwkhl8bgv77b"]
+[gd_scene load_steps=11 format=3 uid="uid://bdwkhl8bgv77b"]
 
 [ext_resource type="Script" uid="uid://clt5oe34f0lfd" path="res://scripts/coin.gd" id="1_1ikuy"]
 [ext_resource type="Texture2D" uid="uid://dobrnu646puq5" path="res://assets/sprites/Gold Coin/01.png" id="2_wnlwo"]
 [ext_resource type="Texture2D" uid="uid://1jf2hm0nxqdy" path="res://assets/sprites/Gold Coin/02.png" id="3_jig8b"]
 [ext_resource type="Texture2D" uid="uid://3slrt6q1350o" path="res://assets/sprites/Gold Coin/03.png" id="4_xmuha"]
 [ext_resource type="Texture2D" uid="uid://brxbei2jq35it" path="res://assets/sprites/Gold Coin/04.png" id="5_kfxoj"]
+[ext_resource type="AudioStream" uid="uid://2tbd8fsf0dwi" path="res://assets/sounds/coin.wav" id="6_wnlwo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jsmju"]
 radius = 6.0
@@ -63,5 +64,9 @@ shape = SubResource("CircleShape2D_jsmju")
 libraries = {
 &"": SubResource("AnimationLibrary_rojmm")
 }
+
+[node name="PickUpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_wnlwo")
+bus = &"SoundEffects"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,93 @@
+[gd_scene load_steps=18 format=3 uid="uid://dpveyfd3vwqqw"]
+
+[ext_resource type="Script" uid="uid://bk70vkuuvrba6" path="res://scripts/door.gd" id="1_ey00f"]
+[ext_resource type="Texture2D" uid="uid://ccyi2qa5ood8e" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Door/Opening/01.png" id="1_pg2b6"]
+[ext_resource type="PackedScene" uid="uid://bmvcn2yxkpalx" path="res://scenes/level_one.tscn" id="2_4ayau"]
+[ext_resource type="Texture2D" uid="uid://ceretgx16yc2l" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Door/Opening/02.png" id="2_ey00f"]
+[ext_resource type="Texture2D" uid="uid://dst50uwbfy0aj" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Door/Opening/03.png" id="3_4ayau"]
+[ext_resource type="Texture2D" uid="uid://p6lgec15vbp2" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Door/Opening/04.png" id="4_41c0y"]
+[ext_resource type="Texture2D" uid="uid://c167eloyq7eig" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Door/Opening/05.png" id="5_j2w5t"]
+[ext_resource type="Texture2D" uid="uid://xljikyh8xvuh" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Door/Closing/01.png" id="6_ykb3b"]
+[ext_resource type="Texture2D" uid="uid://bcvc3ektco2k3" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Door/Closing/02.png" id="7_ali40"]
+[ext_resource type="Texture2D" uid="uid://cpujlhce5q0lq" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Door/Closing/03.png" id="8_dmmdo"]
+[ext_resource type="Texture2D" uid="uid://bgwgulqrmp6th" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Door/Closing/04.png" id="9_8m42n"]
+[ext_resource type="Texture2D" uid="uid://c40apuajno5ln" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Door/Closing/05.png" id="10_8x4x6"]
+
+[sub_resource type="Animation" id="Animation_v3jke"]
+resource_name = "opening"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_pg2b6"), ExtResource("2_ey00f"), ExtResource("3_4ayau"), ExtResource("4_41c0y"), ExtResource("5_j2w5t")]
+}
+
+[sub_resource type="Animation" id="Animation_bkhgf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_pg2b6")]
+}
+
+[sub_resource type="Animation" id="Animation_2wcyy"]
+resource_name = "closing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_ykb3b"), ExtResource("7_ali40"), ExtResource("8_dmmdo"), ExtResource("9_8m42n"), ExtResource("10_8x4x6")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_37egd"]
+_data = {
+&"RESET": SubResource("Animation_bkhgf"),
+&"closing": SubResource("Animation_2wcyy"),
+&"opening": SubResource("Animation_v3jke")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg2b6"]
+size = Vector2(35, 45)
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_ey00f")
+next_scene = ExtResource("2_4ayau")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pg2b6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_37egd")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 8.5)
+shape = SubResource("RectangleShape2D_pg2b6")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

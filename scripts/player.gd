@@ -4,10 +4,10 @@ class_name Player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+@onready var run_sound: AudioStreamPlayer2D = $RunningSound
 
 @export var SPEED: float = 200.0
 @export var JUMP_VELOCITY: float = -400.0
-
 
 @export var attacking = false
 @export var hit = false
@@ -40,8 +40,6 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_pressed("right"):
 		sprite_2d.scale.x = abs(sprite_2d.scale.x)
 		$Area2D.scale.x = abs($Area2D.scale.x)
-
-
 	# Saut
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -55,12 +53,22 @@ func _physics_process(delta: float) -> void:
 
 	# Applique le mouvement + collisions
 	move_and_slide()
+	
+	# Détection des collisions pour pousser la box
+	#for i in get_slide_collision_count():
+		#var collision = get_slide_collision(i)
+		#var collider = collision.get_collider()
+		#if collider is CharacterBody2D and collider.is_in_group("pushabele"):
+			## pousser la boîte
+			#collider.velocity.x = velocity.x * 0.8
 
 	# Update animation
 	update_animation()
 	
-	if position.y >= 1000:
-		die()
+	
+	
+	#if position.y >= 1000:
+	#	die()
 
 func attack():
 	
@@ -85,13 +93,18 @@ func update_animation() -> void:
 		if not is_on_floor():  # perso en l'air
 			if velocity.y < 0:
 				animation_player.play("jump")
+				run_sound.stop()
 			else:
 				animation_player.play("fall")
+				run_sound.stop()
 		else:  # perso au sol
 			if velocity.x != 0:
 				animation_player.play("run")
+				if !run_sound.playing:
+					run_sound.play()
 			else:
 				animation_player.play("idle")
+				run_sound.stop()
 	   
 			
 func take_damage(damage_amount : int):
@@ -101,10 +114,11 @@ func take_damage(damage_amount : int):
 		hit = true
 		attacking = false
 		animation_player.play("hit")
+		run_sound.stop()
 		
 		health -= damage_amount
-		var ui_manager = get_node("/root/Level1/UIManager")
-		ui_manager.update_health_display(health, max_health)
+		#var ui_manager = get_node("/root/Level1/UIManager")
+		#ui_manager.update_health_display(health, max_health)
 		
 		if health <= 0:
 			die()

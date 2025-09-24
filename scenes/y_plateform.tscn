@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://cucqhax350vmx"]
+
+[ext_resource type="Texture2D" uid="uid://285pngbbqnpt" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="1_ckefe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5ov7"]
+size = Vector2(96, 5.75)
+
+[sub_resource type="Animation" id="Animation_ckefe"]
+resource_name = "down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.466667, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [130.0, 145.0, 170.0, 192.0]
+}
+
+[sub_resource type="Animation" id="Animation_b5ov7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b5ov7"]
+_data = {
+&"RESET": SubResource("Animation_b5ov7"),
+&"down": SubResource("Animation_ckefe")
+}
+
+[node name="yPlateform" type="StaticBody2D"]
+position = Vector2(195, 192)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ckefe")
+region_enabled = true
+region_rect = Rect2(32.297, 33.3334, 96, 7.27493)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b5ov7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_b5ov7")
+}

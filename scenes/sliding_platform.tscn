@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://dv60aaovjo2yg"]
+
+[ext_resource type="Texture2D" uid="uid://285pngbbqnpt" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="1_m6l7m"]
+
+[sub_resource type="Animation" id="Animation_m6l7m"]
+resource_name = "slidingRight"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.533333, 0.833333, 1.16667, 1.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [327.0, 344.0, 363.0, 382.0, 404.0, 415.0]
+}
+
+[sub_resource type="Animation" id="Animation_4krug"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_m2uas"]
+resource_name = "slidindLeft"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.3, 0.466667, 0.666667, 0.866667, 1.06667, 1.26667, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [424.0, 413.0, 404.0, 394.0, 381.0, 367.0, 357.0, 341.0, 333.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m2uas"]
+_data = {
+&"RESET": SubResource("Animation_4krug"),
+&"slidindLeft": SubResource("Animation_m2uas"),
+&"slidingRight": SubResource("Animation_m6l7m")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4krug"]
+size = Vector2(93, 9)
+
+[node name="SlidingPlatform" type="StaticBody2D"]
+position = Vector2(0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m6l7m")
+region_enabled = true
+region_rect = Rect2(34, 65.5, 92.6667, 10.4259)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_m2uas")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4krug")

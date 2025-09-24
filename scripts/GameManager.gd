@@ -13,8 +13,8 @@ func respawn_player():
 	if current_checkpoint != null:
 		player.position = current_checkpoint.global_position
 	
-	var ui_manager = get_node("/root/Level1/UIManager")
-	ui_manager.update_health_display(player.health, player.max_health)
+	#var ui_manager = get_node("/root/Level1/UIManager")
+	#ui_manager.update_health_display(player.health, player.max_health)
 
 func gain_coins(coins_gained: int):
 	coins += coins_gained

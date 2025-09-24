@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvutcvnh1xgrp"
+path="res://.godot/imported/Run on wood - Sound Effect for editing.wav-eddb771014dd9bf888f46001d7dd27ad.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Run on wood - Sound Effect for editing.wav"
+dest_files=["res://.godot/imported/Run on wood - Sound Effect for editing.wav-eddb771014dd9bf888f46001d7dd27ad.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

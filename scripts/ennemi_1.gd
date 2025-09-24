@@ -21,6 +21,9 @@ func _physics_process(delta: float) -> void:
 	if !$RayCast2D.is_colliding() && is_on_floor():
 		flip()
 	
+	if $WallRayCast.is_colliding():
+			flip()
+	
 	velocity.x=SPEED
 	move_and_slide()
 
@@ -32,7 +35,8 @@ func flip():
 		SPEED= abs(SPEED)
 	else:
 		SPEED = abs(SPEED) * -1
-
+	
+	
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent() is Player && !dead:

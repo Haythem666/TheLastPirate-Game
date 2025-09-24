@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bs7ep35bqyd5r" path="res://assets/sprites/TheWorld/BackGround/Background/BG Image.png" id="1_843q2"]
 [ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="1_cd1xg"]
-[ext_resource type="PackedScene" uid="uid://ctfwc2dal3vl3" path="res://scenes/player.tscn" id="2_t18mc"]
 [ext_resource type="PackedScene" uid="uid://bcy6m5lwm2rg1" path="res://scenes/checkpoint.tscn" id="4_5rfim"]
 [ext_resource type="Texture2D" uid="uid://bd1bwngtxahg2" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="4_astit"]
 [ext_resource type="PackedScene" uid="uid://bi2jv8sr88bec" path="res://scenes/spikes.tscn" id="5_r4wdr"]
@@ -15,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://co3rxx2gdytyh" path="res://scenes/jumpad.tscn" id="12_036lt"]
 [ext_resource type="PackedScene" uid="uid://dw4w6gr1jbc3g" path="res://scenes/health_up.tscn" id="13_nlxio"]
 [ext_resource type="PackedScene" uid="uid://c8ef23vqvrqol" path="res://scenes/canon.tscn" id="14_xrbqg"]
+[ext_resource type="PackedScene" uid="uid://ctfwc2dal3vl3" path="res://scenes/player.tscn" id="15_dv7nr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nlxio"]
 texture = ExtResource("1_cd1xg")
@@ -789,9 +789,6 @@ offset_right = 1190.0
 offset_bottom = 603.0
 texture = ExtResource("1_843q2")
 
-[node name="Player" parent="." instance=ExtResource("2_t18mc")]
-position = Vector2(251, 276)
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_843q2")
 format = 2
@@ -889,3 +886,7 @@ position = Vector2(95, 279)
 
 [node name="canon" parent="." instance=ExtResource("14_xrbqg")]
 position = Vector2(956, 308)
+
+[node name="PlayerTest2" parent="." instance=ExtResource("15_dv7nr")]
+position = Vector2(258, 274)
+script = null

@@ -71,6 +71,22 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_iwov4"]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("14_uy2x8"), ExtResource("15_1mro3"), ExtResource("16_lw6c3"), ExtResource("17_wi45f")]
+}
+
 [sub_resource type="Animation" id="Animation_7gb7k"]
 resource_name = "run"
 length = 0.5
@@ -86,22 +102,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("8_uy2x8"), ExtResource("9_1mro3"), ExtResource("10_lw6c3"), ExtResource("11_wi45f"), ExtResource("12_iwov4"), ExtResource("13_73in8")]
-}
-
-[sub_resource type="Animation" id="Animation_iwov4"]
-resource_name = "hit"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("14_uy2x8"), ExtResource("15_1mro3"), ExtResource("16_lw6c3"), ExtResource("17_wi45f")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uy2x8"]
@@ -144,5 +144,8 @@ target_position = Vector2(0, 15)
 libraries = {
 &"": SubResource("AnimationLibrary_uy2x8")
 }
+
+[node name="WallRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(-33, 0)
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
