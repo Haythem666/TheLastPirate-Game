@@ -13,22 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bgwgulqrmp6th" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Door/Closing/04.png" id="9_8m42n"]
 [ext_resource type="Texture2D" uid="uid://c40apuajno5ln" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Door/Closing/05.png" id="10_8x4x6"]
 
-[sub_resource type="Animation" id="Animation_v3jke"]
-resource_name = "opening"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("1_pg2b6"), ExtResource("2_ey00f"), ExtResource("3_4ayau"), ExtResource("4_41c0y"), ExtResource("5_j2w5t")]
-}
-
 [sub_resource type="Animation" id="Animation_bkhgf"]
 length = 0.001
 tracks/0/type = "value"
@@ -58,6 +42,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("6_ykb3b"), ExtResource("7_ali40"), ExtResource("8_dmmdo"), ExtResource("9_8m42n"), ExtResource("10_8x4x6")]
+}
+
+[sub_resource type="Animation" id="Animation_v3jke"]
+resource_name = "opening"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_pg2b6"), ExtResource("2_ey00f"), ExtResource("3_4ayau"), ExtResource("4_41c0y"), ExtResource("5_j2w5t")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37egd"]

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var hit_sound: AudioStreamPlayer2D = $HitSound
 
 var SPEED = -60.0
 
@@ -46,6 +47,7 @@ func take_damage(damage_amount):
 	health -= damage_amount
 	
 	$AnimationPlayer.play("hit")
+	$HitSound.play()
 	$HealthBar.update_healthbar(health,max_health)
 
 	if health <= 0 :
@@ -59,4 +61,5 @@ func take_damage(damage_amount):
 func die():
 	dead = true
 	SPEED = 0
+	$HitSound.play()
 	$AnimationPlayer.play("die")

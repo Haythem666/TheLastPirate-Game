@@ -1,0 +1,61 @@
+[gd_scene load_steps=14 format=3 uid="uid://bh8hix0jb6x14"]
+
+[ext_resource type="Texture2D" uid="uid://kjf2mch3b3ra" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/10-Big Chain/1.png" id="1_2blc0"]
+[ext_resource type="Texture2D" uid="uid://1vyloimkv4mq" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/10-Big Chain/2.png" id="2_s3wmu"]
+[ext_resource type="Texture2D" uid="uid://bnes6mye5jvkl" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/10-Big Chain/3.png" id="3_1qe3i"]
+[ext_resource type="Texture2D" uid="uid://bbjmwx3vgsmed" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/10-Big Chain/4.png" id="4_7kwvx"]
+[ext_resource type="Texture2D" uid="uid://c4k1g65qordr1" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/10-Big Chain/5.png" id="5_u0edk"]
+[ext_resource type="Texture2D" uid="uid://bhq8tywpd2rto" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/10-Big Chain/6.png" id="6_i1dpy"]
+[ext_resource type="Texture2D" uid="uid://ce13ak8uey8p7" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/10-Big Chain/7.png" id="7_6erlg"]
+[ext_resource type="Texture2D" uid="uid://bsentt22sculy" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/10-Big Chain/8.png" id="8_2yg8v"]
+[ext_resource type="Texture2D" uid="uid://p0gxfe6tcijd" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/10-Big Chain/9.png" id="9_pxp1v"]
+[ext_resource type="Texture2D" uid="uid://bdbgeyp1hjvlo" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/10.png" id="10_thmjc"]
+
+[sub_resource type="Animation" id="Animation_lcu4o"]
+resource_name = "moveChain"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.466667, 0.6, 0.766667, 0.9, 1.03333, 1.2, 1.36667, 1.53333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_2blc0"), ExtResource("2_s3wmu"), ExtResource("3_1qe3i"), ExtResource("4_7kwvx"), ExtResource("5_u0edk"), ExtResource("6_i1dpy"), ExtResource("7_6erlg"), ExtResource("8_2yg8v"), ExtResource("9_pxp1v"), ExtResource("10_thmjc"), ExtResource("1_2blc0")]
+}
+
+[sub_resource type="Animation" id="Animation_oufye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_2blc0")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2vypk"]
+_data = {
+&"RESET": SubResource("Animation_oufye"),
+&"moveChain": SubResource("Animation_lcu4o")
+}
+
+[node name="BigChain" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2blc0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2vypk")
+}
+autoplay = "moveChain"

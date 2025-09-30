@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://lfs5usr0trqj"]
+[gd_scene load_steps=32 format=3 uid="uid://lfs5usr0trqj"]
 
 [ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="1_wnj8f"]
 [ext_resource type="Texture2D" uid="uid://bd1bwngtxahg2" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="2_wlnd0"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bcvxiwfvskuk8" path="res://scenes/chain.tscn" id="13_xp3sx"]
 [ext_resource type="PackedScene" uid="uid://cnlu2tu2dhmcs" path="res://scenes/candle.tscn" id="14_6bp72"]
 [ext_resource type="PackedScene" uid="uid://dpveyfd3vwqqw" path="res://scenes/door.tscn" id="15_ajxp5"]
+[ext_resource type="PackedScene" uid="uid://jwaimlure4o5" path="res://scenes/level_two.tscn" id="16_7oit5"]
 [ext_resource type="PackedScene" uid="uid://chq0xt4vec2rl" path="res://scenes/plateform_1.tscn" id="16_le4rw"]
 [ext_resource type="Texture2D" uid="uid://b2chepjqok4yi" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Barrels and Bottles/04.png" id="17_7oit5"]
 [ext_resource type="Texture2D" uid="uid://b7heklcoly3rs" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Barrels and Bottles/05.png" id="18_s0afu"]
@@ -2336,12 +2337,13 @@ position = Vector2(438, 226)
 
 [node name="Door" parent="." instance=ExtResource("15_ajxp5")]
 position = Vector2(587, 202)
+next_scene = ExtResource("16_7oit5")
 
 [node name="Plateform1" parent="." instance=ExtResource("16_le4rw")]
 position = Vector2(520, 158)
 
 [node name="Box" parent="." instance=ExtResource("20_le4rw")]
-position = Vector2(525, 226)
+position = Vector2(468, 225)
 
 [node name="Bottles" type="Node" parent="."]
 

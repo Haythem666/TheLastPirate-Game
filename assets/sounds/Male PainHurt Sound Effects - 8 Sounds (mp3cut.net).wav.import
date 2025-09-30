@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ccpardvv34kis"
+path="res://.godot/imported/Male PainHurt Sound Effects - 8 Sounds (mp3cut.net).wav-fc22250812d4ba6f374033da1111047a.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Male PainHurt Sound Effects - 8 Sounds (mp3cut.net).wav"
+dest_files=["res://.godot/imported/Male PainHurt Sound Effects - 8 Sounds (mp3cut.net).wav-fc22250812d4ba6f374033da1111047a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

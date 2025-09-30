@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://jwaimlure4o5"]
+[gd_scene load_steps=42 format=3 uid="uid://jwaimlure4o5"]
 
 [ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="1_8lyp7"]
 [ext_resource type="Texture2D" uid="uid://bd1bwngtxahg2" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="2_kkfyh"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dpveyfd3vwqqw" path="res://scenes/door.tscn" id="13_05hhi"]
 [ext_resource type="PackedScene" uid="uid://dv60aaovjo2yg" path="res://scenes/sliding_platform.tscn" id="15_c43tx"]
 [ext_resource type="PackedScene" uid="uid://bi2jv8sr88bec" path="res://scenes/spikes.tscn" id="16_ibewu"]
+[ext_resource type="PackedScene" uid="uid://dg7i50uff8enl" path="res://scenes/start_level.tscn" id="17_7cb3a"]
 [ext_resource type="PackedScene" uid="uid://drvjc7n7lk0me" path="res://scenes/ennemi_1.tscn" id="17_8imr8"]
 [ext_resource type="PackedScene" uid="uid://chq0xt4vec2rl" path="res://scenes/plateform_1.tscn" id="18_3d04n"]
 [ext_resource type="PackedScene" uid="uid://dsjost7onpiyt" path="res://scenes/ship_helm.tscn" id="19_hijyc"]
@@ -27,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://gw34uw0l36im" path="res://scenes/falling_spikes.tscn" id="25_24f5u"]
 [ext_resource type="PackedScene" uid="uid://l5sx5yxmuqbn" path="res://scenes/fire.tscn" id="26_gjcq8"]
 [ext_resource type="PackedScene" uid="uid://bu7db3lqe0jth" path="res://scenes/suspended_plateform.tscn" id="27_clej2"]
-[ext_resource type="Texture2D" uid="uid://kjf2mch3b3ra" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/10-Big Chain/1.png" id="28_racqp"]
+[ext_resource type="PackedScene" uid="uid://bh8hix0jb6x14" path="res://scenes/big_chain.tscn" id="28_racqp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4br1q"]
 texture = ExtResource("1_8lyp7")
@@ -1550,6 +1551,7 @@ position = Vector2(122, 111)
 
 [node name="Door" parent="." instance=ExtResource("13_05hhi")]
 position = Vector2(939, 348)
+next_scene = ExtResource("17_7cb3a")
 
 [node name="SlidingPlatform" parent="." instance=ExtResource("15_c43tx")]
 z_index = 1
@@ -1650,6 +1652,5 @@ position = Vector2(164, 363)
 [node name="SuspendedPlateform" parent="." instance=ExtResource("27_clej2")]
 position = Vector2(143, 250)
 
-[node name="1" type="Sprite2D" parent="."]
-position = Vector2(142, 204)
-texture = ExtResource("28_racqp")
+[node name="BigChain" parent="." instance=ExtResource("28_racqp")]
+position = Vector2(143, 205)

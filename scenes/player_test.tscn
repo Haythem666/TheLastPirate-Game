@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://vgnya3tw3exm"]
+[gd_scene load_steps=38 format=3 uid="uid://vgnya3tw3exm"]
 
 [ext_resource type="Script" uid="uid://b6qgexc2515of" path="res://scripts/player.gd" id="1_lulpo"]
 [ext_resource type="Texture2D" uid="uid://4wq12uhwfuak" path="res://assets/sprites/MainPerso/09-Idle Sword/Idle Sword 01.png" id="2_tt825"]
@@ -22,7 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://dklmrdrm2nms1" path="res://assets/sprites/MainPerso/10-Run Sword/Run Sword 04.png" id="20_vbqnt"]
 [ext_resource type="Texture2D" uid="uid://kb21keaow2oe" path="res://assets/sprites/MainPerso/10-Run Sword/Run Sword 05.png" id="21_mv7cm"]
 [ext_resource type="Texture2D" uid="uid://bydnlx8xkrqiu" path="res://assets/sprites/MainPerso/10-Run Sword/Run Sword 06.png" id="22_r3fff"]
-[ext_resource type="AudioStream" uid="uid://bvutcvnh1xgrp" path="res://assets/sounds/Run on wood - Sound Effect for editing.wav" id="23_tt825"]
+[ext_resource type="AudioStream" uid="uid://cfohnreq5m0gx" path="res://assets/sounds/running-on-concrete-268478.mp3" id="23_1tq33"]
+[ext_resource type="AudioStream" uid="uid://c740n0mjk2lc7" path="res://assets/sounds/sword-swing-sfx-407574.mp3" id="24_1tq33"]
+[ext_resource type="AudioStream" uid="uid://bdm3vxtjlw1oj" path="res://assets/sounds/Guy Jumping No Copyright HD Sound Effects 2023 Sound Hub (mp3cut.net).wav" id="25_tbr7s"]
+[ext_resource type="AudioStream" uid="uid://ccpardvv34kis" path="res://assets/sounds/Male PainHurt Sound Effects - 8 Sounds (mp3cut.net).wav" id="26_00trn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oprun"]
 radius = 8.0
@@ -240,7 +243,18 @@ libraries = {
 autoplay = "attack"
 
 [node name="RunningSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("23_tt825")
+stream = ExtResource("23_1tq33")
 bus = &"SoundEffects"
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_1tq33")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_tbr7s")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_00trn")
+
+[node name="DrownSound" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

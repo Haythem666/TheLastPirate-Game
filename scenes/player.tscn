@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ctfwc2dal3vl3"]
+[gd_scene load_steps=37 format=3 uid="uid://ctfwc2dal3vl3"]
 
 [ext_resource type="Script" uid="uid://b6qgexc2515of" path="res://scripts/player.gd" id="1_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://4wq12uhwfuak" path="res://assets/sprites/MainPerso/09-Idle Sword/Idle Sword 01.png" id="2_fjrip"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://cda7ynqtnbueb" path="res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 03.png" id="21_l71n6"]
 [ext_resource type="Texture2D" uid="uid://cpmde3hc667uy" path="res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 04.png" id="22_ke2ow"]
 [ext_resource type="AudioStream" uid="uid://bvutcvnh1xgrp" path="res://assets/sounds/Run on wood - Sound Effect for editing.wav" id="23_4ni07"]
+[ext_resource type="AudioStream" uid="uid://c740n0mjk2lc7" path="res://assets/sounds/sword-swing-sfx-407574.mp3" id="24_l71n6"]
+[ext_resource type="AudioStream" uid="uid://bdm3vxtjlw1oj" path="res://assets/sounds/Guy Jumping No Copyright HD Sound Effects 2023 Sound Hub (mp3cut.net).wav" id="25_ke2ow"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oprun"]
 radius = 8.0
@@ -246,3 +248,9 @@ position_smoothing_enabled = true
 [node name="RunningSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_4ni07")
 bus = &"SoundEffects"
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_l71n6")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_ke2ow")

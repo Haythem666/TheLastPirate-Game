@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bdm3vxtjlw1oj"
+path="res://.godot/imported/Guy Jumping No Copyright HD Sound Effects 2023 Sound Hub (mp3cut.net).wav-3d86c49cf0041f7d264e8aef6f8ad7cb.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Guy Jumping No Copyright HD Sound Effects 2023 Sound Hub (mp3cut.net).wav"
+dest_files=["res://.godot/imported/Guy Jumping No Copyright HD Sound Effects 2023 Sound Hub (mp3cut.net).wav-3d86c49cf0041f7d264e8aef6f8ad7cb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

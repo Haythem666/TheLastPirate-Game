@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://deylvy8bsyu1"]
+[gd_scene load_steps=30 format=3 uid="uid://deylvy8bsyu1"]
 
 [ext_resource type="Texture2D" uid="uid://bs7ep35bqyd5r" path="res://assets/sprites/TheWorld/BackGround/Background/BG Image.png" id="1_rus8k"]
 [ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="2_5xbjy"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://co3rxx2gdytyh" path="res://scenes/jumpad.tscn" id="7_e3sih"]
 [ext_resource type="PackedScene" uid="uid://bcy6m5lwm2rg1" path="res://scenes/checkpoint.tscn" id="8_2y5yt"]
 [ext_resource type="PackedScene" uid="uid://bdwkhl8bgv77b" path="res://scenes/coin.tscn" id="10_2y5yt"]
-[ext_resource type="PackedScene" uid="uid://ddu7a2acgyeo3" path="res://scenes/pause_menu.tscn" id="10_tr1x6"]
 [ext_resource type="PackedScene" uid="uid://chq0xt4vec2rl" path="res://scenes/plateform_1.tscn" id="12_7gny6"]
 [ext_resource type="PackedScene" uid="uid://gw34uw0l36im" path="res://scenes/falling_spikes.tscn" id="13_7gny6"]
 [ext_resource type="Script" uid="uid://cbqs1x15xwyco" path="res://scripts/ui_manager.gd" id="14_7nomh"]
@@ -903,8 +902,6 @@ position = Vector2(84, 392)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("8_2y5yt")]
 position = Vector2(913, 120)
-
-[node name="PauseMenu" parent="." instance=ExtResource("10_tr1x6")]
 
 [node name="Coins" type="Node" parent="."]
 

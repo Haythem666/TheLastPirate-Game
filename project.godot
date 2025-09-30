@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TheLastPirate"
-run/main_scene="uid://bmvcn2yxkpalx"
+run/main_scene="uid://be20hcug7ebwt"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

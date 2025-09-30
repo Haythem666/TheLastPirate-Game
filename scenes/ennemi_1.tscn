@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://drvjc7n7lk0me"]
+[gd_scene load_steps=26 format=3 uid="uid://drvjc7n7lk0me"]
 
 [ext_resource type="Texture2D" uid="uid://dv73mqm2mo6ha" path="res://assets/sprites/OtherPersos/Fierce Tooth/01-Idle/Idle 01.png" id="1_au2n8"]
 [ext_resource type="Script" uid="uid://bks3hj4d05osg" path="res://scripts/ennemi_1.gd" id="1_mgia5"]
@@ -17,14 +17,14 @@
 [ext_resource type="Texture2D" uid="uid://5dmqn3ifkurw" path="res://assets/sprites/OtherPersos/Fierce Tooth/08-Hit/Hit 02.png" id="15_1mro3"]
 [ext_resource type="Texture2D" uid="uid://8nm2j5fpahde" path="res://assets/sprites/OtherPersos/Fierce Tooth/08-Hit/Hit 03.png" id="16_lw6c3"]
 [ext_resource type="Texture2D" uid="uid://bq6l0yfxfxrqk" path="res://assets/sprites/OtherPersos/Fierce Tooth/08-Hit/Hit 04.png" id="17_wi45f"]
+[ext_resource type="AudioStream" uid="uid://dcsukv6i4psr1" path="res://assets/sounds/Monster hit sound (Sound effect) (mp3cut.net).wav" id="18_1mro3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kpe6i"]
 radius = 8.0
 height = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mhmw1"]
-radius = 9.0
-height = 26.0
+radius = 14.0
 
 [sub_resource type="Animation" id="Animation_yq3jl"]
 length = 0.001
@@ -133,7 +133,7 @@ shape = SubResource("CapsuleShape2D_kpe6i")
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 2)
+position = Vector2(1, 2)
 shape = SubResource("CapsuleShape2D_mhmw1")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -147,5 +147,8 @@ libraries = {
 
 [node name="WallRayCast" type="RayCast2D" parent="."]
 target_position = Vector2(-33, 0)
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_1mro3")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

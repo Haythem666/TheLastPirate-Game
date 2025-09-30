@@ -5,6 +5,12 @@ class_name Player
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 @onready var run_sound: AudioStreamPlayer2D = $RunningSound
+@onready var attack_sound: AudioStreamPlayer = $AttackSound
+@onready var jump_sound: AudioStreamPlayer2D = $JumpSound
+@onready var hit_sound: AudioStreamPlayer2D = $HitSound
+@onready var drown_sound: AudioStreamPlayer2D = $DrownSound
+
+
 
 @export var SPEED: float = 200.0
 @export var JUMP_VELOCITY: float = -400.0
@@ -37,12 +43,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("left"):
 		sprite_2d.scale.x = -abs(sprite_2d.scale.x)
 		$Area2D.scale.x = abs($Area2D.scale.x)* -1
+		
 	elif Input.is_action_pressed("right"):
 		sprite_2d.scale.x = abs(sprite_2d.scale.x)
 		$Area2D.scale.x = abs($Area2D.scale.x)
+		
 	# Saut
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$JumpSound.play()
 
 	# Déplacement horizontal
 	var direction := Input.get_axis("left", "right")
@@ -54,21 +63,19 @@ func _physics_process(delta: float) -> void:
 	# Applique le mouvement + collisions
 	move_and_slide()
 	
-	# Détection des collisions pour pousser la box
-	#for i in get_slide_collision_count():
-		#var collision = get_slide_collision(i)
-		#var collider = collision.get_collider()
-		#if collider is CharacterBody2D and collider.is_in_group("pushabele"):
-			## pousser la boîte
-			#collider.velocity.x = velocity.x * 0.8
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider is RigidBody2D :
+			collider.linear_velocity.x = velocity.x * 1.5  # pousse la box
+
 
 	# Update animation
 	update_animation()
 	
-	
-	
-	#if position.y >= 1000:
-	#	die()
+	if position.y >= 1000:
+		$DrownSound.play()
+		die()
 
 func attack():
 	
@@ -86,6 +93,7 @@ func attack():
 			
 	attacking=true
 	animation_player.play("attack")
+	$AttackSound.play()
 	
 
 func update_animation() -> void:
@@ -115,6 +123,7 @@ func take_damage(damage_amount : int):
 		attacking = false
 		animation_player.play("hit")
 		run_sound.stop()
+		$HitSound.play()
 		
 		health -= damage_amount
 		#var ui_manager = get_node("/root/Level1/UIManager")
