@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://vgnya3tw3exm"]
+[gd_scene load_steps=50 format=3 uid="uid://vgnya3tw3exm"]
 
 [ext_resource type="Script" uid="uid://b6qgexc2515of" path="res://scripts/player.gd" id="1_lulpo"]
 [ext_resource type="Texture2D" uid="uid://4wq12uhwfuak" path="res://assets/sprites/MainPerso/09-Idle Sword/Idle Sword 01.png" id="2_tt825"]
@@ -6,9 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bqcuxifr3ikmh" path="res://assets/sprites/MainPerso/17-Attack 3/Attack 3 02.png" id="4_tbr7s"]
 [ext_resource type="Texture2D" uid="uid://emy2pew4ft6s" path="res://assets/sprites/MainPerso/17-Attack 3/Attack 3 03.png" id="5_lulpo"]
 [ext_resource type="Texture2D" uid="uid://djjk0hkintnyc" path="res://assets/sprites/MainPerso/09-Idle Sword/Idle Sword 03.png" id="6_gacn1"]
+[ext_resource type="Texture2D" uid="uid://8pgg7ckruttb" path="res://assets/sprites/MainPerso/Sword Effects/26-Attack 3/Attack 3 01.png" id="7_ar8b8"]
 [ext_resource type="Texture2D" uid="uid://n70pqr6c5abc" path="res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 01.png" id="7_pgy6t"]
 [ext_resource type="Texture2D" uid="uid://dpwee8ufdgkt5" path="res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 02.png" id="8_fhj3s"]
+[ext_resource type="Texture2D" uid="uid://cwviwt1804lfd" path="res://assets/sprites/MainPerso/Sword Effects/26-Attack 3/Attack 3 02.png" id="8_n18dy"]
 [ext_resource type="Texture2D" uid="uid://cda7ynqtnbueb" path="res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 03.png" id="9_7hyi2"]
+[ext_resource type="Texture2D" uid="uid://dk71xs1mgt02i" path="res://assets/sprites/MainPerso/Sword Effects/26-Attack 3/Attack 3 03.png" id="9_cn6kv"]
 [ext_resource type="Texture2D" uid="uid://cpmde3hc667uy" path="res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 04.png" id="10_lnxf3"]
 [ext_resource type="Texture2D" uid="uid://b52nnx5qqw1wi" path="res://assets/sprites/MainPerso/09-Idle Sword/Idle Sword 02.png" id="11_atem7"]
 [ext_resource type="Texture2D" uid="uid://dat2eox7c4vt0" path="res://assets/sprites/MainPerso/09-Idle Sword/Idle Sword 04.png" id="12_3kq3a"]
@@ -23,9 +26,16 @@
 [ext_resource type="Texture2D" uid="uid://kb21keaow2oe" path="res://assets/sprites/MainPerso/10-Run Sword/Run Sword 05.png" id="21_mv7cm"]
 [ext_resource type="Texture2D" uid="uid://bydnlx8xkrqiu" path="res://assets/sprites/MainPerso/10-Run Sword/Run Sword 06.png" id="22_r3fff"]
 [ext_resource type="AudioStream" uid="uid://cfohnreq5m0gx" path="res://assets/sounds/running-on-concrete-268478.mp3" id="23_1tq33"]
+[ext_resource type="Texture2D" uid="uid://km1jj3u2q426" path="res://assets/sprites/MainPerso/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="23_pgy6t"]
 [ext_resource type="AudioStream" uid="uid://c740n0mjk2lc7" path="res://assets/sounds/sword-swing-sfx-407574.mp3" id="24_1tq33"]
+[ext_resource type="Texture2D" uid="uid://bn5a72g2877qj" path="res://assets/sprites/MainPerso/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 01.png" id="24_atem7"]
+[ext_resource type="Texture2D" uid="uid://bgey7cplys6qi" path="res://assets/sprites/MainPerso/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 02.png" id="25_3kq3a"]
 [ext_resource type="AudioStream" uid="uid://bdm3vxtjlw1oj" path="res://assets/sounds/Guy Jumping No Copyright HD Sound Effects 2023 Sound Hub (mp3cut.net).wav" id="25_tbr7s"]
 [ext_resource type="AudioStream" uid="uid://ccpardvv34kis" path="res://assets/sounds/Male PainHurt Sound Effects - 8 Sounds (mp3cut.net).wav" id="26_00trn"]
+[ext_resource type="Texture2D" uid="uid://c4oa46vmpf87l" path="res://assets/sprites/MainPerso/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 03.png" id="26_jieji"]
+[ext_resource type="Texture2D" uid="uid://bnb8yfntwphf4" path="res://assets/sprites/MainPerso/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 04.png" id="27_cfxfy"]
+[ext_resource type="AudioStream" uid="uid://b6okb3obarn4e" path="res://assets/sounds/Drowning - Sound Effect (mp3cut.net).wav" id="27_gacn1"]
+[ext_resource type="Texture2D" uid="uid://bcxljwjx64p0o" path="res://assets/sprites/MainPerso/Sword Effects/25-Attack 2/Attack 2 01.png" id="33_3kq3a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oprun"]
 radius = 8.0
@@ -76,6 +86,30 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SwordEffect:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("33_3kq3a")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SwordEffect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_i4ail"]
 resource_name = "attack"
@@ -100,6 +134,30 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.0333333, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SwordEffect:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_ar8b8"), ExtResource("8_n18dy"), ExtResource("9_cn6kv")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SwordEffect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -199,10 +257,44 @@ tracks/0/keys = {
 "values": [ExtResource("17_cn6kv"), ExtResource("18_bybkc"), ExtResource("19_jry7c"), ExtResource("20_vbqnt"), ExtResource("21_mv7cm"), ExtResource("22_r3fff")]
 }
 
+[sub_resource type="Animation" id="Animation_fhj3s"]
+resource_name = "drown"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("23_pgy6t")]
+}
+
+[sub_resource type="Animation" id="Animation_ar8b8"]
+resource_name = "dead"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("24_atem7"), ExtResource("25_3kq3a"), ExtResource("26_jieji"), ExtResource("27_cfxfy")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oprun"]
 _data = {
 &"RESET": SubResource("Animation_f1ej7"),
 &"attack": SubResource("Animation_i4ail"),
+&"dead": SubResource("Animation_ar8b8"),
+&"drown": SubResource("Animation_fhj3s"),
 &"fall": SubResource("Animation_ujl30"),
 &"hit": SubResource("Animation_31cv2"),
 &"idle": SubResource("Animation_jej6c"),
@@ -240,7 +332,6 @@ shape = SubResource("CircleShape2D_fulsm")
 libraries = {
 &"": SubResource("AnimationLibrary_oprun")
 }
-autoplay = "attack"
 
 [node name="RunningSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_1tq33")
@@ -256,5 +347,11 @@ stream = ExtResource("25_tbr7s")
 stream = ExtResource("26_00trn")
 
 [node name="DrownSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("27_gacn1")
+
+[node name="SwordEffect" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(31, 0)
+texture = ExtResource("33_3kq3a")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

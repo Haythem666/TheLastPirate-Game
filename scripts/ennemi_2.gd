@@ -84,10 +84,14 @@ func end_of_hit():
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	if not attacking and not dead:
+
 		attacking = true
 		$AnimationPlayer.play("attack")
+		
+		
 		$AttackDetector.monitoring = true
 		$AttackDetector2.monitoring = true
+		
 		# attendre fin animation
 		var attack_length = $AnimationPlayer.current_animation_length
 		await get_tree().create_timer(attack_length).timeout
@@ -96,8 +100,11 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 
 func _on_player_detector_2_body_entered(body: Node2D) -> void:
 	if not attacking and not dead:
+
 		attacking = true
 		$AnimationPlayer.play("attack")
+		
+		
 		$AttackDetector.monitoring = true
 		$AttackDetector2.monitoring = true
 		# attendre fin animation

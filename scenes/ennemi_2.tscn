@@ -43,6 +43,39 @@ tracks/0/keys = {
 "values": [ExtResource("3_hokpg")]
 }
 
+[sub_resource type="Animation" id="Animation_b6ym4"]
+resource_name = "attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.166667, 0.3, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_yqm5v"), ExtResource("19_u6a6f"), ExtResource("20_v53ug"), ExtResource("21_5chwx")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hit"
+}, {
+"args": [],
+"method": &"end_of_hit"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_uy2x8"]
 resource_name = "die"
 length = 0.3
@@ -104,39 +137,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("7_el8m5"), ExtResource("8_cpy8o"), ExtResource("9_utxep"), ExtResource("10_txibs"), ExtResource("11_uab22"), ExtResource("12_yqm5v")]
-}
-
-[sub_resource type="Animation" id="Animation_b6ym4"]
-resource_name = "attack"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.166667, 0.3, 0.433333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("18_yqm5v"), ExtResource("19_u6a6f"), ExtResource("20_v53ug"), ExtResource("21_5chwx")]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.166667, 0.466667),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"hit"
-}, {
-"args": [],
-"method": &"end_of_hit"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uy2x8"]

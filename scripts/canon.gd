@@ -39,7 +39,7 @@ func take_damage(damage_amount):
 
 func die():
 	var spawned_debris= debris.instantiate()
-	spawned_debris.global_position = position
+	spawned_debris.global_position = position + Vector2(0, 8)
 	spawned_debris.get_child(1).play("crumble")
 	##add to levelone spawned debris as a child 
 	get_tree().get_root().get_child(1).add_child(spawned_debris)

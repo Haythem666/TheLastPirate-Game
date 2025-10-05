@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6okb3obarn4e"
+path="res://.godot/imported/Drowning - Sound Effect (mp3cut.net).wav-8b185b9eb34ffbc513c424516a4d5398.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Drowning - Sound Effect (mp3cut.net).wav"
+dest_files=["res://.godot/imported/Drowning - Sound Effect (mp3cut.net).wav-8b185b9eb34ffbc513c424516a4d5398.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

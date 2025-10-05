@@ -11,6 +11,21 @@
 [ext_resource type="Texture2D" uid="uid://p0gxfe6tcijd" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/10-Big Chain/9.png" id="9_pxp1v"]
 [ext_resource type="Texture2D" uid="uid://bdbgeyp1hjvlo" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/10.png" id="10_thmjc"]
 
+[sub_resource type="Animation" id="Animation_oufye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_2blc0")]
+}
+
 [sub_resource type="Animation" id="Animation_lcu4o"]
 resource_name = "moveChain"
 length = 1.6
@@ -26,21 +41,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("1_2blc0"), ExtResource("2_s3wmu"), ExtResource("3_1qe3i"), ExtResource("4_7kwvx"), ExtResource("5_u0edk"), ExtResource("6_i1dpy"), ExtResource("7_6erlg"), ExtResource("8_2yg8v"), ExtResource("9_pxp1v"), ExtResource("10_thmjc"), ExtResource("1_2blc0")]
-}
-
-[sub_resource type="Animation" id="Animation_oufye"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_2blc0")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2vypk"]

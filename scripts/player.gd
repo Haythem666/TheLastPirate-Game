@@ -11,18 +11,19 @@ class_name Player
 @onready var drown_sound: AudioStreamPlayer2D = $DrownSound
 
 
+var normal_gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var drowning_gravity = 50  
 
 @export var SPEED: float = 200.0
 @export var JUMP_VELOCITY: float = -400.0
 
 @export var attacking = false
 @export var hit = false
+@export var drowning = false
 
 var max_health = 3
 var health = 0
 var can_take_damage = true
-
-
 
 
 func _ready() -> void:
@@ -35,23 +36,28 @@ func _process(delta: float) -> void:
 		attack()
 
 func _physics_process(delta: float) -> void:
-	
+	var gravity = drowning_gravity if drowning else normal_gravity
+	print("Drowning: ", drowning, " Gravity: ", gravity)
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity.y += gravity * delta
 		
 	# Flip du sprite selon la direction
 	if Input.is_action_pressed("left"):
 		sprite_2d.scale.x = -abs(sprite_2d.scale.x)
+		$SwordEffect.scale.x= -abs($SwordEffect.scale.x) 
+		$SwordEffect.position = Vector2(-30,0)
 		$Area2D.scale.x = abs($Area2D.scale.x)* -1
 		
 	elif Input.is_action_pressed("right"):
 		sprite_2d.scale.x = abs(sprite_2d.scale.x)
+		$SwordEffect.scale.x= abs($SwordEffect.scale.x)
+		$SwordEffect.position = Vector2(30,0)
 		$Area2D.scale.x = abs($Area2D.scale.x)
 		
 	# Saut
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		$JumpSound.play()
+		jump_sound.play()
 
 	# Déplacement horizontal
 	var direction := Input.get_axis("left", "right")
@@ -74,7 +80,6 @@ func _physics_process(delta: float) -> void:
 	update_animation()
 	
 	if position.y >= 1000:
-		$DrownSound.play()
 		die()
 
 func attack():
@@ -93,10 +98,21 @@ func attack():
 			
 	attacking=true
 	animation_player.play("attack")
-	$AttackSound.play()
+	attack_sound.play()
 	
+func start_drowning():
+	drowning = true
+	velocity.y *= 0.3
+	drown_sound.play()
+	animation_player.play("drown")  
+
+func stop_drowning():
+	drowning = false
 
 func update_animation() -> void:
+	if drowning:
+		return
+		
 	if !attacking && !hit:
 		if not is_on_floor():  # perso en l'air
 			if velocity.y < 0:
@@ -130,6 +146,8 @@ func take_damage(damage_amount : int):
 		#ui_manager.update_health_display(health, max_health)
 		
 		if health <= 0:
+			animation_player.play("dead")
+			await get_tree().create_timer(0.5).timeout
 			die()
 
 func iframes():
@@ -138,4 +156,9 @@ func iframes():
 	can_take_damage= true
 
 func die():
+	attacking = false
+	hit = false
+	drowning = false
+	velocity = Vector2.ZERO
+	health = max_health
 	GameManager.respawn_player()

@@ -51,6 +51,7 @@ func take_damage(damage_amount):
 	$HealthBar.update_healthbar(health,max_health)
 
 	if health <= 0 :
+		$HitSound.play()
 		die()
 	else:
 		# Revenir à run après 0.3 sec
@@ -61,5 +62,5 @@ func take_damage(damage_amount):
 func die():
 	dead = true
 	SPEED = 0
-	$HitSound.play()
 	$AnimationPlayer.play("die")
+	

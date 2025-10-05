@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://lfs5usr0trqj"]
+[gd_scene load_steps=31 format=3 uid="uid://lfs5usr0trqj"]
 
 [ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="1_wnj8f"]
 [ext_resource type="Texture2D" uid="uid://bd1bwngtxahg2" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="2_wlnd0"]
@@ -20,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://b2chepjqok4yi" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Barrels and Bottles/04.png" id="17_7oit5"]
 [ext_resource type="Texture2D" uid="uid://b7heklcoly3rs" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Barrels and Bottles/05.png" id="18_s0afu"]
 [ext_resource type="Texture2D" uid="uid://c4quyvsvhh2bk" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Barrels and Bottles/06.png" id="19_x5db4"]
-[ext_resource type="PackedScene" uid="uid://dligqp7h76lsg" path="res://scenes/box.tscn" id="20_le4rw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_le4rw"]
 texture = ExtResource("1_wnj8f")
@@ -2341,9 +2340,6 @@ next_scene = ExtResource("16_7oit5")
 
 [node name="Plateform1" parent="." instance=ExtResource("16_le4rw")]
 position = Vector2(520, 158)
-
-[node name="Box" parent="." instance=ExtResource("20_le4rw")]
-position = Vector2(468, 225)
 
 [node name="Bottles" type="Node" parent="."]
 

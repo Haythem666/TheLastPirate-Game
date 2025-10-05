@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://co3rxx2gdytyh"]
+[gd_scene load_steps=14 format=3 uid="uid://co3rxx2gdytyh"]
 
 [ext_resource type="Script" uid="uid://dpg0s2c0lyk7h" path="res://scripts/jumpad.gd" id="1_e5bxg"]
 [ext_resource type="Texture2D" uid="uid://dw7xleue1xce0" path="res://assets/sprites/newtransfer/Trampoline/Jump (28x28).png" id="2_e5bxg"]
+[ext_resource type="AudioStream" uid="uid://dim8ub06alt2u" path="res://assets/sounds/8-Bit Jump Sound Effect (Copyright Free) (mp3cut.net).wav" id="3_e1pdd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1pdd"]
 atlas = ExtResource("2_e5bxg")
@@ -83,5 +84,8 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, 8.75)
 shape = SubResource("RectangleShape2D_e1pdd")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_e1pdd")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://jwaimlure4o5"]
+[gd_scene load_steps=43 format=3 uid="uid://jwaimlure4o5"]
 
 [ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="1_8lyp7"]
 [ext_resource type="Texture2D" uid="uid://bd1bwngtxahg2" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="2_kkfyh"]
@@ -28,7 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://gw34uw0l36im" path="res://scenes/falling_spikes.tscn" id="25_24f5u"]
 [ext_resource type="PackedScene" uid="uid://l5sx5yxmuqbn" path="res://scenes/fire.tscn" id="26_gjcq8"]
 [ext_resource type="PackedScene" uid="uid://bu7db3lqe0jth" path="res://scenes/suspended_plateform.tscn" id="27_clej2"]
-[ext_resource type="PackedScene" uid="uid://bh8hix0jb6x14" path="res://scenes/big_chain.tscn" id="28_racqp"]
+[ext_resource type="PackedScene" uid="uid://bcy6m5lwm2rg1" path="res://scenes/checkpoint.tscn" id="30_lpab6"]
+[ext_resource type="PackedScene" uid="uid://bdwkhl8bgv77b" path="res://scenes/coin.tscn" id="31_n6uh5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4br1q"]
 texture = ExtResource("1_8lyp7")
@@ -1652,5 +1653,47 @@ position = Vector2(164, 363)
 [node name="SuspendedPlateform" parent="." instance=ExtResource("27_clej2")]
 position = Vector2(143, 250)
 
-[node name="BigChain" parent="." instance=ExtResource("28_racqp")]
-position = Vector2(143, 205)
+[node name="Checkpoint" parent="." instance=ExtResource("30_lpab6")]
+position = Vector2(67, 115)
+
+[node name="Coin2" parent="." instance=ExtResource("31_n6uh5")]
+position = Vector2(356, 63)
+
+[node name="Coin3" parent="." instance=ExtResource("31_n6uh5")]
+position = Vector2(333, 63)
+
+[node name="Coin7" parent="." instance=ExtResource("31_n6uh5")]
+position = Vector2(861, 114)
+
+[node name="Coin8" parent="." instance=ExtResource("31_n6uh5")]
+position = Vector2(880, 114)
+
+[node name="Coin9" parent="." instance=ExtResource("31_n6uh5")]
+position = Vector2(897, 114)
+
+[node name="Coin12" parent="." instance=ExtResource("31_n6uh5")]
+position = Vector2(81, 306)
+
+[node name="Coin13" parent="." instance=ExtResource("31_n6uh5")]
+position = Vector2(97, 306)
+
+[node name="Coin14" parent="." instance=ExtResource("31_n6uh5")]
+position = Vector2(313, 313)
+
+[node name="Coin15" parent="." instance=ExtResource("31_n6uh5")]
+position = Vector2(333, 313)
+
+[node name="Coin16" parent="." instance=ExtResource("31_n6uh5")]
+position = Vector2(352, 313)
+
+[node name="Coin17" parent="." instance=ExtResource("31_n6uh5")]
+position = Vector2(630, 317)
+
+[node name="Coin18" parent="." instance=ExtResource("31_n6uh5")]
+position = Vector2(652, 317)
+
+[node name="Coin19" parent="." instance=ExtResource("31_n6uh5")]
+position = Vector2(674, 317)
+
+[node name="Coin20" parent="." instance=ExtResource("31_n6uh5")]
+position = Vector2(694, 317)
