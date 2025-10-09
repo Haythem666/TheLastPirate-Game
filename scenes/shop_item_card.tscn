@@ -1,0 +1,164 @@
+[gd_scene load_steps=9 format=3 uid="uid://1bu4ctsyexv"]
+
+[ext_resource type="Texture2D" uid="uid://bdxixtur6a1a8" path="res://assets/sprites/MainPerso/15-Attack 1/Attack 1 02.png" id="2_ubso0"]
+[ext_resource type="Texture2D" uid="uid://dobrnu646puq5" path="res://assets/sprites/Gold Coin/01.png" id="3_pd6gq"]
+[ext_resource type="Script" uid="uid://d3uno8rkaw7iq" path="res://scripts/shop_item_card.gd" id="4_ubso0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8ol1"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.239216, 0.184314, 0.121569, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.831373, 0.647059, 0.454902, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0)
+shadow_size = 5
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8lsm"]
+bg_color = Color(0.4, 0.4, 0.4, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0rup"]
+bg_color = Color(0.239216, 0.615686, 0.239216, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxwhy"]
+bg_color = Color(0.113725, 0.364706, 0.113725, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytnp3"]
+bg_color = Color(0.176471, 0.490196, 0.176471, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 10.0
+expand_margin_top = 8.0
+expand_margin_right = 10.0
+expand_margin_bottom = 8.0
+
+[node name="ShopItemCard" type="Panel"]
+custom_minimum_size = Vector2(180, 240)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.0
+offset_top = -157.0
+offset_right = -122.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_t8ol1")
+script = ExtResource("4_ubso0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0.8)
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_ubso0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.894118, 0.756863, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "Quick Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.831373, 0.772549, 0.627451, 1)
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "Une attaque rapide qui inflige 1 dégât"
+fit_content = true
+scroll_active = false
+tab_size = 12
+
+[node name="PriceContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="CoinIcon" type="TextureRect" parent="VBoxContainer/PriceContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_pd6gq")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PriceLabel" type="Label" parent="VBoxContainer/PriceContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 18
+text = "50"
+vertical_alignment = 1
+
+[node name="PurchaseButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/disabled = SubResource("StyleBoxFlat_t8lsm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a0rup")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hxwhy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ytnp3")
+text = "Buy"
+
+[node name="Status" type="Label" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.301961, 1, 0.301961, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 14
+text = "✓ ACHETÉ"
+horizontal_alignment = 1
+vertical_alignment = 1

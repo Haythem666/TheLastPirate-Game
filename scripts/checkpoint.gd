@@ -6,6 +6,14 @@ class_name Checkpoint
 var activated = false
 
 func _ready() -> void:
+	var start_y = $Sprite2D.position.y + 40
+	var end_y = $Sprite2D.position.y
+	$Sprite2D.position.y = start_y
+
+	var tween = create_tween()
+	tween.tween_property($Sprite2D, "position:y", end_y, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	#$AnimationPlayer.play("raise_flag")
 	if spawnpoint:
 		activate()
 

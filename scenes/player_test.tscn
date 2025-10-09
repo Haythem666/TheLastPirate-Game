@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://vgnya3tw3exm"]
+[gd_scene load_steps=58 format=3 uid="uid://vgnya3tw3exm"]
 
 [ext_resource type="Script" uid="uid://b6qgexc2515of" path="res://scripts/player.gd" id="1_lulpo"]
 [ext_resource type="Texture2D" uid="uid://4wq12uhwfuak" path="res://assets/sprites/MainPerso/09-Idle Sword/Idle Sword 01.png" id="2_tt825"]
@@ -35,7 +35,13 @@
 [ext_resource type="Texture2D" uid="uid://c4oa46vmpf87l" path="res://assets/sprites/MainPerso/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 03.png" id="26_jieji"]
 [ext_resource type="Texture2D" uid="uid://bnb8yfntwphf4" path="res://assets/sprites/MainPerso/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 04.png" id="27_cfxfy"]
 [ext_resource type="AudioStream" uid="uid://b6okb3obarn4e" path="res://assets/sounds/Drowning - Sound Effect (mp3cut.net).wav" id="27_gacn1"]
+[ext_resource type="Texture2D" uid="uid://wt5b6ot8y1en" path="res://assets/sprites/MainPerso/15-Attack 1/Attack 1 01.png" id="32_bybkc"]
 [ext_resource type="Texture2D" uid="uid://bcxljwjx64p0o" path="res://assets/sprites/MainPerso/Sword Effects/25-Attack 2/Attack 2 01.png" id="33_3kq3a"]
+[ext_resource type="Texture2D" uid="uid://bdxixtur6a1a8" path="res://assets/sprites/MainPerso/15-Attack 1/Attack 1 02.png" id="33_jry7c"]
+[ext_resource type="Texture2D" uid="uid://cjd747trnl1w4" path="res://assets/sprites/MainPerso/15-Attack 1/Attack 1 03.png" id="34_vbqnt"]
+[ext_resource type="Texture2D" uid="uid://c5t3qpxu4sdw1" path="res://assets/sprites/MainPerso/16-Attack 2/Attack 2 01.png" id="35_mv7cm"]
+[ext_resource type="Texture2D" uid="uid://cwl2j8rnn731q" path="res://assets/sprites/MainPerso/16-Attack 2/Attack 2 02.png" id="36_r3fff"]
+[ext_resource type="Texture2D" uid="uid://de366ruqw2kc6" path="res://assets/sprites/MainPerso/16-Attack 2/Attack 2 03.png" id="37_5fqik"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oprun"]
 radius = 8.0
@@ -163,6 +169,38 @@ tracks/3/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_ar8b8"]
+resource_name = "dead"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("24_atem7"), ExtResource("25_3kq3a"), ExtResource("26_jieji"), ExtResource("27_cfxfy")]
+}
+
+[sub_resource type="Animation" id="Animation_fhj3s"]
+resource_name = "drown"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("23_pgy6t")]
+}
+
 [sub_resource type="Animation" id="Animation_ujl30"]
 resource_name = "fall"
 length = 0.5
@@ -257,9 +295,9 @@ tracks/0/keys = {
 "values": [ExtResource("17_cn6kv"), ExtResource("18_bybkc"), ExtResource("19_jry7c"), ExtResource("20_vbqnt"), ExtResource("21_mv7cm"), ExtResource("22_r3fff")]
 }
 
-[sub_resource type="Animation" id="Animation_fhj3s"]
-resource_name = "drown"
-length = 2.0
+[sub_resource type="Animation" id="Animation_mv7cm"]
+resource_name = "quick_attack"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -267,15 +305,27 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.0333333, 0.166667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("23_pgy6t")]
+"values": [ExtResource("32_bybkc"), ExtResource("33_jry7c"), ExtResource("34_vbqnt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:attacking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, null]
 }
 
-[sub_resource type="Animation" id="Animation_ar8b8"]
-resource_name = "dead"
-length = 0.5
+[sub_resource type="Animation" id="Animation_bybkc"]
+resource_name = "heavy_attack"
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -283,10 +333,22 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.3, 0.433333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.0333333, 0.266667, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("24_atem7"), ExtResource("25_3kq3a"), ExtResource("26_jieji"), ExtResource("27_cfxfy")]
+"values": [ExtResource("35_mv7cm"), ExtResource("36_r3fff"), ExtResource("37_5fqik")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:attacking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, null]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oprun"]
@@ -296,9 +358,11 @@ _data = {
 &"dead": SubResource("Animation_ar8b8"),
 &"drown": SubResource("Animation_fhj3s"),
 &"fall": SubResource("Animation_ujl30"),
+&"heavy_attack": SubResource("Animation_bybkc"),
 &"hit": SubResource("Animation_31cv2"),
 &"idle": SubResource("Animation_jej6c"),
 &"jump": SubResource("Animation_ke2ow"),
+&"quick_attack": SubResource("Animation_mv7cm"),
 &"run": SubResource("Animation_l71n6")
 }
 

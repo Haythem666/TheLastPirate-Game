@@ -1,34 +1,19 @@
-[gd_scene load_steps=38 format=3 uid="uid://dg7i50uff8enl"]
+[gd_scene load_steps=23 format=3 uid="uid://qq50sd1qpltw"]
 
-[ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="1_chkbj"]
-[ext_resource type="Texture2D" uid="uid://bd1bwngtxahg2" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="2_4o6ie"]
-[ext_resource type="Texture2D" uid="uid://dkiflykmirq7u" path="res://assets/sprites/Objects/Water/Water/Bottom/1.png" id="3_35vhu"]
-[ext_resource type="Texture2D" uid="uid://d2tet7h2i53y7" path="res://assets/sprites/14-TileSets/Terrain (32x32).png" id="3_olljq"]
-[ext_resource type="Texture2D" uid="uid://d2qyjgjjy0njg" path="res://assets/sprites/14-TileSets/Decorations (32x32).png" id="4_csjid"]
-[ext_resource type="Texture2D" uid="uid://1ygvxenwpqdh" path="res://assets/sprites/Objects/Water/Water/Top/1.png" id="4_po0io"]
-[ext_resource type="Texture2D" uid="uid://cksli1v6ws7ba" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Barrels and Bottles/01.png" id="5_nccue"]
-[ext_resource type="Texture2D" uid="uid://j1huentpausx" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Window/Window/15.png" id="6_lovpn"]
-[ext_resource type="Texture2D" uid="uid://c83ylji5toab0" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Window/Window Light/01.png" id="7_yvop1"]
-[ext_resource type="Texture2D" uid="uid://c6ahxjenj85q0" path="res://assets/sprites/TheWorld/BackGround/terrain_.png" id="8_ifb1x"]
-[ext_resource type="PackedScene" uid="uid://vgnya3tw3exm" path="res://scenes/player_test.tscn" id="9_y8jif"]
-[ext_resource type="PackedScene" uid="uid://bi2jv8sr88bec" path="res://scenes/spikes.tscn" id="10_olljq"]
-[ext_resource type="PackedScene" uid="uid://co3rxx2gdytyh" path="res://scenes/jumpad.tscn" id="11_csjid"]
-[ext_resource type="PackedScene" uid="uid://dpveyfd3vwqqw" path="res://scenes/door.tscn" id="12_nccue"]
-[ext_resource type="PackedScene" uid="uid://1e7ledd58aay" path="res://scenes/saw.tscn" id="13_lovpn"]
-[ext_resource type="PackedScene" uid="uid://c8ef23vqvrqol" path="res://scenes/canon.tscn" id="14_y8jif"]
-[ext_resource type="PackedScene" uid="uid://drvjc7n7lk0me" path="res://scenes/ennemi_1.tscn" id="15_m5n8t"]
-[ext_resource type="PackedScene" uid="uid://qq50sd1qpltw" path="res://scenes/level_3.tscn" id="15_po0io"]
-[ext_resource type="PackedScene" uid="uid://dhfkxloj58wy4" path="res://scenes/button.tscn" id="17_y8jif"]
-[ext_resource type="PackedScene" uid="uid://ckyvov658gx5n" path="res://scenes/yplateform_2.tscn" id="19_modnu"]
-[ext_resource type="PackedScene" uid="uid://dligqp7h76lsg" path="res://scenes/box.tscn" id="19_y7xvu"]
-[ext_resource type="Texture2D" uid="uid://dsew8xefmrsh6" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Barrels and Bottles/02.png" id="20_y7xvu"]
-[ext_resource type="PackedScene" uid="uid://bcy6m5lwm2rg1" path="res://scenes/checkpoint.tscn" id="23_tghvh"]
-[ext_resource type="PackedScene" uid="uid://uac8ih7i52co" path="res://scenes/reflexes_water.tscn" id="24_lrfwh"]
-[ext_resource type="PackedScene" uid="uid://ifhx6dfv04gy" path="res://scenes/dead_zone.tscn" id="25_nh0ib"]
-[ext_resource type="PackedScene" uid="uid://bdwkhl8bgv77b" path="res://scenes/coin.tscn" id="26_dg74i"]
+[ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="1_56dhn"]
+[ext_resource type="Texture2D" uid="uid://bd1bwngtxahg2" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="2_ax3dk"]
+[ext_resource type="Texture2D" uid="uid://dkiflykmirq7u" path="res://assets/sprites/Objects/Water/Water/Bottom/1.png" id="3_q2dsb"]
+[ext_resource type="Texture2D" uid="uid://1ygvxenwpqdh" path="res://assets/sprites/Objects/Water/Water/Top/1.png" id="4_p3r0x"]
+[ext_resource type="Texture2D" uid="uid://d2tet7h2i53y7" path="res://assets/sprites/14-TileSets/Terrain (32x32).png" id="5_5xqnf"]
+[ext_resource type="Texture2D" uid="uid://d2qyjgjjy0njg" path="res://assets/sprites/14-TileSets/Decorations (32x32).png" id="6_una4e"]
+[ext_resource type="Texture2D" uid="uid://cksli1v6ws7ba" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Barrels and Bottles/01.png" id="7_ema3p"]
+[ext_resource type="Texture2D" uid="uid://j1huentpausx" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Window/Window/15.png" id="8_8uepa"]
+[ext_resource type="Texture2D" uid="uid://c83ylji5toab0" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Window/Window Light/01.png" id="9_q7pjq"]
+[ext_resource type="Texture2D" uid="uid://c6ahxjenj85q0" path="res://assets/sprites/TheWorld/BackGround/terrain_.png" id="10_wa6ex"]
+[ext_resource type="PackedScene" uid="uid://vgnya3tw3exm" path="res://scenes/player_test.tscn" id="11_sx8yt"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_olljq"]
-texture = ExtResource("1_chkbj")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5r18"]
+texture = ExtResource("1_56dhn")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -406,8 +391,8 @@ texture = ExtResource("1_chkbj")
 18:9/0 = 0
 18:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_csjid"]
-texture = ExtResource("2_4o6ie")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w5nkq"]
+texture = ExtResource("2_ax3dk")
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:2/0 = 0
@@ -974,8 +959,8 @@ texture = ExtResource("2_4o6ie")
 35:23/0 = 0
 26:13/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tghvh"]
-texture = ExtResource("3_35vhu")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bk4f1"]
+texture = ExtResource("3_q2dsb")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -989,8 +974,8 @@ texture = ExtResource("3_35vhu")
 4:1/0 = 0
 5:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lrfwh"]
-texture = ExtResource("4_po0io")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wu3ic"]
+texture = ExtResource("4_p3r0x")
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -1004,8 +989,8 @@ texture = ExtResource("4_po0io")
 5:0/0 = 0
 5:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nccue"]
-texture = ExtResource("3_olljq")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vv2vh"]
+texture = ExtResource("5_5xqnf")
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0
@@ -1391,8 +1376,8 @@ texture = ExtResource("3_olljq")
 34:23/0 = 0
 35:23/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lovpn"]
-texture = ExtResource("4_csjid")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kn0t"]
+texture = ExtResource("6_una4e")
 2:2/0 = 0
 2:3/0 = 0
 2:4/0 = 0
@@ -1460,22 +1445,22 @@ texture = ExtResource("4_csjid")
 11:2/0 = 0
 11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yvop1"]
-texture = ExtResource("5_nccue")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bjw4u"]
+texture = ExtResource("7_ema3p")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ifb1x"]
-texture = ExtResource("6_lovpn")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rxxv"]
+texture = ExtResource("8_8uepa")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8jif"]
-texture = ExtResource("7_yvop1")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ld1e4"]
+texture = ExtResource("9_q7pjq")
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0
@@ -1499,8 +1484,8 @@ texture = ExtResource("7_yvop1")
 4:4/0 = 0
 3:5/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m5n8t"]
-texture = ExtResource("8_ifb1x")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_detxl"]
+texture = ExtResource("10_wa6ex")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1662,24 +1647,24 @@ texture = ExtResource("8_ifb1x")
 6:19/0 = 0
 7:19/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_dg74i"]
+[sub_resource type="TileSet" id="TileSet_58p72"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_olljq")
-sources/1 = SubResource("TileSetAtlasSource_csjid")
-sources/2 = SubResource("TileSetAtlasSource_nccue")
-sources/3 = SubResource("TileSetAtlasSource_lovpn")
-sources/4 = SubResource("TileSetAtlasSource_yvop1")
-sources/5 = SubResource("TileSetAtlasSource_ifb1x")
-sources/6 = SubResource("TileSetAtlasSource_y8jif")
-sources/7 = SubResource("TileSetAtlasSource_m5n8t")
-sources/10 = SubResource("TileSetAtlasSource_tghvh")
-sources/11 = SubResource("TileSetAtlasSource_lrfwh")
+sources/0 = SubResource("TileSetAtlasSource_k5r18")
+sources/1 = SubResource("TileSetAtlasSource_w5nkq")
+sources/2 = SubResource("TileSetAtlasSource_vv2vh")
+sources/3 = SubResource("TileSetAtlasSource_5kn0t")
+sources/4 = SubResource("TileSetAtlasSource_bjw4u")
+sources/5 = SubResource("TileSetAtlasSource_1rxxv")
+sources/6 = SubResource("TileSetAtlasSource_ld1e4")
+sources/7 = SubResource("TileSetAtlasSource_detxl")
+sources/10 = SubResource("TileSetAtlasSource_bk4f1")
+sources/11 = SubResource("TileSetAtlasSource_wu3ic")
 
-[node name="StartLevel" type="Node2D"]
+[node name="Level3" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, 155)
-tile_set = SubResource("TileSet_dg74i")
+tile_set = SubResource("TileSet_58p72")
 format = 2
 layer_0/name = "Terrain2"
 layer_0/z_index = 1
@@ -1692,139 +1677,6 @@ layer_2/tile_data = PackedInt32Array(65543, 655363, 2, 65544, 720899, 2, -65534,
 layer_3/name = "Decoration22"
 layer_3/tile_data = PackedInt32Array(-327662, 6, 2, -393197, 65542, 1, -327661, 65542, 2, -262125, 65542, 3, -393196, 131078, 1, -327660, 131078, 2, -262124, 131078, 3, -196588, 131078, 4, -458731, 196614, 0, -393195, 196614, 1, -327659, 196614, 2, -262123, 196614, 3, -196587, 196614, 4, -131051, 196614, 5, -458730, 262150, 0, -393194, 262150, 1, -327658, 262150, 2, -262122, 262150, 3, -196586, 262150, 4, -458729, 327686, 0, -393193, 327686, 1, -327657, 327686, 2, -327644, 6, 2, -393179, 65542, 1, -327643, 65542, 2, -262107, 65542, 3, -393178, 131078, 1, -327642, 131078, 2, -262106, 131078, 3, -196570, 131078, 4, -458713, 196614, 0, -393177, 196614, 1, -327641, 196614, 2, -262105, 196614, 3, -196569, 196614, 4, -131033, 196614, 5, -458712, 262150, 0, -393176, 262150, 1, -327640, 262150, 2, -262104, 262150, 3, -196568, 262150, 4, -458711, 327686, 0, -393175, 327686, 1, -327639, 327686, 2, 458767, 6, 2, 393232, 65542, 1, 458768, 65542, 2, 524304, 65542, 3, 393233, 131078, 1, 458769, 131078, 2, 524305, 131078, 3, 589841, 131078, 4, 327698, 196614, 0, 393234, 196614, 1, 458770, 196614, 2, 524306, 196614, 3, 589842, 196614, 4, 655378, 196614, 5, 327699, 262150, 0, 393235, 262150, 1, 458771, 262150, 2, 524307, 262150, 3, 589843, 262150, 4, 327700, 327686, 0, 393236, 327686, 1, 458772, 327686, 2, 458780, 6, 2, 393245, 65542, 1, 458781, 65542, 2, 524317, 65542, 3, 393246, 131078, 1, 458782, 131078, 2, 524318, 131078, 3, 589854, 131078, 4, 327711, 196614, 0, 393247, 196614, 1, 458783, 196614, 2, 524319, 196614, 3, 589855, 196614, 4, 655391, 196614, 5, 327712, 262150, 0, 393248, 262150, 1, 458784, 262150, 2, 524320, 262150, 3, 589856, 262150, 4, 327713, 327686, 0, 393249, 327686, 1, 458785, 327686, 2, 458791, 6, 2, 393256, 65542, 1, 458792, 65542, 2, 524328, 65542, 3, 393257, 131078, 1, 458793, 131078, 2, 524329, 131078, 3, 589865, 131078, 4, 327722, 196614, 0, 393258, 196614, 1, 458794, 196614, 2, 524330, 196614, 3, 589866, 196614, 4, 655402, 196614, 5, 327723, 262150, 0, 393259, 262150, 1, 458795, 262150, 2, 524331, 262150, 3, 589867, 262150, 4, 327724, 327686, 0, 393260, 327686, 1, 458796, 327686, 2)
 
-[node name="PlayerTest" parent="." instance=ExtResource("9_y8jif")]
+[node name="PlayerTest" parent="." instance=ExtResource("11_sx8yt")]
 z_index = 1
 position = Vector2(51, 368)
-
-[node name="Spikes" parent="." instance=ExtResource("10_olljq")]
-position = Vector2(49, 306)
-rotation = 1.5708
-
-[node name="Spikes5" parent="." instance=ExtResource("10_olljq")]
-position = Vector2(128, 306)
-rotation = -1.5708
-
-[node name="Spikes6" parent="." instance=ExtResource("10_olljq")]
-position = Vector2(128, 271)
-rotation = -1.5708
-
-[node name="Spikes7" parent="." instance=ExtResource("10_olljq")]
-position = Vector2(130, 237)
-rotation = -1.5708
-
-[node name="Spikes2" parent="." instance=ExtResource("10_olljq")]
-position = Vector2(49, 209)
-rotation = 1.5708
-
-[node name="Spikes3" parent="." instance=ExtResource("10_olljq")]
-position = Vector2(49, 243)
-rotation = 1.5708
-
-[node name="Spikes4" parent="." instance=ExtResource("10_olljq")]
-position = Vector2(49, 275)
-rotation = 1.5708
-
-[node name="Jumpad" parent="." instance=ExtResource("11_csjid")]
-position = Vector2(106, 364)
-
-[node name="Door" parent="." instance=ExtResource("12_nccue")]
-position = Vector2(907, 284)
-next_scene = ExtResource("15_po0io")
-
-[node name="Saw" parent="." instance=ExtResource("13_lovpn")]
-position = Vector2(255, 106)
-
-[node name="Saw2" parent="." instance=ExtResource("13_lovpn")]
-z_index = -1
-position = Vector2(449, 105)
-
-[node name="Saw3" parent="." instance=ExtResource("13_lovpn")]
-z_index = -1
-position = Vector2(656, 104)
-
-[node name="canon" parent="." instance=ExtResource("14_y8jif")]
-position = Vector2(755, 96)
-
-[node name="Ennemi1" parent="." instance=ExtResource("15_m5n8t")]
-position = Vector2(801, 172)
-
-[node name="Button" parent="." instance=ExtResource("17_y8jif")]
-position = Vector2(410, 182)
-
-[node name="Yplateform2" parent="." instance=ExtResource("19_modnu")]
-position = Vector2(206, 202)
-
-[node name="Box" parent="." instance=ExtResource("19_y7xvu")]
-position = Vector2(447, 178)
-gravity_scale = 1.5
-
-[node name="01" type="Sprite2D" parent="."]
-position = Vector2(192, 89)
-texture = ExtResource("5_nccue")
-
-[node name="02" type="Sprite2D" parent="."]
-position = Vector2(523, 93)
-texture = ExtResource("20_y7xvu")
-
-[node name="Checkpoint" parent="." instance=ExtResource("23_tghvh")]
-position = Vector2(53, 375)
-
-[node name="ReflexesWater" parent="." instance=ExtResource("24_lrfwh")]
-position = Vector2(241, 382)
-
-[node name="ReflexesWater2" parent="." instance=ExtResource("24_lrfwh")]
-position = Vector2(363, 382)
-
-[node name="ReflexesWater3" parent="." instance=ExtResource("24_lrfwh")]
-position = Vector2(525, 386)
-
-[node name="ReflexesWater4" parent="." instance=ExtResource("24_lrfwh")]
-position = Vector2(698, 390)
-
-[node name="DeadZone" parent="." instance=ExtResource("25_nh0ib")]
-position = Vector2(188, 358)
-scale = Vector2(1.5, 1.5)
-
-[node name="Coins" type="Node" parent="."]
-
-[node name="Coin" parent="Coins" instance=ExtResource("26_dg74i")]
-position = Vector2(129, 163)
-
-[node name="Coin3" parent="Coins" instance=ExtResource("26_dg74i")]
-position = Vector2(127, 98)
-
-[node name="Coin4" parent="Coins" instance=ExtResource("26_dg74i")]
-position = Vector2(352, 95)
-
-[node name="Coin5" parent="Coins" instance=ExtResource("26_dg74i")]
-position = Vector2(375, 95)
-
-[node name="Coin6" parent="Coins" instance=ExtResource("26_dg74i")]
-position = Vector2(363, 79)
-
-[node name="Coin7" parent="Coins" instance=ExtResource("26_dg74i")]
-position = Vector2(543, 272)
-
-[node name="Coin8" parent="Coins" instance=ExtResource("26_dg74i")]
-position = Vector2(446, 289)
-
-[node name="Coin9" parent="Coins" instance=ExtResource("26_dg74i")]
-position = Vector2(640, 302)
-
-[node name="Coin10" parent="Coins" instance=ExtResource("26_dg74i")]
-position = Vector2(307, 273)
-
-[node name="Coin11" parent="Coins" instance=ExtResource("26_dg74i")]
-position = Vector2(324, 273)
-
-[node name="Coin12" parent="Coins" instance=ExtResource("26_dg74i")]
-position = Vector2(341, 273)
-
-[node name="Coin13" parent="Coins" instance=ExtResource("26_dg74i")]
-position = Vector2(332, 260)
-
-[node name="Coin14" parent="Coins" instance=ExtResource("26_dg74i")]
-position = Vector2(315, 260)
-
-[node name="Coin2" parent="Coins" instance=ExtResource("26_dg74i")]
-position = Vector2(49, 130)

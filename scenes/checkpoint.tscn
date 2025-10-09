@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcy6m5lwm2rg1"]
+[gd_scene load_steps=16 format=3 uid="uid://bcy6m5lwm2rg1"]
 
 [ext_resource type="Script" uid="uid://jv0tcfy22nrh" path="res://scripts/checkpoint.gd" id="1_j0vas"]
 [ext_resource type="Texture2D" uid="uid://iw6ky87pdsxm" path="res://assets/sprites/Objects/Flag/Flag 01.png" id="1_ok2sx"]
@@ -46,10 +46,14 @@ tracks/0/keys = {
 "values": [ExtResource("1_ok2sx"), ExtResource("2_j0vas"), ExtResource("3_fndcu"), ExtResource("4_e28ry"), ExtResource("5_ejce6"), ExtResource("6_jjwhk"), ExtResource("7_5vg67"), ExtResource("8_ceatg"), ExtResource("9_wxh5a")]
 }
 
+[sub_resource type="Animation" id="Animation_j0vas"]
+resource_name = "raise_flag"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_440ol"]
 _data = {
 &"RESET": SubResource("Animation_3lops"),
-&"activated": SubResource("Animation_6qfwh")
+&"activated": SubResource("Animation_6qfwh"),
+&"raise_flag": SubResource("Animation_j0vas")
 }
 
 [node name="Checkpoint" type="Node2D"]

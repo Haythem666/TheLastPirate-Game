@@ -11,6 +11,14 @@ class_name Player
 @onready var drown_sound: AudioStreamPlayer2D = $DrownSound
 
 
+var unlocked_attacks: Array[ShopItem] = []
+@export var has_dash: bool = false
+var dash_speed: float = 400.0
+var dash_duration: float = 0.2
+var is_dashing: bool = false
+
+
+
 var normal_gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var drowning_gravity = 50  
 
@@ -32,12 +40,25 @@ func _ready() -> void:
 
 	
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("attack") && !hit:
-		attack()
+	if Input.is_action_just_pressed("attack") && !hit && !is_dashing:
+		attack("attack",1)
+	
+	for unlocked in unlocked_attacks:
+		if Input.is_action_just_pressed(unlocked.attack_input) && !hit && !is_dashing:
+			attack(unlocked.attack_animation, unlocked.attack_damage)
+	
+	# Dash
+	if has_dash and Input.is_action_just_pressed("ui_shift") and !is_dashing:
+		perform_dash()
+	
+	# Toggle shop
+	if Input.is_action_just_pressed("shop_toggle"):
+		var shop = get_tree().get_first_node_in_group("shop_ui")
+		if shop:
+			shop.toggle_shop()
 
 func _physics_process(delta: float) -> void:
 	var gravity = drowning_gravity if drowning else normal_gravity
-	print("Drowning: ", drowning, " Gravity: ", gravity)
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
@@ -82,7 +103,7 @@ func _physics_process(delta: float) -> void:
 	if position.y >= 1000:
 		die()
 
-func attack():
+func attack(anim_name : String="attack", damage: int = 1):
 	
 	var overlapping_objects = $AttackArea.get_overlapping_areas()
 	
@@ -94,11 +115,29 @@ func attack():
 		
 	for area in overlapping_objects:
 		if area.get_parent().is_in_group("enemies"):
-			area.get_parent().take_damage(1)
+			area.get_parent().take_damage(damage)
 			
 	attacking=true
-	animation_player.play("attack")
+	animation_player.play(anim_name)
 	attack_sound.play()
+
+# Nouvelle fonction pour débloquer des attaques
+func unlock_attack(item: ShopItem):
+	unlocked_attacks.append(item)
+
+# Nouvelle fonction pour le dash
+func perform_dash():
+	is_dashing = true
+	var dash_direction = 1 if sprite_2d.scale.x > 0 else -1
+	velocity.x = dash_speed * dash_direction
+	
+	# Animation ou effet visuel du dash
+	modulate = Color(1, 1, 1, 0.5)  # Semi-transparent
+	
+	await get_tree().create_timer(dash_duration).timeout
+	
+	is_dashing = false
+	modulate = Color(1, 1, 1, 1)  # Opaque
 	
 func start_drowning():
 	drowning = true
