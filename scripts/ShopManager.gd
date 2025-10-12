@@ -21,7 +21,7 @@ func load_shop_items():
 	quick_attack.attack_animation = "quick_attack"
 	quick_attack.attack_damage = 1
 	quick_attack.icon = load("res://assets/sprites/MainPerso/15-Attack 1/Attack 1 02.png")
-	quick_attack.attack_input = "attack2"
+	quick_attack.attack_input = "quick_attack"
 	available_items.append(quick_attack)
 	
 	# Attaque lourde
@@ -37,11 +37,23 @@ func load_shop_items():
 	heavy_attack.attack_input = "attack3"
 	available_items.append(heavy_attack)
 	
+	var throw_sword = ShopItem.new()
+	throw_sword.id = "throw_sword"
+	throw_sword.name = "Lancer d'Épée"
+	throw_sword.description = "Lance ton épée qui traverse les ennemis"
+	throw_sword.price = 150
+	throw_sword.item_type = "ability"
+	throw_sword.attack_animation = "thrown_sword"
+	throw_sword.icon = load("res://assets/sprites/MainPerso/Sword/22-Sword Spinning/Sword Spinning 01.png")
+	throw_sword.attack_damage = 3
+	#throw_sword.attack_input="attack"
+	available_items.append(throw_sword)
+	
 	# Vie supplémentaire
 	var extra_health = ShopItem.new()
 	extra_health.id = "extra_health"
-	extra_health.name = "Coeur Supplémentaire"
-	extra_health.description = "Augmente ta vie maximale de 1"
+	extra_health.name = "+1 Health"
+	extra_health.description = "Gain 1 health"
 	extra_health.price = 75
 	extra_health.item_type = "health"
 	extra_health.icon= load("res://assets/sprites/Objects/heartIdle.png")
@@ -51,10 +63,13 @@ func load_shop_items():
 	var dash = ShopItem.new()
 	dash.id = "dash"
 	dash.name = "Dash"
-	dash.description = "Permet de dasher avec Shift"
+	dash.description = "You can dash using Shift"
 	dash.price = 80
 	dash.item_type = "ability"
+	dash.icon= load("res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 01.png")
 	available_items.append(dash)
+	
+	
 
 func can_purchase(item: ShopItem) -> bool:
 	return GameManager.coins >= item.price and not item.is_purchased
@@ -88,6 +103,8 @@ func apply_item_effect(item: ShopItem):
 		"ability":
 			if item.id == "dash":
 				player.has_dash = true
+			elif item.id == "throw_sword":  
+				player.can_throw_sword = true
 
 func get_available_items() -> Array[ShopItem]:
 	return available_items

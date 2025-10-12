@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://vgnya3tw3exm"]
+[gd_scene load_steps=62 format=3 uid="uid://vgnya3tw3exm"]
 
 [ext_resource type="Script" uid="uid://b6qgexc2515of" path="res://scripts/player.gd" id="1_lulpo"]
 [ext_resource type="Texture2D" uid="uid://4wq12uhwfuak" path="res://assets/sprites/MainPerso/09-Idle Sword/Idle Sword 01.png" id="2_tt825"]
@@ -42,6 +42,9 @@
 [ext_resource type="Texture2D" uid="uid://c5t3qpxu4sdw1" path="res://assets/sprites/MainPerso/16-Attack 2/Attack 2 01.png" id="35_mv7cm"]
 [ext_resource type="Texture2D" uid="uid://cwl2j8rnn731q" path="res://assets/sprites/MainPerso/16-Attack 2/Attack 2 02.png" id="36_r3fff"]
 [ext_resource type="Texture2D" uid="uid://de366ruqw2kc6" path="res://assets/sprites/MainPerso/16-Attack 2/Attack 2 03.png" id="37_5fqik"]
+[ext_resource type="Texture2D" uid="uid://dnk8ay8c476" path="res://assets/sprites/MainPerso/20-Throw Sword/Throw Sword 01.png" id="38_r5y8i"]
+[ext_resource type="Texture2D" uid="uid://cfhbbtkvd7nc8" path="res://assets/sprites/MainPerso/20-Throw Sword/Throw Sword 02.png" id="39_w4bbh"]
+[ext_resource type="Texture2D" uid="uid://bp7h62wkj2o47" path="res://assets/sprites/MainPerso/20-Throw Sword/Throw Sword 03.png" id="40_q7gym"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oprun"]
 radius = 8.0
@@ -351,6 +354,48 @@ tracks/1/keys = {
 "values": [true, null]
 }
 
+[sub_resource type="Animation" id="Animation_rx12b"]
+resource_name = "throw_sword"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("38_r5y8i"), ExtResource("39_w4bbh"), ExtResource("40_q7gym")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:attacking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"throw_sword_projectile"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oprun"]
 _data = {
 &"RESET": SubResource("Animation_f1ej7"),
@@ -363,7 +408,8 @@ _data = {
 &"idle": SubResource("Animation_jej6c"),
 &"jump": SubResource("Animation_ke2ow"),
 &"quick_attack": SubResource("Animation_mv7cm"),
-&"run": SubResource("Animation_l71n6")
+&"run": SubResource("Animation_l71n6"),
+&"throw_sword": SubResource("Animation_rx12b")
 }
 
 [node name="PlayerTest" type="CharacterBody2D"]

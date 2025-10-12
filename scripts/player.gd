@@ -13,8 +13,8 @@ class_name Player
 
 var unlocked_attacks: Array[ShopItem] = []
 @export var has_dash: bool = false
-var dash_speed: float = 400.0
-var dash_duration: float = 0.2
+var dash_speed: float = 1200.0
+var dash_duration: float = 0.5
 var is_dashing: bool = false
 
 
@@ -33,6 +33,10 @@ var max_health = 3
 var health = 0
 var can_take_damage = true
 
+# Projectile de l'épée
+var thrown_sword_scene = preload("res://scenes/thrown_sword.tscn")
+var can_throw_sword: bool = false  # Sera débloqué via la boutique
+
 
 func _ready() -> void:
 	health = max_health
@@ -48,7 +52,7 @@ func _process(delta: float) -> void:
 			attack(unlocked.attack_animation, unlocked.attack_damage)
 	
 	# Dash
-	if has_dash and Input.is_action_just_pressed("ui_shift") and !is_dashing:
+	if has_dash and Input.is_action_just_pressed("dash") and !is_dashing:
 		perform_dash()
 	
 	# Toggle shop
@@ -56,6 +60,9 @@ func _process(delta: float) -> void:
 		var shop = get_tree().get_first_node_in_group("shop_ui")
 		if shop:
 			shop.toggle_shop()
+	
+	if Input.is_action_just_pressed("throw_sword") && !hit && !is_dashing && can_throw_sword:
+		attack("throw_sword", 0)
 
 func _physics_process(delta: float) -> void:
 	var gravity = drowning_gravity if drowning else normal_gravity
@@ -171,7 +178,7 @@ func update_animation() -> void:
 	   
 			
 func take_damage(damage_amount : int):
-	if can_take_damage:
+	if can_take_damage and !is_dashing:
 		iframes()
 		
 		hit = true
@@ -201,3 +208,23 @@ func die():
 	velocity = Vector2.ZERO
 	health = max_health
 	GameManager.respawn_player()
+	
+func throw_sword_projectile():
+	if not can_throw_sword:
+		return
+	
+	# Créer l'épée
+	var sword = thrown_sword_scene.instantiate()
+	
+	# Position de départ (devant le joueur)
+	var spawn_offset = Vector2(30, 0) if sprite_2d.scale.x > 0 else Vector2(-30, 0)
+	var spawn_position = global_position + spawn_offset
+	
+	# Direction (droite ou gauche selon l'orientation du joueur)
+	var throw_direction = Vector2.RIGHT if sprite_2d.scale.x > 0 else Vector2.LEFT
+	
+	# Configurer l'épée
+	sword.setup(throw_direction, spawn_position)
+	
+	# Ajouter au niveau (pas au joueur !)
+	get_tree().root.add_child(sword)

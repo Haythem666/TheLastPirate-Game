@@ -35,7 +35,6 @@ func refresh_shop():
 	
 	# Remplir avec les items
 	for item in ShopManager.get_available_items():
-		print("- ", item.name, " (", item.item_type, ")")
 		var card = item_card_scene.instantiate()
 		card.setup(item)
 		card.purchase_requested.connect(_on_purchase_requested)
@@ -57,18 +56,12 @@ func clear_grid(grid: GridContainer):
 
 func _on_purchase_requested(item: ShopItem):
 	
-	print("=== TRAITEMENT ACHAT ===")
-	print("Item : ", item.name)
-	print("Coins avant : ", GameManager.coins)
-	
 	if ShopManager.purchase_item(item):
-		print("✓ ACHAT RÉUSSI !")
-		print("Coins après : ", GameManager.coins)
+		
 		play_purchase_animation()
 		refresh_shop()
 	else:
-		print("✗ ACHAT ÉCHOUÉ !")
-		print("Raison : Pas assez de pièces ou déjà acheté")
+		
 		play_insufficient_funds_animation()
 
 func _on_coins_updated(amount: int):
@@ -79,7 +72,6 @@ func _on_item_purchased(item: ShopItem):
 	pass
 
 func _on_close_pressed():
-	print("Close button pressed!")
 	toggle_shop()
 
 func play_purchase_animation():

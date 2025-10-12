@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1u7g3j002d5e"]
+
+[ext_resource type="Script" uid="uid://u31ecj8618vc" path="res://scripts/chain_pendule.gd" id="1_c1v5w"]
+[ext_resource type="Texture2D" uid="uid://d02rgd6i2v1or" path="res://assets/sprites/newtransfer/Spiked Ball/Chain.png" id="1_xtctu"]
+[ext_resource type="Texture2D" uid="uid://cdymgxfx2q4jv" path="res://assets/sprites/newtransfer/Spiked Ball/Spiked Ball.png" id="2_c1v5w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rwkit"]
+radius = 13.0384
+
+[node name="ChainPendule" type="Node2D"]
+script = ExtResource("1_c1v5w")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="ChainContainer" type="Node2D" parent="Pivot"]
+
+[node name="Chain1" type="Sprite2D" parent="Pivot/ChainContainer"]
+texture = ExtResource("1_xtctu")
+
+[node name="Chain2" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, 8)
+texture = ExtResource("1_xtctu")
+
+[node name="Chain3" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, 16)
+texture = ExtResource("1_xtctu")
+
+[node name="Chain4" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, 40)
+texture = ExtResource("1_xtctu")
+
+[node name="Chain7" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, 56)
+texture = ExtResource("1_xtctu")
+
+[node name="Chain8" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, 48)
+texture = ExtResource("1_xtctu")
+
+[node name="Chain5" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, 32)
+texture = ExtResource("1_xtctu")
+
+[node name="Chain6" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, 24)
+texture = ExtResource("1_xtctu")
+
+[node name="SpikeBall" type="Area2D" parent="Pivot"]
+position = Vector2(3, 29)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot/SpikeBall"]
+position = Vector2(-3, 46)
+texture = ExtResource("2_c1v5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/SpikeBall"]
+position = Vector2(-3, 46)
+shape = SubResource("CircleShape2D_rwkit")
+
+[connection signal="area_entered" from="Pivot/SpikeBall" to="." method="_on_spike_ball_area_entered"]
