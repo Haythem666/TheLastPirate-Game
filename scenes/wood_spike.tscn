@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://b4llgllyjphfb"]
+
+[ext_resource type="Script" uid="uid://nj40pod1axl0" path="res://scripts/wood_spike.gd" id="1_jwyio"]
+[ext_resource type="Texture2D" uid="uid://bktam7kh2qkmw" path="res://assets/Shooter Traps/Sprites/Totems/Wood Spike/Idle/1.png" id="1_yoxmd"]
+[ext_resource type="Texture2D" uid="uid://canhf5yqiyccq" path="res://assets/Shooter Traps/Sprites/Totems/Wood Spike/Destroyed/1.png" id="3_hh2t4"]
+[ext_resource type="Texture2D" uid="uid://dytytlvuip2xv" path="res://assets/Shooter Traps/Sprites/Totems/Wood Spike/Destroyed/2.png" id="4_0oheg"]
+[ext_resource type="Texture2D" uid="uid://bwxomf5dg2sbl" path="res://assets/Shooter Traps/Sprites/Totems/Wood Spike/Destroyed/3.png" id="5_hbemc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jwyio"]
+radius = 5.0
+height = 12.0
+
+[sub_resource type="Animation" id="Animation_517bo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_yoxmd")]
+}
+
+[sub_resource type="Animation" id="Animation_p818k"]
+resource_name = "destroyed"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_hh2t4"), ExtResource("4_0oheg"), ExtResource("5_hbemc")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8c2xf"]
+_data = {
+&"RESET": SubResource("Animation_517bo"),
+&"destroyed": SubResource("Animation_p818k")
+}
+
+[node name="WoodSpike" type="Area2D"]
+script = ExtResource("1_jwyio")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yoxmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_jwyio")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8c2xf")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

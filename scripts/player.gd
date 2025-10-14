@@ -39,8 +39,13 @@ var can_throw_sword: bool = false  # Sera débloqué via la boutique
 
 
 func _ready() -> void:
+	max_health = GameManager.player_max_health
+
+
 	health = max_health
 	GameManager.player = self
+	
+	_load_purchased_items()
 
 	
 func _process(delta: float) -> void:
@@ -188,6 +193,7 @@ func take_damage(damage_amount : int):
 		$HitSound.play()
 		
 		health -= damage_amount
+		update_ui()
 		#var ui_manager = get_node("/root/Level1/UIManager")
 		#ui_manager.update_health_display(health, max_health)
 		
@@ -208,6 +214,7 @@ func die():
 	velocity = Vector2.ZERO
 	health = max_health
 	GameManager.respawn_player()
+	update_ui()
 	
 func throw_sword_projectile():
 	if not can_throw_sword:
@@ -228,3 +235,29 @@ func throw_sword_projectile():
 	
 	# Ajouter au niveau (pas au joueur !)
 	get_tree().root.add_child(sword)
+	
+	
+func update_ui():
+	
+	GameManager.save_player_health(max_health)
+
+	var ui_manager = get_tree().get_first_node_in_group("ui_manager")
+	if ui_manager and ui_manager.has_method("update_health_display"):
+		ui_manager.update_health_display(health, max_health)
+
+
+func _load_purchased_items():
+	# Recharger toutes les attaques achetées
+	unlocked_attacks.clear()
+	for item in ShopManager.get_purchased_items():
+		match item.item_type:
+			"attack":
+				unlocked_attacks.append(item)
+			"ability":
+				if item.id == "dash":
+					has_dash = true
+				elif item.id == "throw_sword":
+					can_throw_sword = true
+			"health":
+				# La vie max est déjà gérée par GameManager
+				pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dg7i50uff8enl"]
+[gd_scene load_steps=41 format=3 uid="uid://dg7i50uff8enl"]
 
 [ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="1_chkbj"]
 [ext_resource type="Texture2D" uid="uid://bd1bwngtxahg2" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="2_4o6ie"]
@@ -26,6 +26,9 @@
 [ext_resource type="PackedScene" uid="uid://uac8ih7i52co" path="res://scenes/reflexes_water.tscn" id="24_lrfwh"]
 [ext_resource type="PackedScene" uid="uid://ifhx6dfv04gy" path="res://scenes/dead_zone.tscn" id="25_nh0ib"]
 [ext_resource type="PackedScene" uid="uid://bdwkhl8bgv77b" path="res://scenes/coin.tscn" id="26_dg74i"]
+[ext_resource type="PackedScene" uid="uid://jv83g6xhty13" path="res://scenes/shop_ui.tscn" id="27_n1ejj"]
+[ext_resource type="Script" uid="uid://cbqs1x15xwyco" path="res://scripts/ui_manager.gd" id="28_bg1ua"]
+[ext_resource type="Script" uid="uid://b0sdh0wvwysqt" path="res://scripts/player_health_ui.gd" id="30_ybrrs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_olljq"]
 texture = ExtResource("1_chkbj")
@@ -1830,3 +1833,16 @@ rotation = 1.5708
 [node name="Spikes4" parent="Spikess" instance=ExtResource("10_olljq")]
 position = Vector2(49, 275)
 rotation = 1.5708
+
+[node name="ShopUI" parent="." instance=ExtResource("27_n1ejj")]
+
+[node name="UIManager" type="CanvasLayer" parent="." groups=["ui_manager"]]
+script = ExtResource("28_bg1ua")
+
+[node name="PlayerHearts" type="HBoxContainer" parent="UIManager"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_constants/separation = 5
+script = ExtResource("30_ybrrs")

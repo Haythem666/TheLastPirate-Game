@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://gw34uw0l36im" path="res://scenes/falling_spikes.tscn" id="13_7gny6"]
 [ext_resource type="Script" uid="uid://cbqs1x15xwyco" path="res://scripts/ui_manager.gd" id="14_7nomh"]
 [ext_resource type="Texture2D" uid="uid://dobrnu646puq5" path="res://assets/sprites/Gold Coin/01.png" id="15_1s4pk"]
-[ext_resource type="Texture2D" uid="uid://bc1ihi2mgn2ln" path="res://assets/sprites/Objects/heartIdle.png" id="16_x2xxo"]
+[ext_resource type="Script" uid="uid://b0sdh0wvwysqt" path="res://scripts/player_health_ui.gd" id="15_d5akn"]
 [ext_resource type="PackedScene" uid="uid://cnlu2tu2dhmcs" path="res://scenes/candle.tscn" id="17_1s4pk"]
 [ext_resource type="PackedScene" uid="uid://c8ef23vqvrqol" path="res://scenes/canon.tscn" id="18_x2xxo"]
 [ext_resource type="PackedScene" uid="uid://bcvxiwfvskuk8" path="res://scenes/chain.tscn" id="19_2cbcq"]
@@ -970,34 +970,13 @@ offset_bottom = 73.0
 theme_override_font_sizes/font_size = 25
 text = "0"
 
-[node name="Hearts" type="HBoxContainer" parent="UIManager"]
-offset_left = 33.6647
-offset_top = 27.1539
-offset_right = 114.665
-offset_bottom = 62.1539
-
-[node name="Heart1" type="TextureRect" parent="UIManager/Hearts"]
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="UIManager/Hearts/Heart1"]
-scale = Vector2(4, 4)
-texture = ExtResource("16_x2xxo")
-
-[node name="Heart2" type="TextureRect" parent="UIManager/Hearts"]
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="UIManager/Hearts/Heart2"]
-scale = Vector2(4, 4)
-texture = ExtResource("16_x2xxo")
-
-[node name="Heart3" type="TextureRect" parent="UIManager/Hearts"]
-layout_mode = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="UIManager/Hearts/Heart3"]
-scale = Vector2(4, 4)
-texture = ExtResource("16_x2xxo")
+[node name="PlayerHearts" type="HBoxContainer" parent="UIManager"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_constants/separation = 5
+script = ExtResource("15_d5akn")
 
 [node name="Candle" parent="." instance=ExtResource("17_1s4pk")]
 position = Vector2(1004, 155)

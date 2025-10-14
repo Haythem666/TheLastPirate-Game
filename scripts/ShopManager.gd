@@ -100,6 +100,8 @@ func apply_item_effect(item: ShopItem):
 		"health":
 			player.max_health += 1
 			player.health = player.max_health
+			player.update_ui()
+
 		"ability":
 			if item.id == "dash":
 				player.has_dash = true

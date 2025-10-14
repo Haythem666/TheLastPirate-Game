@@ -1,24 +1,19 @@
 extends CanvasLayer
 
+@onready var player_hearts = $PlayerHearts
 
-#func _ready() -> void:
+
+func _ready() -> void:
 	#GameManager.gained_coins.connect(update_coin_display)
+	await get_tree().process_frame
 	
+	if GameManager.player:
+		update_health_display(GameManager.player.health, GameManager.player.max_health)
+	
+
 #func update_coin_display(gained_coins):
 #	$CoinDisplay.text = str(GameManager.coins)
 
-@onready var hearts = [$Hearts/Heart1,$Hearts/Heart2,$Hearts/Heart3]  # récupère les 3 TextureRect
-
-func _ready() -> void:
-	GameManager.gained_coins.connect(update_coin_display)
-
-func update_coin_display(gained_coins):
-	$CoinDisplay.text = str(GameManager.coins)
-
-# Met à jour les cœurs
 func update_health_display(current_health: int, max_health: int):
-	for i in range(hearts.size()):
-		if i < current_health:
-			hearts[i].visible = true   # cœur plein
-		else:
-			hearts[i].visible = false  # cœur vide / disparu
+	if player_hearts and player_hearts.has_method("update_hearts"):
+		player_hearts.update_hearts(current_health, max_health)
