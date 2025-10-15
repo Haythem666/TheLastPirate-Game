@@ -5,6 +5,8 @@ func _ready() -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	GameManager.gain_coins(1)
-	queue_free()
+	if area.get_parent().name == "PlayerTest":
+		GameManager.gain_coins(1)
+		queue_free()
+
 	

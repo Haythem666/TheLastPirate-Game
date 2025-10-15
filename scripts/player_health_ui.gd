@@ -8,9 +8,9 @@ func _ready() -> void:
 	# Attendre que le joueur soit prêt
 	await get_tree().process_frame
 	if GameManager.player:
-		update_health_display(GameManager.player.health, GameManager.player.max_health)
+		update_hearts(GameManager.player.health, GameManager.player.max_health)
 
-func update_health_display(current_health: int, max_health: int) -> void:
+func update_hearts(current_health: int, max_health: int) -> void:
 	# Si le nombre de cœurs a changé, recréer l'UI
 	
 	if heart_textures.size() != max_health:

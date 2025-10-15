@@ -3,7 +3,7 @@ extends Area2D
 
 var direction 
 var speed = 200.0
-var lifetime = 4.0
+var lifetime = 5.0
 var hit = false 
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

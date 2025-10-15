@@ -1,18 +1,144 @@
-[gd_scene load_steps=4 format=3 uid="uid://bu7db3lqe0jth"]
+[gd_scene load_steps=14 format=3 uid="uid://bu7db3lqe0jth"]
 
-[ext_resource type="Texture2D" uid="uid://d2qyjgjjy0njg" path="res://assets/sprites/14-TileSets/Decorations (32x32).png" id="1_aormq"]
 [ext_resource type="Script" uid="uid://dlljn2k5k1v8c" path="res://scripts/suspended_plateform.gd" id="1_veoyq"]
+[ext_resource type="Texture2D" uid="uid://p82yfxeppmrp" path="res://assets/sprites/newtransfer/Platforms/Chain.png" id="2_j436d"]
+[ext_resource type="Texture2D" uid="uid://duqewv8lpvyfo" path="res://assets/sprites/newtransfer/Platforms/Brown On (32x8).png" id="3_j436d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qqge"]
+atlas = ExtResource("3_j436d")
+region = Rect2(0, 0, 32, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aadd1"]
+atlas = ExtResource("3_j436d")
+region = Rect2(32, 0, 32, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvgll"]
+atlas = ExtResource("3_j436d")
+region = Rect2(64, 0, 32, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emmxa"]
+atlas = ExtResource("3_j436d")
+region = Rect2(96, 0, 32, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8yy0"]
+atlas = ExtResource("3_j436d")
+region = Rect2(128, 0, 32, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyatk"]
+atlas = ExtResource("3_j436d")
+region = Rect2(160, 0, 32, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljirq"]
+atlas = ExtResource("3_j436d")
+region = Rect2(192, 0, 32, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5s2x"]
+atlas = ExtResource("3_j436d")
+region = Rect2(224, 0, 32, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ojvc5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qqge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aadd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvgll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emmxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8yy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyatk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljirq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5s2x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_veoyq"]
-size = Vector2(96, 6)
+size = Vector2(32, 6)
 
-[node name="SuspendedPlateform" type="StaticBody2D"]
+[node name="PlateformS" type="Node2D"]
 script = ExtResource("1_veoyq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_aormq")
-region_enabled = true
-region_rect = Rect2(64.1759, 31.8886, 96.7481, 6.88008)
+[node name="Pivot" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="ChainContainer" type="Node2D" parent="Pivot"]
+
+[node name="Chain1" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, -45)
+texture = ExtResource("2_j436d")
+
+[node name="Chain11" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, -50)
+texture = ExtResource("2_j436d")
+
+[node name="Chain12" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, -55)
+texture = ExtResource("2_j436d")
+
+[node name="Chain13" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, -60)
+texture = ExtResource("2_j436d")
+
+[node name="Chain14" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, -65)
+texture = ExtResource("2_j436d")
+
+[node name="Chain2" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, -40)
+texture = ExtResource("2_j436d")
+
+[node name="Chain3" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, -35)
+texture = ExtResource("2_j436d")
+
+[node name="Chain4" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, -30)
+texture = ExtResource("2_j436d")
+
+[node name="Chain5" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, -25)
+texture = ExtResource("2_j436d")
+
+[node name="Chain6" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, -20)
+texture = ExtResource("2_j436d")
+
+[node name="Chain7" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, -15)
+texture = ExtResource("2_j436d")
+
+[node name="Chain8" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, -10)
+texture = ExtResource("2_j436d")
+
+[node name="Chain9" type="Sprite2D" parent="Pivot/ChainContainer"]
+position = Vector2(0, -5)
+texture = ExtResource("2_j436d")
+
+[node name="Chain10" type="Sprite2D" parent="Pivot/ChainContainer"]
+texture = ExtResource("2_j436d")
+
+[node name="SuspendedPlateform" type="StaticBody2D" parent="Pivot"]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Pivot/SuspendedPlateform"]
+sprite_frames = SubResource("SpriteFrames_ojvc5")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/SuspendedPlateform"]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_veoyq")

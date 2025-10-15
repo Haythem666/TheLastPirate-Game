@@ -1634,7 +1634,8 @@ position = Vector2(586, 220)
 position = Vector2(541, 170)
 
 [node name="SuspendedPlateform" parent="." instance=ExtResource("27_clej2")]
-position = Vector2(143, 250)
+position = Vector2(127, 256)
+scale = Vector2(1.5, 1.5)
 
 [node name="Checkpoint" parent="." instance=ExtResource("30_lpab6")]
 position = Vector2(67, 115)
