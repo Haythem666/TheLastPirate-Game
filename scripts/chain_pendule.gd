@@ -35,4 +35,3 @@ func _on_spike_ball_area_entered(area: Area2D):
 	# Si la boule touche le joueur
 	if area.get_parent() is Player:
 		area.get_parent().take_damage(1)
-		print("Spike ball a touché le joueur !")

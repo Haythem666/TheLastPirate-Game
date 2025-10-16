@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://jwaimlure4o5"]
+[gd_scene load_steps=46 format=3 uid="uid://jwaimlure4o5"]
 
 [ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="1_8lyp7"]
 [ext_resource type="Texture2D" uid="uid://bd1bwngtxahg2" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="2_kkfyh"]
@@ -31,6 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://bcy6m5lwm2rg1" path="res://scenes/checkpoint.tscn" id="30_lpab6"]
 [ext_resource type="PackedScene" uid="uid://jv83g6xhty13" path="res://scenes/shop_ui.tscn" id="31_fvepi"]
 [ext_resource type="PackedScene" uid="uid://bdwkhl8bgv77b" path="res://scenes/coin.tscn" id="31_n6uh5"]
+[ext_resource type="Script" uid="uid://cbqs1x15xwyco" path="res://scripts/ui_manager.gd" id="32_4ycg1"]
+[ext_resource type="Script" uid="uid://b0sdh0wvwysqt" path="res://scripts/player_health_ui.gd" id="33_mvpg5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4br1q"]
 texture = ExtResource("1_8lyp7")
@@ -1705,3 +1707,14 @@ position = Vector2(164, 349)
 position = Vector2(164, 349)
 
 [node name="ShopUI" parent="." instance=ExtResource("31_fvepi")]
+
+[node name="UIManager" type="CanvasLayer" parent="." groups=["ui_manager"]]
+script = ExtResource("32_4ycg1")
+
+[node name="PlayerHearts" type="HBoxContainer" parent="UIManager"]
+offset_left = 21.0
+offset_top = 6.0
+offset_right = 61.0
+offset_bottom = 46.0
+theme_override_constants/separation = 0
+script = ExtResource("33_mvpg5")
