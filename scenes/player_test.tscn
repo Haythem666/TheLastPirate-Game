@@ -220,6 +220,34 @@ tracks/0/keys = {
 "values": [ExtResource("6_gacn1")]
 }
 
+[sub_resource type="Animation" id="Animation_bybkc"]
+resource_name = "heavy_attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.266667, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("35_mv7cm"), ExtResource("36_r3fff"), ExtResource("37_5fqik")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:attacking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, null]
+}
+
 [sub_resource type="Animation" id="Animation_31cv2"]
 resource_name = "hit"
 length = 0.3
@@ -281,23 +309,6 @@ tracks/0/keys = {
 "values": [ExtResource("14_cfxfy"), ExtResource("15_ar8b8"), ExtResource("16_n18dy")]
 }
 
-[sub_resource type="Animation" id="Animation_l71n6"]
-resource_name = "run"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.233333, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("17_cn6kv"), ExtResource("18_bybkc"), ExtResource("19_jry7c"), ExtResource("20_vbqnt"), ExtResource("21_mv7cm"), ExtResource("22_r3fff")]
-}
-
 [sub_resource type="Animation" id="Animation_mv7cm"]
 resource_name = "quick_attack"
 length = 0.3
@@ -326,9 +337,10 @@ tracks/1/keys = {
 "values": [true, null]
 }
 
-[sub_resource type="Animation" id="Animation_bybkc"]
-resource_name = "heavy_attack"
-length = 0.6
+[sub_resource type="Animation" id="Animation_l71n6"]
+resource_name = "run"
+length = 0.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -336,22 +348,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.266667, 0.533333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.233333, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("35_mv7cm"), ExtResource("36_r3fff"), ExtResource("37_5fqik")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:attacking")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 0.533333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, null]
+"values": [ExtResource("17_cn6kv"), ExtResource("18_bybkc"), ExtResource("19_jry7c"), ExtResource("20_vbqnt"), ExtResource("21_mv7cm"), ExtResource("22_r3fff")]
 }
 
 [sub_resource type="Animation" id="Animation_rx12b"]

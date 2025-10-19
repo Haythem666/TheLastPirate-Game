@@ -1,0 +1,92 @@
+[gd_scene load_steps=19 format=3 uid="uid://cgujkx0s3v0k"]
+
+[ext_resource type="Texture2D" uid="uid://6px8xqr11p3a" path="res://assets/sprites/Objects/Chest Key/Idle/1.png" id="1_n5cht"]
+[ext_resource type="Script" uid="uid://bqnd5ienl0ip0" path="res://scripts/chest_key.gd" id="1_yi2d1"]
+[ext_resource type="Texture2D" uid="uid://dv1jhqvpi1n66" path="res://assets/sprites/Objects/Chest Key/Idle/2.png" id="3_lhbv3"]
+[ext_resource type="Texture2D" uid="uid://5xrtbakum6hf" path="res://assets/sprites/Objects/Chest Key/Idle/3.png" id="4_xppi2"]
+[ext_resource type="Texture2D" uid="uid://dnvojs4k3k7s8" path="res://assets/sprites/Objects/Chest Key/Idle/4.png" id="5_goqdr"]
+[ext_resource type="Texture2D" uid="uid://dvnc8f17l8pgg" path="res://assets/sprites/Objects/Chest Key/Idle/5.png" id="6_mt70y"]
+[ext_resource type="Texture2D" uid="uid://b5hhlqikx6apc" path="res://assets/sprites/Objects/Chest Key/Idle/6.png" id="7_n7ck5"]
+[ext_resource type="Texture2D" uid="uid://b220eva7aee3x" path="res://assets/sprites/Objects/Chest Key/Idle/7.png" id="8_vqhna"]
+[ext_resource type="Texture2D" uid="uid://ck8jkevwvpkl2" path="res://assets/sprites/Objects/Chest Key/Idle/8.png" id="9_krmhc"]
+[ext_resource type="Texture2D" uid="uid://dhde1sgey3oj1" path="res://assets/sprites/Objects/Chest Key/Effect/1.png" id="10_n7ck5"]
+[ext_resource type="Texture2D" uid="uid://bbplnxmd1y1jn" path="res://assets/sprites/Objects/Chest Key/Effect/2.png" id="11_vqhna"]
+[ext_resource type="Texture2D" uid="uid://dio0l2vuppi5c" path="res://assets/sprites/Objects/Chest Key/Effect/3.png" id="12_krmhc"]
+[ext_resource type="Texture2D" uid="uid://dy8w00s0c303f" path="res://assets/sprites/Objects/Chest Key/Effect/4.png" id="13_65c2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yi2d1"]
+size = Vector2(8, 15)
+
+[sub_resource type="Animation" id="Animation_65c2i"]
+resource_name = "idle"
+length = 1.05
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_n5cht"), ExtResource("3_lhbv3"), ExtResource("4_xppi2"), ExtResource("5_goqdr"), ExtResource("6_mt70y"), ExtResource("7_n7ck5"), ExtResource("8_vqhna"), ExtResource("9_krmhc")]
+}
+
+[sub_resource type="Animation" id="Animation_vuqj5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_n5cht")]
+}
+
+[sub_resource type="Animation" id="Animation_whj0a"]
+resource_name = "collect"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_n7ck5"), ExtResource("11_vqhna"), ExtResource("12_krmhc"), ExtResource("13_65c2i")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_whj0a"]
+_data = {
+&"RESET": SubResource("Animation_vuqj5"),
+&"collect": SubResource("Animation_whj0a"),
+&"idle": SubResource("Animation_65c2i")
+}
+
+[node name="ChestKey" type="Node2D"]
+script = ExtResource("1_yi2d1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_n5cht")
+
+[node name="CollectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_yi2d1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_whj0a")
+}
+
+[connection signal="area_entered" from="CollectionArea" to="." method="_on_collection_area_area_entered"]

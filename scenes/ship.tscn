@@ -1,0 +1,133 @@
+[gd_scene load_steps=26 format=3 uid="uid://d0btpn8fc7gte"]
+
+[ext_resource type="Script" uid="uid://cleqm12sh56ea" path="res://scripts/ship.gd" id="1_mx31c"]
+[ext_resource type="Texture2D" uid="uid://d231ss5dhaw0g" path="res://assets/sprites/Objects/Ship/Ship/Idle/1.png" id="2_fs4we"]
+[ext_resource type="Texture2D" uid="uid://rc7i4ihqen5n" path="res://assets/sprites/Objects/Ship/Sail/No Wind/1.png" id="3_vbj2c"]
+[ext_resource type="Texture2D" uid="uid://daguh6xrevm6t" path="res://assets/sprites/Objects/Ship/Ship/Idle/2.png" id="4_dschd"]
+[ext_resource type="Texture2D" uid="uid://cw5u5shoa7fi3" path="res://assets/sprites/Objects/Ship/Ship/Idle/3.png" id="5_83dbu"]
+[ext_resource type="Texture2D" uid="uid://lg4n545nu6hg" path="res://assets/sprites/Objects/Ship/Ship/Idle/4.png" id="6_xifwb"]
+[ext_resource type="Texture2D" uid="uid://bh0fy58f5v61s" path="res://assets/sprites/Objects/Ship/Ship/Idle/5.png" id="7_swuwe"]
+[ext_resource type="Texture2D" uid="uid://qirxb5u430e" path="res://assets/sprites/Objects/Ship/Ship/Idle/6.png" id="8_6vtx4"]
+[ext_resource type="Texture2D" uid="uid://do5v3w7dvdney" path="res://assets/sprites/Objects/Ship/Sail/No Wind/2.png" id="9_r5rhe"]
+[ext_resource type="Texture2D" uid="uid://b65nqs8ey3mtj" path="res://assets/sprites/Objects/Ship/Sail/No Wind/3.png" id="10_nwefg"]
+[ext_resource type="Texture2D" uid="uid://bikgm378nsm2n" path="res://assets/sprites/Objects/Ship/Sail/No Wind/4.png" id="11_08ed0"]
+[ext_resource type="Texture2D" uid="uid://ilk2lqjr7bu4" path="res://assets/sprites/Objects/Ship/Sail/No Wind/5.png" id="12_7tpya"]
+[ext_resource type="Texture2D" uid="uid://dexfx7eh2ad0y" path="res://assets/sprites/Objects/Ship/Sail/No Wind/6.png" id="13_q0sdf"]
+[ext_resource type="Texture2D" uid="uid://blpxe7v41wiev" path="res://assets/sprites/Objects/Ship/Sail/No Wind/7.png" id="14_u7rkd"]
+[ext_resource type="Texture2D" uid="uid://dkl3p5g5vqi08" path="res://assets/sprites/Objects/Ship/Sail/No Wind/8.png" id="15_o1i5q"]
+[ext_resource type="Texture2D" uid="uid://dd1ocyt6ve7ap" path="res://assets/sprites/Objects/Ship/Sail/Wind/1.png" id="16_83dbu"]
+[ext_resource type="Texture2D" uid="uid://ok1k2vfjmjfc" path="res://assets/sprites/Objects/Ship/Sail/Wind/2.png" id="17_xifwb"]
+[ext_resource type="Texture2D" uid="uid://bvifnewsk18yf" path="res://assets/sprites/Objects/Ship/Sail/Wind/3.png" id="18_swuwe"]
+[ext_resource type="Texture2D" uid="uid://owuj4uivpljo" path="res://assets/sprites/Objects/Ship/Sail/Wind/4.png" id="19_6vtx4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwpx1"]
+size = Vector2(105, 72)
+
+[sub_resource type="Animation" id="Animation_rxy3i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_fs4we")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SailSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_vbj2c")]
+}
+
+[sub_resource type="Animation" id="Animation_ud00f"]
+resource_name = "idle"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.566667, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_fs4we"), ExtResource("4_dschd"), ExtResource("5_83dbu"), ExtResource("6_xifwb"), ExtResource("7_swuwe"), ExtResource("8_6vtx4")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SailSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_vbj2c"), ExtResource("9_r5rhe"), ExtResource("10_nwefg"), ExtResource("11_08ed0"), ExtResource("12_7tpya"), ExtResource("13_q0sdf"), ExtResource("14_u7rkd"), ExtResource("15_o1i5q")]
+}
+
+[sub_resource type="Animation" id="Animation_r5rhe"]
+resource_name = "sailing"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SailSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("16_83dbu"), ExtResource("17_xifwb"), ExtResource("18_swuwe"), ExtResource("19_6vtx4")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g7uqr"]
+_data = {
+&"RESET": SubResource("Animation_rxy3i"),
+&"idle": SubResource("Animation_ud00f"),
+&"sailing": SubResource("Animation_r5rhe")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83dbu"]
+size = Vector2(78, 22)
+
+[node name="Ship" type="StaticBody2D"]
+script = ExtResource("1_mx31c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fs4we")
+
+[node name="SailSprite" type="Sprite2D" parent="."]
+position = Vector2(-14, -36)
+texture = ExtResource("3_vbj2c")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-14.5, -25)
+shape = SubResource("RectangleShape2D_kwpx1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g7uqr")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_83dbu")
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]

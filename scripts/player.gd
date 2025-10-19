@@ -16,6 +16,7 @@ var unlocked_attacks: Array[ShopItem] = []
 var dash_speed: float = 1200.0
 var dash_duration: float = 0.5
 var is_dashing: bool = false
+var has_chest_key: bool = false
 
 
 

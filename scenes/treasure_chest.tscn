@@ -1,0 +1,124 @@
+[gd_scene load_steps=18 format=3 uid="uid://bntetgkllf2ci"]
+
+[ext_resource type="Texture2D" uid="uid://qy3b5divulwd" path="res://assets/sprites/Objects/Chest/Idle/1.png" id="1_74h8v"]
+[ext_resource type="Script" uid="uid://bqxxvmjrrmltm" path="res://scripts/treasure_chest.gd" id="1_ykpjx"]
+[ext_resource type="Texture2D" uid="uid://cy8yd7wxii37g" path="res://assets/sprites/Objects/Chest/Unlocked/1.png" id="3_jpwgl"]
+[ext_resource type="Texture2D" uid="uid://bqbyruj4mgdyg" path="res://assets/sprites/Objects/Chest/Unlocked/2.png" id="4_ulseg"]
+[ext_resource type="Texture2D" uid="uid://ctrny47kqxhch" path="res://assets/sprites/Objects/Chest/Unlocked/3.png" id="5_msljl"]
+[ext_resource type="Texture2D" uid="uid://deddgnvja7kur" path="res://assets/sprites/Objects/Chest/Unlocked/4.png" id="6_e5he0"]
+[ext_resource type="Texture2D" uid="uid://c37iqodte5wdo" path="res://assets/sprites/Objects/Chest/Unlocked/5.png" id="7_r666e"]
+[ext_resource type="Texture2D" uid="uid://dpcichvhhvc6w" path="res://assets/sprites/Objects/Chest/Unlocked/6.png" id="8_08sud"]
+[ext_resource type="Texture2D" uid="uid://b0wp25h6yxkvo" path="res://assets/sprites/Objects/Chest/Unlocked/7.png" id="9_7i0xb"]
+[ext_resource type="Texture2D" uid="uid://dbypo4uy2ahrk" path="res://assets/sprites/Objects/Chest/Unlocked/8.png" id="10_h345r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2n24v"]
+size = Vector2(30, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0a4gm"]
+size = Vector2(39, 29)
+
+[sub_resource type="Animation" id="Animation_uapbs"]
+resource_name = "idle_locked"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_74h8v")]
+}
+
+[sub_resource type="Animation" id="Animation_f4ns0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_74h8v")]
+}
+
+[sub_resource type="Animation" id="Animation_kwmxw"]
+resource_name = "unlock"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_jpwgl"), ExtResource("4_ulseg"), ExtResource("5_msljl"), ExtResource("6_e5he0")]
+}
+
+[sub_resource type="Animation" id="Animation_xtsw0"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_r666e"), ExtResource("8_08sud"), ExtResource("9_7i0xb"), ExtResource("10_h345r")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_528jw"]
+_data = {
+&"RESET": SubResource("Animation_f4ns0"),
+&"idle_locked": SubResource("Animation_uapbs"),
+&"open": SubResource("Animation_xtsw0"),
+&"unlock": SubResource("Animation_kwmxw")
+}
+
+[node name="TreasureChest" type="StaticBody2D"]
+script = ExtResource("1_ykpjx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_74h8v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_2n24v")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_0a4gm")
+
+[node name="KeyIndicator" type="Sprite2D" parent="."]
+position = Vector2(1, -22)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_528jw")
+}
+
+[node name="PromptLabel" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -50.0
+offset_bottom = -27.0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]
