@@ -17,23 +17,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yi2d1"]
 size = Vector2(8, 15)
 
-[sub_resource type="Animation" id="Animation_65c2i"]
-resource_name = "idle"
-length = 1.05
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("1_n5cht"), ExtResource("3_lhbv3"), ExtResource("4_xppi2"), ExtResource("5_goqdr"), ExtResource("6_mt70y"), ExtResource("7_n7ck5"), ExtResource("8_vqhna"), ExtResource("9_krmhc")]
-}
-
 [sub_resource type="Animation" id="Animation_vuqj5"]
 length = 0.001
 tracks/0/type = "value"
@@ -63,6 +46,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("10_n7ck5"), ExtResource("11_vqhna"), ExtResource("12_krmhc"), ExtResource("13_65c2i")]
+}
+
+[sub_resource type="Animation" id="Animation_65c2i"]
+resource_name = "idle"
+length = 1.05
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_n5cht"), ExtResource("3_lhbv3"), ExtResource("4_xppi2"), ExtResource("5_goqdr"), ExtResource("6_mt70y"), ExtResource("7_n7ck5"), ExtResource("8_vqhna"), ExtResource("9_krmhc")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_whj0a"]

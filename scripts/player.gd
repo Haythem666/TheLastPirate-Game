@@ -107,7 +107,7 @@ func _physics_process(delta: float) -> void:
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider is RigidBody2D :
-			collider.linear_velocity.x = velocity.x * 1.5  # pousse la box
+			collider.linear_velocity.x = velocity.x * 1.2  # pousse la box
 
 
 	# Update animation

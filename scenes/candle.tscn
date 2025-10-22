@@ -1,6 +1,5 @@
 [gd_scene load_steps=15 format=3 uid="uid://cnlu2tu2dhmcs"]
 
-[ext_resource type="Script" uid="uid://cicctgf6n2pqt" path="res://scripts/candle.gd" id="1_6km6f"]
 [ext_resource type="Texture2D" uid="uid://db050poe2i3d6" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle/01.png" id="1_u0j7c"]
 [ext_resource type="Texture2D" uid="uid://glgghbdoo7ld" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle Light/01.png" id="2_j83ba"]
 [ext_resource type="Texture2D" uid="uid://d3na7bpl5oq8" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle/02.png" id="2_rpk0i"]
@@ -11,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bltyb74kr172k" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle Light/02.png" id="8_6km6f"]
 [ext_resource type="Texture2D" uid="uid://bhqqar6ijaiv0" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle Light/03.png" id="9_uglo5"]
 [ext_resource type="Texture2D" uid="uid://boc23wbyhwd55" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Decorations/Candle/Candle Light/04.png" id="10_33je5"]
+
+[sub_resource type="GDScript" id="GDScript_j83ba"]
 
 [sub_resource type="Animation" id="Animation_33je5"]
 length = 0.001
@@ -75,7 +76,7 @@ _data = {
 }
 
 [node name="Candle" type="Node2D"]
-script = ExtResource("1_6km6f")
+script = SubResource("GDScript_j83ba")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_u0j7c")
@@ -87,3 +88,4 @@ texture = ExtResource("2_j83ba")
 libraries = {
 &"": SubResource("AnimationLibrary_kre2l")
 }
+autoplay = "candleIdle"

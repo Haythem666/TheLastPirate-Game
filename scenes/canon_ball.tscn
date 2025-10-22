@@ -90,7 +90,6 @@ _data = {
 radius = 7.41723
 
 [node name="CanonBall" type="Area2D"]
-monitorable = false
 script = ExtResource("1_3yigh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

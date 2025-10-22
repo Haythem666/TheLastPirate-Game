@@ -17,6 +17,21 @@ size = Vector2(30, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0a4gm"]
 size = Vector2(39, 29)
 
+[sub_resource type="Animation" id="Animation_f4ns0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_74h8v")]
+}
+
 [sub_resource type="Animation" id="Animation_uapbs"]
 resource_name = "idle_locked"
 length = 0.1
@@ -33,8 +48,9 @@ tracks/0/keys = {
 "values": [ExtResource("1_74h8v")]
 }
 
-[sub_resource type="Animation" id="Animation_f4ns0"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_xtsw0"]
+resource_name = "open"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -42,10 +58,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("1_74h8v")]
+"values": [ExtResource("7_r666e"), ExtResource("8_08sud"), ExtResource("9_7i0xb"), ExtResource("10_h345r")]
 }
 
 [sub_resource type="Animation" id="Animation_kwmxw"]
@@ -62,22 +78,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("3_jpwgl"), ExtResource("4_ulseg"), ExtResource("5_msljl"), ExtResource("6_e5he0")]
-}
-
-[sub_resource type="Animation" id="Animation_xtsw0"]
-resource_name = "open"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.3, 0.466667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("7_r666e"), ExtResource("8_08sud"), ExtResource("9_7i0xb"), ExtResource("10_h345r")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_528jw"]

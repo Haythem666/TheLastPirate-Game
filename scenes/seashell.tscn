@@ -22,6 +22,33 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfa5o"]
 size = Vector2(33, 23)
 
+[sub_resource type="Animation" id="Animation_bk3nb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_c4j7k")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:shooting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_wagwh"]
 resource_name = "attack"
 length = 0.5
@@ -37,36 +64,19 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("3_mqciq"), ExtResource("4_biatc"), ExtResource("5_ohl8c"), ExtResource("6_sibda"), ExtResource("7_qsroy"), ExtResource("8_a3aqf")]
 }
-
-[sub_resource type="Animation" id="Animation_bk3nb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_c4j7k")]
-}
-
-[sub_resource type="Animation" id="Animation_qndl8"]
-resource_name = "hit"
-length = 0.45
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("9_onpft"), ExtResource("10_ejovr"), ExtResource("11_rjo4c"), ExtResource("12_q4uex")]
+"values": [{
+"args": [],
+"method": &"fire"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_q4uex"]
@@ -85,6 +95,34 @@ tracks/0/keys = {
 "values": [ExtResource("13_qsroy"), ExtResource("14_a3aqf"), ExtResource("15_onpft"), ExtResource("16_ejovr"), ExtResource("17_rjo4c")]
 }
 
+[sub_resource type="Animation" id="Animation_qndl8"]
+resource_name = "hit"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_onpft"), ExtResource("10_ejovr"), ExtResource("11_rjo4c"), ExtResource("12_q4uex")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:shooting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_unaos"]
 _data = {
 &"RESET": SubResource("Animation_bk3nb"),
@@ -97,6 +135,7 @@ _data = {
 size = Vector2(31, 21)
 
 [node name="Seashell" type="StaticBody2D"]
+position = Vector2(0, -8)
 script = ExtResource("1_a3aqf")
 
 [node name="HealthBar" parent="." instance=ExtResource("1_wnbag")]
@@ -104,6 +143,7 @@ offset_left = -13.0
 offset_top = -9.0
 offset_right = -13.0
 offset_bottom = -9.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_c4j7k")
@@ -113,15 +153,12 @@ position = Vector2(0.5, 8.5)
 shape = SubResource("RectangleShape2D_dfa5o")
 
 [node name="Firepoint" type="Marker2D" parent="."]
-position = Vector2(-18, 8)
+position = Vector2(-15, 10)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_unaos")
 }
-
-[node name="ShootTimer" type="Timer" parent="."]
-wait_time = 0.3
 
 [node name="Area2D" type="Area2D" parent="."]
 monitoring = false
