@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cvrrmvlec1bxh"]
+[gd_scene load_steps=33 format=3 uid="uid://cvrrmvlec1bxh"]
 
 [ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="1_rr1tt"]
 [ext_resource type="Texture2D" uid="uid://bd1bwngtxahg2" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="2_7ewpb"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bntetgkllf2ci" path="res://scenes/treasure_chest.tscn" id="17_y88yj"]
 [ext_resource type="PackedScene" uid="uid://dtiwmtnxpodq3" path="res://scenes/seashell.tscn" id="18_y88yj"]
 [ext_resource type="Texture2D" uid="uid://bawd2l7ory2sx" path="res://assets/sprites/newtransfer/arrow_plate_left.png" id="19_675ay"]
+[ext_resource type="PackedScene" uid="uid://jkuvllnmas8" path="res://scenes/ennemi_3.tscn" id="21_s0ibv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bee8o"]
 texture = ExtResource("1_rr1tt")
@@ -1708,7 +1709,7 @@ position = Vector2(884, 193)
 position = Vector2(629, 362)
 
 [node name="ChestKey" parent="." instance=ExtResource("16_bee8o")]
-position = Vector2(336, 82)
+position = Vector2(337, 85)
 
 [node name="TreasureChest" parent="." instance=ExtResource("17_y88yj")]
 position = Vector2(432, 90)
@@ -1719,3 +1720,6 @@ position = Vector2(688, 231)
 [node name="ArrowPlateLeft" type="Sprite2D" parent="."]
 position = Vector2(175, 243)
 texture = ExtResource("19_675ay")
+
+[node name="Ennemi3" parent="." instance=ExtResource("21_s0ibv")]
+position = Vector2(428, 233)

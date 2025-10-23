@@ -128,13 +128,21 @@ func open_chest():
 	give_rewards()
 
 func give_rewards():
-	# Exemple : donner des pièces ou un objet
-	if nearby_player:
-		GameManager.gain_coins(50)
-		show_reward_message("+ 50 pièces d'or!")
-		
-		# Ou donner un item spécifique
-		# nearby_player.add_item("legendary_sword")
+	
+	# Spawner les récompenses visuelles
+	var reward_spawner = load("res://scripts/reward_spawner.gd")
+	# Position au-dessus du coffre
+	var spawn_pos = global_position + Vector2(0, -20)
+
+	# 8 pièces normales + 2 diamants
+	reward_spawner.spawn_mixed_rewards(spawn_pos, 8, 2, get_tree().root)
+	
+	# Attendre un peu pour l'effet
+	await get_tree().create_timer(0.3).timeout
+	
+	# Message
+	show_reward_message("Trésor trouvé!")
+
 
 func show_locked_message():
 	var label = create_floating_label("🔒 Coffre verrouillé!", Color.RED)

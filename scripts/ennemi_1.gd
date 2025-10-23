@@ -64,3 +64,6 @@ func die():
 	SPEED = 0
 	$AnimationPlayer.play("die")
 	
+	var reward_spawner = load("res://scripts/reward_spawner.gd")
+	reward_spawner.spawn_coins(global_position, 3, get_tree().root)
+	

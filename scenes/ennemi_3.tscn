@@ -1,0 +1,202 @@
+[gd_scene load_steps=34 format=3 uid="uid://jkuvllnmas8"]
+
+[ext_resource type="Texture2D" uid="uid://dv73mqm2mo6ha" path="res://assets/sprites/OtherPersos/Fierce Tooth/01-Idle/Idle 01.png" id="1_06o3i"]
+[ext_resource type="Script" uid="uid://d38pps2d3f3fd" path="res://scripts/ennemi_3.gd" id="1_ldc2u"]
+[ext_resource type="PackedScene" uid="uid://cwfmx00y7ug17" path="res://scenes/health_bar.tscn" id="2_jpyf2"]
+[ext_resource type="Texture2D" uid="uid://l1p3batq5bdw" path="res://assets/sprites/OtherPersos/Pink Star/09-Dead Hit/Dead Hit 01.png" id="3_l5ub3"]
+[ext_resource type="Texture2D" uid="uid://dqayubhsnbadv" path="res://assets/sprites/OtherPersos/Pink Star/09-Dead Hit/Dead Hit 02.png" id="4_ldc2u"]
+[ext_resource type="Texture2D" uid="uid://b81xorloj7gl1" path="res://assets/sprites/OtherPersos/Pink Star/09-Dead Hit/Dead Hit 03.png" id="5_fb3gt"]
+[ext_resource type="Texture2D" uid="uid://d0egwlip5mmmf" path="res://assets/sprites/OtherPersos/Pink Star/09-Dead Hit/Dead Hit 04.png" id="6_d6htk"]
+[ext_resource type="Texture2D" uid="uid://btsi57hv5torb" path="res://assets/sprites/OtherPersos/Pink Star/08-Hit/Hit 01.png" id="7_qaqfu"]
+[ext_resource type="Texture2D" uid="uid://jbkw71bp7awe" path="res://assets/sprites/OtherPersos/Pink Star/08-Hit/Hit 02.png" id="8_npn36"]
+[ext_resource type="Texture2D" uid="uid://ir87vg1ompby" path="res://assets/sprites/OtherPersos/Pink Star/08-Hit/Hit 03.png" id="9_admqg"]
+[ext_resource type="Texture2D" uid="uid://bqa0mnqevjg0f" path="res://assets/sprites/OtherPersos/Pink Star/08-Hit/Hit 04.png" id="10_v7yli"]
+[ext_resource type="Texture2D" uid="uid://glktlr35ptvm" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 01.png" id="11_i8s63"]
+[ext_resource type="Texture2D" uid="uid://diowi4xad8qx3" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 02.png" id="12_62q0w"]
+[ext_resource type="Texture2D" uid="uid://b0umtwjxe1x2g" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 03.png" id="13_8eoxg"]
+[ext_resource type="Texture2D" uid="uid://l2pforb4n805" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 04.png" id="14_7j6nq"]
+[ext_resource type="Texture2D" uid="uid://b6mi7a4bxcd87" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 05.png" id="15_b4vd0"]
+[ext_resource type="Texture2D" uid="uid://bp4c0j3a12ypu" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 06.png" id="16_njssl"]
+[ext_resource type="AudioStream" uid="uid://dcsukv6i4psr1" path="res://assets/sounds/Monster hit sound (Sound effect) (mp3cut.net).wav" id="17_beuoq"]
+[ext_resource type="Texture2D" uid="uid://nlglgtgpp0nb" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 07.png" id="17_lstup"]
+[ext_resource type="Texture2D" uid="uid://b8ne1hxvks4qf" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 08.png" id="18_6mt4u"]
+[ext_resource type="Texture2D" uid="uid://xxmffhlrn0yq" path="res://assets/sprites/OtherPersos/Pink Star/07-Attack/Attack 01.png" id="20_npn36"]
+[ext_resource type="Texture2D" uid="uid://cji7ym6m5ox78" path="res://assets/sprites/OtherPersos/Pink Star/07-Attack/Attack 02.png" id="21_admqg"]
+[ext_resource type="Texture2D" uid="uid://c46hbkqxig8hj" path="res://assets/sprites/OtherPersos/Pink Star/07-Attack/Attack 03.png" id="22_v7yli"]
+[ext_resource type="Texture2D" uid="uid://dva3wwl3cgkjn" path="res://assets/sprites/OtherPersos/Pink Star/07-Attack/Attack 04.png" id="23_i8s63"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lstup"]
+radius = 24.0
+height = 48.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6mt4u"]
+radius = 22.0
+height = 50.0
+
+[sub_resource type="Animation" id="Animation_yq3jl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_06o3i")]
+}
+
+[sub_resource type="Animation" id="Animation_uy2x8"]
+resource_name = "die"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.1, 0.166667, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_l5ub3"), ExtResource("4_ldc2u"), ExtResource("5_fb3gt"), ExtResource("6_d6htk")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_iwov4"]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_qaqfu"), ExtResource("8_npn36"), ExtResource("9_admqg"), ExtResource("10_v7yli")]
+}
+
+[sub_resource type="Animation" id="Animation_7gb7k"]
+resource_name = "run"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_i8s63"), ExtResource("12_62q0w"), ExtResource("13_8eoxg"), ExtResource("14_7j6nq"), ExtResource("15_b4vd0"), ExtResource("16_njssl"), ExtResource("17_lstup"), ExtResource("18_6mt4u")]
+}
+
+[sub_resource type="Animation" id="Animation_62q0w"]
+resource_name = "attack"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("20_npn36"), ExtResource("21_admqg"), ExtResource("22_v7yli"), ExtResource("23_i8s63"), ExtResource("20_npn36"), ExtResource("21_admqg"), ExtResource("22_v7yli"), ExtResource("23_i8s63")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uy2x8"]
+_data = {
+&"RESET": SubResource("Animation_yq3jl"),
+&"attack": SubResource("Animation_62q0w"),
+&"die": SubResource("Animation_uy2x8"),
+&"hit": SubResource("Animation_iwov4"),
+&"run": SubResource("Animation_7gb7k")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6htk"]
+size = Vector2(163, 55.375)
+
+[node name="Ennemi3" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_ldc2u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("1_06o3i")
+
+[node name="HealthBar" parent="." instance=ExtResource("2_jpyf2")]
+offset_left = -13.0
+offset_top = -32.0
+offset_right = -13.0
+offset_bottom = -32.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_lstup")
+
+[node name="Hitbox2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox2"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_6mt4u")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-31, 1)
+target_position = Vector2(0, 42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uy2x8")
+}
+
+[node name="WallRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(-51, 0)
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(27, -59)
+stream = ExtResource("17_beuoq")
+
+[node name="AttackDetector2" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector2"]
+position = Vector2(-104, 0)
+shape = SubResource("RectangleShape2D_d6htk")
+debug_color = Color(0.946754, 0.210036, 0.256555, 0.42)
+
+[node name="AttackDetector4" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AttackDetector4"]
+position = Vector2(104, 0)
+shape = SubResource("RectangleShape2D_d6htk")
+debug_color = Color(0.946754, 0.210036, 0.256555, 0.42)
+
+[connection signal="area_entered" from="Hitbox2" to="." method="_on_hitbox_2_area_entered"]
+[connection signal="body_entered" from="AttackDetector2" to="." method="_on_attack_detector_2_body_entered"]
+[connection signal="body_entered" from="AttackDetector4" to="." method="_on_attack_detector_4_body_entered"]

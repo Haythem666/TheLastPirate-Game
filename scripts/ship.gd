@@ -1,8 +1,16 @@
-extends Node2D
+extends StaticBody2D
 
 # Vitesses
 @export var speed: float = 150.0
 @export var acceleration: float = 5.0
+
+# Flottement (oscillation)
+@export var float_amplitude: float = 5.0  # hauteur du mouvement
+@export var float_speed: float = 2.0      # vitesse de l’oscillation
+
+var base_y: float = 0.0                   # position verticale de base
+var float_timer: float = 0.0              # timer interne
+
 
 # État
 var is_player_near: bool = false
@@ -17,6 +25,8 @@ var velocity: Vector2 = Vector2.ZERO
 @onready var interaction_area: Area2D = $InteractionArea
 
 func _ready():
+	base_y = position.y
+	
 	# Connecter les signaux
 	interaction_area.area_entered.connect(_on_interaction_area_area_entered)
 	interaction_area.area_exited.connect(_on_interaction_area_area_exited)
@@ -39,6 +49,9 @@ func _process(delta: float):
 	# Contrôler le bateau
 	if is_player_on_board:
 		control_ship(delta)
+		
+	float_timer += delta * float_speed
+	position.y = base_y + sin(float_timer) * float_amplitude
 
 
 

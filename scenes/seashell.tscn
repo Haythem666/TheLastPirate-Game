@@ -134,7 +134,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msg4g"]
 size = Vector2(31, 21)
 
-[node name="Seashell" type="StaticBody2D"]
+[node name="Seashell" type="StaticBody2D" groups=["enemies"]]
 position = Vector2(0, -8)
 script = ExtResource("1_a3aqf")
 

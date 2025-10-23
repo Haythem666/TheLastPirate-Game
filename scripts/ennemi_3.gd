@@ -1,14 +1,20 @@
 extends CharacterBody2D
 
+@onready var attack_detector: Area2D = $AttackDetector
+@onready var attack_detector_4: Area2D = $AttackDetector4
 
-var SPEED = -60.0
+@export var attack_push_speed: float = 200.0   # vitesse de la poussée
+@export var attack_push_duration: float = 0.2  # durée de la poussée (en secondes)
+
+
+var SPEED = -40.0
 
 var facing_right = false
 var dead = false
 
 var attacking = false
 
-var max_health = 5
+var max_health = 10
 var health
 
 func _ready() -> void:
@@ -42,11 +48,6 @@ func flip():
 		SPEED = abs(SPEED) * -1
 	
 
-
-func _on_hitbox_area_entered(area: Area2D) -> void:
-	if area.get_parent() is Player && !dead:
-		area.get_parent().take_damage(1)
-
 func take_damage(damage_amount):
 	health -= damage_amount
 	
@@ -68,17 +69,15 @@ func die():
 	$AnimationPlayer.play("die")
 	
 	var reward_spawner = load("res://scripts/reward_spawner.gd")
-	reward_spawner.spawn_mixed_rewards(global_position,5,1,get_tree().root)
+	reward_spawner.spawn_mixed_rewards(global_position,2,3,get_tree().root)
 
 func hit():
 	attacking=true
-	$AttackDetector.monitoring=true
-	$AttackDetector2.monitoring=true
+	attack_detector.monitoring=true
 	
 func end_of_hit():
 	attacking = false
-	$AttackDetector.monitoring=false
-	$AttackDetector2.monitoring=false
+	attack_detector.monitoring=false
 	$AnimationPlayer.play("run")
 
 	
@@ -92,14 +91,17 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 		$AnimationPlayer.play("attack")
 		
 		
-		$AttackDetector.monitoring = true
-		$AttackDetector2.monitoring = true
+		attack_detector.monitoring = true
+		attack_detector_4.monitoring=true
 		
+		var direction = 1 if facing_right else -1
+		apply_attack_push(direction)
+
 		# attendre fin animation
 		var attack_length = $AnimationPlayer.current_animation_length
 		await get_tree().create_timer(attack_length).timeout
 		end_of_hit()
-
+		
 
 func _on_player_detector_2_body_entered(body: Node2D) -> void:
 	if not attacking and not dead:
@@ -108,17 +110,36 @@ func _on_player_detector_2_body_entered(body: Node2D) -> void:
 		$AnimationPlayer.play("attack")
 		
 		
-		$AttackDetector.monitoring = true
-		$AttackDetector2.monitoring = true
+		attack_detector.monitoring = true
+		attack_detector_4.monitoring=true
+		
+		var direction = 1 if facing_right else -1
+		apply_attack_push(direction)
+
+		
 		# attendre fin animation
 		var attack_length = $AnimationPlayer.current_animation_length
 		await get_tree().create_timer(attack_length).timeout
 		end_of_hit()
 
 
-func _on_attack_detector_body_entered(body: Node2D) -> void:
-	get_tree().reload_current_scene()
+
 
 
 func _on_attack_detector_2_body_entered(body: Node2D) -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_hitbox_2_area_entered(area: Area2D) -> void:
+	if area.get_parent() is Player && !dead:
+		area.get_parent().take_damage(1)
+
+
+func _on_attack_detector_4_body_entered(body: Node2D) -> void:
+	get_tree().reload_current_scene()
+	
+func apply_attack_push(direction: int) -> void:
+	var original_speed = SPEED
+	SPEED = direction * attack_push_speed
+	await get_tree().create_timer(attack_push_duration).timeout
+	SPEED = original_speed
