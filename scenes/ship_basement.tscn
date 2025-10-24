@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://5gdlusmlu77d"]
+[gd_scene load_steps=36 format=3 uid="uid://5gdlusmlu77d"]
 
 [ext_resource type="Script" uid="uid://63temy8lce85" path="res://scripts/ship_basement.gd" id="1_20has"]
 [ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="2_thhbe"]
@@ -18,7 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://drvjc7n7lk0me" path="res://scenes/ennemi_1.tscn" id="16_6ribx"]
 [ext_resource type="PackedScene" uid="uid://dtiwmtnxpodq3" path="res://scenes/seashell.tscn" id="17_ewj3w"]
 [ext_resource type="PackedScene" uid="uid://dligqp7h76lsg" path="res://scenes/box.tscn" id="18_i7pqe"]
-[ext_resource type="PackedScene" uid="uid://dhfkxloj58wy4" path="res://scenes/button.tscn" id="19_fyv0t"]
+[ext_resource type="PackedScene" uid="uid://cucqhax350vmx" path="res://scenes/y_plateform.tscn" id="20_i7pqe"]
+[ext_resource type="PackedScene" uid="uid://1s056ube34cb" path="res://scenes/ennemi_2.tscn" id="21_fyv0t"]
+[ext_resource type="PackedScene" uid="uid://cgujkx0s3v0k" path="res://scenes/chest_key.tscn" id="22_vjdvp"]
+[ext_resource type="PackedScene" uid="uid://c8ef23vqvrqol" path="res://scenes/canon.tscn" id="23_fyv0t"]
+[ext_resource type="PackedScene" uid="uid://du2icip2dhsul" path="res://scenes/button_2.tscn" id="24_ljik5"]
+[ext_resource type="PackedScene" uid="uid://bcy6m5lwm2rg1" path="res://scenes/checkpoint.tscn" id="24_vjdvp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i7pqe"]
 texture = ExtResource("2_thhbe")
@@ -1703,7 +1708,7 @@ color = Color(0, 0, 0, 0.9)
 [node name="Lighting" type="CanvasLayer" parent="."]
 layer = 10
 script = ExtResource("1_20has")
-darkness_intensity = 0.9
+darkness_intensity = 0.7
 
 [node name="Door" parent="." instance=ExtResource("13_leym3")]
 position = Vector2(60, 77)
@@ -1727,19 +1732,38 @@ position = Vector2(721, 141)
 position = Vector2(596, 143)
 
 [node name="Ennemi1" parent="." instance=ExtResource("16_6ribx")]
-position = Vector2(328, 365)
+position = Vector2(483, 236)
 
 [node name="Ennemi2" parent="." instance=ExtResource("16_6ribx")]
 position = Vector2(433, 366)
 
 [node name="Ennemi3" parent="." instance=ExtResource("16_6ribx")]
-position = Vector2(222, 363)
+position = Vector2(787, 237)
 
 [node name="Seashell" parent="." instance=ExtResource("17_ewj3w")]
 position = Vector2(870, 343)
 
 [node name="Box" parent="." instance=ExtResource("18_i7pqe")]
 position = Vector2(530, 97)
+can_sleep = false
 
-[node name="Button" parent="." instance=ExtResource("19_fyv0t")]
-position = Vector2(651, 246)
+[node name="ChainPendule3" parent="." instance=ExtResource("15_h1us5")]
+position = Vector2(255, 141)
+
+[node name="yPlateform" parent="." instance=ExtResource("20_i7pqe")]
+position = Vector2(89, 266)
+
+[node name="Ennemi4" parent="." instance=ExtResource("21_fyv0t")]
+position = Vector2(612, 382)
+
+[node name="ChestKey" parent="." instance=ExtResource("22_vjdvp")]
+position = Vector2(912, 349)
+
+[node name="canon" parent="." instance=ExtResource("23_fyv0t")]
+position = Vector2(173, 235)
+
+[node name="Checkpoint" parent="." instance=ExtResource("24_vjdvp")]
+position = Vector2(105, 86)
+
+[node name="Button2" parent="." instance=ExtResource("24_ljik5")]
+position = Vector2(592, 103)

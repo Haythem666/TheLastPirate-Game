@@ -1,6 +1,5 @@
-[gd_scene load_steps=34 format=3 uid="uid://jkuvllnmas8"]
+[gd_scene load_steps=35 format=3 uid="uid://jkuvllnmas8"]
 
-[ext_resource type="Texture2D" uid="uid://dv73mqm2mo6ha" path="res://assets/sprites/OtherPersos/Fierce Tooth/01-Idle/Idle 01.png" id="1_06o3i"]
 [ext_resource type="Script" uid="uid://d38pps2d3f3fd" path="res://scripts/ennemi_3.gd" id="1_ldc2u"]
 [ext_resource type="PackedScene" uid="uid://cwfmx00y7ug17" path="res://scenes/health_bar.tscn" id="2_jpyf2"]
 [ext_resource type="Texture2D" uid="uid://l1p3batq5bdw" path="res://assets/sprites/OtherPersos/Pink Star/09-Dead Hit/Dead Hit 01.png" id="3_l5ub3"]
@@ -33,68 +32,16 @@ height = 48.0
 radius = 22.0
 height = 50.0
 
-[sub_resource type="Animation" id="Animation_yq3jl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_06o3i")]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6htk"]
+size = Vector2(163, 55.375)
 
-[sub_resource type="Animation" id="Animation_uy2x8"]
-resource_name = "die"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.1, 0.166667, 0.266667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("3_l5ub3"), ExtResource("4_ldc2u"), ExtResource("5_fb3gt"), ExtResource("6_d6htk")]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0666667),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npn36"]
+size = Vector2(166.5, 47.5)
 
-[sub_resource type="Animation" id="Animation_iwov4"]
-resource_name = "hit"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("7_qaqfu"), ExtResource("8_npn36"), ExtResource("9_admqg"), ExtResource("10_v7yli")]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_admqg"]
+size = Vector2(159, 53)
 
-[sub_resource type="Animation" id="Animation_7gb7k"]
+[sub_resource type="Animation" id="Animation_qaqfu"]
 resource_name = "run"
 length = 0.7
 loop_mode = 1
@@ -111,9 +58,8 @@ tracks/0/keys = {
 "values": [ExtResource("11_i8s63"), ExtResource("12_62q0w"), ExtResource("13_8eoxg"), ExtResource("14_7j6nq"), ExtResource("15_b4vd0"), ExtResource("16_njssl"), ExtResource("17_lstup"), ExtResource("18_6mt4u")]
 }
 
-[sub_resource type="Animation" id="Animation_62q0w"]
-resource_name = "attack"
-length = 1.5
+[sub_resource type="Animation" id="Animation_npn36"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -121,30 +67,74 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("20_npn36"), ExtResource("21_admqg"), ExtResource("22_v7yli"), ExtResource("23_i8s63"), ExtResource("20_npn36"), ExtResource("21_admqg"), ExtResource("22_v7yli"), ExtResource("23_i8s63")]
+"values": [ExtResource("11_i8s63")]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uy2x8"]
+[sub_resource type="Animation" id="Animation_admqg"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.533333, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("20_npn36"), ExtResource("21_admqg"), ExtResource("22_v7yli"), ExtResource("23_i8s63")]
+}
+
+[sub_resource type="Animation" id="Animation_v7yli"]
+resource_name = "die"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_l5ub3"), ExtResource("4_ldc2u"), ExtResource("5_fb3gt"), ExtResource("6_d6htk")]
+}
+
+[sub_resource type="Animation" id="Animation_i8s63"]
+resource_name = "hit"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_qaqfu"), ExtResource("8_npn36"), ExtResource("9_admqg"), ExtResource("10_v7yli")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_62q0w"]
 _data = {
-&"RESET": SubResource("Animation_yq3jl"),
-&"attack": SubResource("Animation_62q0w"),
-&"die": SubResource("Animation_uy2x8"),
-&"hit": SubResource("Animation_iwov4"),
-&"run": SubResource("Animation_7gb7k")
+&"RESET": SubResource("Animation_npn36"),
+&"attack": SubResource("Animation_admqg"),
+&"die": SubResource("Animation_v7yli"),
+&"hit": SubResource("Animation_i8s63"),
+&"run": SubResource("Animation_qaqfu")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6htk"]
-size = Vector2(163, 55.375)
 
 [node name="Ennemi3" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_ldc2u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.7, 1.7)
-texture = ExtResource("1_06o3i")
+texture = ExtResource("11_i8s63")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_jpyf2")]
 offset_left = -13.0
@@ -166,11 +156,6 @@ shape = SubResource("CapsuleShape2D_6mt4u")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(-31, 1)
 target_position = Vector2(0, 42)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_uy2x8")
-}
 
 [node name="WallRayCast" type="RayCast2D" parent="."]
 target_position = Vector2(-51, 0)
@@ -197,6 +182,31 @@ position = Vector2(104, 0)
 shape = SubResource("RectangleShape2D_d6htk")
 debug_color = Color(0.946754, 0.210036, 0.256555, 0.42)
 
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(-103.75, -1.75)
+shape = SubResource("RectangleShape2D_npn36")
+
+[node name="PlayerDetector2" type="Area2D" parent="."]
+position = Vector2(48, 6)
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector2"]
+position = Vector2(55.5, -6.5)
+shape = SubResource("RectangleShape2D_admqg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_62q0w")
+}
+autoplay = "run"
+
 [connection signal="area_entered" from="Hitbox2" to="." method="_on_hitbox_2_area_entered"]
 [connection signal="body_entered" from="AttackDetector2" to="." method="_on_attack_detector_2_body_entered"]
 [connection signal="body_entered" from="AttackDetector4" to="." method="_on_attack_detector_4_body_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_entered" from="PlayerDetector2" to="." method="_on_player_detector_2_body_entered"]

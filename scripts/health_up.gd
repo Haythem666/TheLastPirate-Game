@@ -10,4 +10,4 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		
 		player.update_ui()
 
-		queue_free()  # supprime le pickup
+		queue_free()  

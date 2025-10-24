@@ -2,7 +2,7 @@ extends Node
 
 signal gained_coins(int)
 
-var coins : int = 1000
+var coins : int = 0
 
 var current_checkpoint  : Checkpoint
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cvrrmvlec1bxh"]
+[gd_scene load_steps=35 format=3 uid="uid://cvrrmvlec1bxh"]
 
 [ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="1_rr1tt"]
 [ext_resource type="Texture2D" uid="uid://bd1bwngtxahg2" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="2_7ewpb"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dtiwmtnxpodq3" path="res://scenes/seashell.tscn" id="18_y88yj"]
 [ext_resource type="Texture2D" uid="uid://bawd2l7ory2sx" path="res://assets/sprites/newtransfer/arrow_plate_left.png" id="19_675ay"]
 [ext_resource type="PackedScene" uid="uid://jkuvllnmas8" path="res://scenes/ennemi_3.tscn" id="21_s0ibv"]
+[ext_resource type="PackedScene" uid="uid://dligqp7h76lsg" path="res://scenes/box.tscn" id="22_kqmrt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bee8o"]
 texture = ExtResource("1_rr1tt")
@@ -1670,6 +1671,9 @@ sources/7 = SubResource("TileSetAtlasSource_ifqri")
 sources/10 = SubResource("TileSetAtlasSource_675ay")
 sources/11 = SubResource("TileSetAtlasSource_q41qf")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kqmrt"]
+friction = 1.5
+
 [node name="level4" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1709,7 +1713,7 @@ position = Vector2(884, 193)
 position = Vector2(629, 362)
 
 [node name="ChestKey" parent="." instance=ExtResource("16_bee8o")]
-position = Vector2(337, 85)
+position = Vector2(579, 81)
 
 [node name="TreasureChest" parent="." instance=ExtResource("17_y88yj")]
 position = Vector2(432, 90)
@@ -1722,4 +1726,12 @@ position = Vector2(175, 243)
 texture = ExtResource("19_675ay")
 
 [node name="Ennemi3" parent="." instance=ExtResource("21_s0ibv")]
-position = Vector2(428, 233)
+position = Vector2(427, 230)
+
+[node name="Box" parent="." instance=ExtResource("22_kqmrt")]
+position = Vector2(462, 367)
+physics_material_override = SubResource("PhysicsMaterial_kqmrt")
+gravity_scale = 0.5
+lock_rotation = false
+linear_damp = 0.1
+angular_damp = 0.1

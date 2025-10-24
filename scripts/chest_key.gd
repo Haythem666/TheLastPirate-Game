@@ -47,7 +47,7 @@ func collect_key(player: Player):
 func show_collection_message():
 	# Créer un label temporaire
 	var label = Label.new()
-	label.text = "🗝️ Clé du coffre obtenue!"
+	label.text = "🗝️ Key collected!"
 	label.add_theme_font_size_override("font_size", 20)
 	label.modulate = Color.YELLOW
 	
@@ -60,6 +60,7 @@ func show_collection_message():
 	var tween = create_tween()
 	tween.tween_property(label, "position:y", label.position.y - 30, 1.0)
 	tween.parallel().tween_property(label, "modulate:a", 0.0, 1.0)
+
 
 	
 	await tween.finished

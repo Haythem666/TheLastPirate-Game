@@ -14,9 +14,9 @@ func load_shop_items():
 	# Attaque rapide
 	var quick_attack = ShopItem.new()
 	quick_attack.id = "quick_attack"
-	quick_attack.name = "Attaque Rapide"
-	quick_attack.description = "Une attaque rapide qui inflige moins de dégâts mais est plus véloce"
-	quick_attack.price = 50
+	quick_attack.name = "Quick Attack"
+	quick_attack.description = "[Z] Quick Attack — faster but weaker"
+	quick_attack.price = 10
 	quick_attack.item_type = "attack"
 	quick_attack.attack_animation = "quick_attack"
 	quick_attack.attack_damage = 1
@@ -27,9 +27,9 @@ func load_shop_items():
 	# Attaque lourde
 	var heavy_attack = ShopItem.new()
 	heavy_attack.id = "heavy_attack"
-	heavy_attack.name = "Attaque Lourde"
-	heavy_attack.description = "Une attaque puissante qui inflige 2x les dégâts"
-	heavy_attack.price = 100
+	heavy_attack.name = "Heavy Attack"
+	heavy_attack.description = "[X] Heavy Attack — slower but stronger"
+	heavy_attack.price = 20
 	heavy_attack.item_type = "attack"
 	heavy_attack.attack_animation = "heavy_attack"
 	heavy_attack.icon= load("res://assets/sprites/MainPerso/17-Attack 3/Attack 3 02.png")
@@ -39,14 +39,13 @@ func load_shop_items():
 	
 	var throw_sword = ShopItem.new()
 	throw_sword.id = "throw_sword"
-	throw_sword.name = "Lancer d'Épée"
-	throw_sword.description = "Lance ton épée qui traverse les ennemis"
+	throw_sword.name = "Throw Sword"
+	throw_sword.description = "Throw your sword with [Ctrl]"
 	throw_sword.price = 150
 	throw_sword.item_type = "ability"
 	throw_sword.attack_animation = "thrown_sword"
 	throw_sword.icon = load("res://assets/sprites/MainPerso/Sword/22-Sword Spinning/Sword Spinning 01.png")
 	throw_sword.attack_damage = 3
-	#throw_sword.attack_input="attack"
 	available_items.append(throw_sword)
 	
 	# Vie supplémentaire
@@ -63,7 +62,7 @@ func load_shop_items():
 	var dash = ShopItem.new()
 	dash.id = "dash"
 	dash.name = "Dash"
-	dash.description = "You can dash using Shift"
+	dash.description = "You can dash using [Shift]"
 	dash.price = 80
 	dash.item_type = "ability"
 	dash.icon= load("res://assets/sprites/MainPerso/14-Hit Sword/Hit Sword 01.png")

@@ -1,17 +1,3 @@
-#extends Node2D
-#
-#func _ready() -> void:
-	#$AnimationPlayer.play("idle")
-#
-#
-#func _on_area_2d_area_entered(area: Area2D) -> void:
-	#if area.get_parent().name == "PlayerTest":
-		#GameManager.gain_coins(1)
-		#queue_free()
-#
-	#
-
-
 extends Node2D
 
 @onready var sprite: Sprite2D = $Sprite2D
@@ -48,10 +34,7 @@ func setup_as_reward(spawn_position: Vector2, launch_direction: Vector2, value: 
 	is_reward = true
 	global_position = spawn_position
 	coin_value = value
-	#freeze = false  # Activer la physique
 	
-	# Appliquer une impulsion pour l'effet de projection
-	#apply_central_impulse(launch_direction)
 
 func _enable_collection():
 	"""Active la possibilité de collecter après un délai"""

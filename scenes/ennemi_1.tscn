@@ -1,29 +1,23 @@
-[gd_scene load_steps=33 format=3 uid="uid://drvjc7n7lk0me"]
+[gd_scene load_steps=27 format=3 uid="uid://drvjc7n7lk0me"]
 
 [ext_resource type="Texture2D" uid="uid://dv73mqm2mo6ha" path="res://assets/sprites/OtherPersos/Fierce Tooth/01-Idle/Idle 01.png" id="1_au2n8"]
 [ext_resource type="Script" uid="uid://bks3hj4d05osg" path="res://scripts/ennemi_1.gd" id="1_mgia5"]
-[ext_resource type="Texture2D" uid="uid://l1p3batq5bdw" path="res://assets/sprites/OtherPersos/Pink Star/09-Dead Hit/Dead Hit 01.png" id="4_50sfn"]
-[ext_resource type="Texture2D" uid="uid://dqayubhsnbadv" path="res://assets/sprites/OtherPersos/Pink Star/09-Dead Hit/Dead Hit 02.png" id="5_mgiwt"]
-[ext_resource type="Texture2D" uid="uid://b81xorloj7gl1" path="res://assets/sprites/OtherPersos/Pink Star/09-Dead Hit/Dead Hit 03.png" id="6_pcna1"]
-[ext_resource type="Texture2D" uid="uid://d0egwlip5mmmf" path="res://assets/sprites/OtherPersos/Pink Star/09-Dead Hit/Dead Hit 04.png" id="7_ebyjp"]
-[ext_resource type="Texture2D" uid="uid://btsi57hv5torb" path="res://assets/sprites/OtherPersos/Pink Star/08-Hit/Hit 01.png" id="8_a5kg3"]
-[ext_resource type="Texture2D" uid="uid://jbkw71bp7awe" path="res://assets/sprites/OtherPersos/Pink Star/08-Hit/Hit 02.png" id="9_j5elq"]
-[ext_resource type="Texture2D" uid="uid://ir87vg1ompby" path="res://assets/sprites/OtherPersos/Pink Star/08-Hit/Hit 03.png" id="10_6l15s"]
-[ext_resource type="Texture2D" uid="uid://bqa0mnqevjg0f" path="res://assets/sprites/OtherPersos/Pink Star/08-Hit/Hit 04.png" id="11_sa14f"]
-[ext_resource type="Texture2D" uid="uid://glktlr35ptvm" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 01.png" id="12_8lv5q"]
-[ext_resource type="Texture2D" uid="uid://diowi4xad8qx3" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 02.png" id="13_2ifsc"]
+[ext_resource type="Texture2D" uid="uid://bx6muvnbq24ew" path="res://assets/sprites/OtherPersos/Fierce Tooth/09-Dead Hit/Dead Hit 01.png" id="4_akc4u"]
+[ext_resource type="Texture2D" uid="uid://cvs3u7nj60ddn" path="res://assets/sprites/OtherPersos/Fierce Tooth/09-Dead Hit/Dead Hit 02.png" id="5_onwva"]
+[ext_resource type="Texture2D" uid="uid://cunxgb5rrpsne" path="res://assets/sprites/OtherPersos/Fierce Tooth/09-Dead Hit/Dead Hit 03.png" id="6_7gb7k"]
+[ext_resource type="Texture2D" uid="uid://dpx8w4skmyeqn" path="res://assets/sprites/OtherPersos/Fierce Tooth/09-Dead Hit/Dead Hit 04.png" id="7_yq3jl"]
+[ext_resource type="Texture2D" uid="uid://bxi7gyjv3ksas" path="res://assets/sprites/OtherPersos/Fierce Tooth/02-Run/Run 01.png" id="8_uy2x8"]
+[ext_resource type="Texture2D" uid="uid://ceqxkkgbwpdmm" path="res://assets/sprites/OtherPersos/Fierce Tooth/02-Run/Run 02.png" id="9_1mro3"]
+[ext_resource type="Texture2D" uid="uid://qdnmnvwujarj" path="res://assets/sprites/OtherPersos/Fierce Tooth/02-Run/Run 03.png" id="10_lw6c3"]
+[ext_resource type="Texture2D" uid="uid://7i7wb2j7n4b5" path="res://assets/sprites/OtherPersos/Fierce Tooth/02-Run/Run 04.png" id="11_wi45f"]
+[ext_resource type="Texture2D" uid="uid://bc6q5eej5r4sr" path="res://assets/sprites/OtherPersos/Fierce Tooth/02-Run/Run 05.png" id="12_iwov4"]
+[ext_resource type="Texture2D" uid="uid://ioc8utcceb35" path="res://assets/sprites/OtherPersos/Fierce Tooth/02-Run/Run 06.png" id="13_73in8"]
 [ext_resource type="PackedScene" uid="uid://cwfmx00y7ug17" path="res://scenes/health_bar.tscn" id="13_akc4u"]
-[ext_resource type="Texture2D" uid="uid://b0umtwjxe1x2g" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 03.png" id="14_5vwhf"]
-[ext_resource type="Texture2D" uid="uid://l2pforb4n805" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 04.png" id="15_l5f5d"]
-[ext_resource type="Texture2D" uid="uid://b6mi7a4bxcd87" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 05.png" id="16_5xn5j"]
-[ext_resource type="Texture2D" uid="uid://bp4c0j3a12ypu" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 06.png" id="17_nuykt"]
+[ext_resource type="Texture2D" uid="uid://drsywiw0mmgdr" path="res://assets/sprites/OtherPersos/Fierce Tooth/08-Hit/Hit 01.png" id="14_uy2x8"]
+[ext_resource type="Texture2D" uid="uid://5dmqn3ifkurw" path="res://assets/sprites/OtherPersos/Fierce Tooth/08-Hit/Hit 02.png" id="15_1mro3"]
+[ext_resource type="Texture2D" uid="uid://8nm2j5fpahde" path="res://assets/sprites/OtherPersos/Fierce Tooth/08-Hit/Hit 03.png" id="16_lw6c3"]
+[ext_resource type="Texture2D" uid="uid://bq6l0yfxfxrqk" path="res://assets/sprites/OtherPersos/Fierce Tooth/08-Hit/Hit 04.png" id="17_wi45f"]
 [ext_resource type="AudioStream" uid="uid://dcsukv6i4psr1" path="res://assets/sounds/Monster hit sound (Sound effect) (mp3cut.net).wav" id="18_1mro3"]
-[ext_resource type="Texture2D" uid="uid://nlglgtgpp0nb" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 07.png" id="18_vnwou"]
-[ext_resource type="Texture2D" uid="uid://b8ne1hxvks4qf" path="res://assets/sprites/OtherPersos/Pink Star/01-Idle/Idle 08.png" id="19_t3eoj"]
-[ext_resource type="Texture2D" uid="uid://xxmffhlrn0yq" path="res://assets/sprites/OtherPersos/Pink Star/07-Attack/Attack 01.png" id="20_67yql"]
-[ext_resource type="Texture2D" uid="uid://cji7ym6m5ox78" path="res://assets/sprites/OtherPersos/Pink Star/07-Attack/Attack 02.png" id="21_knj3c"]
-[ext_resource type="Texture2D" uid="uid://c46hbkqxig8hj" path="res://assets/sprites/OtherPersos/Pink Star/07-Attack/Attack 03.png" id="22_ni5ml"]
-[ext_resource type="Texture2D" uid="uid://dva3wwl3cgkjn" path="res://assets/sprites/OtherPersos/Pink Star/07-Attack/Attack 04.png" id="23_lvyhk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kpe6i"]
 radius = 8.0
@@ -60,7 +54,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.0333333, 0.1, 0.166667, 0.266667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("4_50sfn"), ExtResource("5_mgiwt"), ExtResource("6_pcna1"), ExtResource("7_ebyjp")]
+"values": [ExtResource("4_akc4u"), ExtResource("5_onwva"), ExtResource("6_7gb7k"), ExtResource("7_yq3jl")]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -90,12 +84,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.233333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("8_a5kg3"), ExtResource("9_j5elq"), ExtResource("10_6l15s"), ExtResource("11_sa14f")]
+"values": [ExtResource("14_uy2x8"), ExtResource("15_1mro3"), ExtResource("16_lw6c3"), ExtResource("17_wi45f")]
 }
 
 [sub_resource type="Animation" id="Animation_7gb7k"]
 resource_name = "run"
-length = 0.7
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -104,27 +98,15 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("12_8lv5q"), ExtResource("13_2ifsc"), ExtResource("14_5vwhf"), ExtResource("15_l5f5d"), ExtResource("16_5xn5j"), ExtResource("17_nuykt"), ExtResource("18_vnwou"), ExtResource("19_t3eoj")]
+"values": [ExtResource("8_uy2x8"), ExtResource("9_1mro3"), ExtResource("10_lw6c3"), ExtResource("11_wi45f"), ExtResource("12_iwov4"), ExtResource("13_73in8")]
 }
 
 [sub_resource type="Animation" id="Animation_62q0w"]
 resource_name = "attack"
 length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("20_67yql"), ExtResource("21_knj3c"), ExtResource("22_ni5ml"), ExtResource("23_lvyhk"), ExtResource("20_67yql"), ExtResource("21_knj3c"), ExtResource("22_ni5ml"), ExtResource("23_lvyhk")]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uy2x8"]
 _data = {

@@ -33,19 +33,15 @@ func _apply_item_data():
 	if not item:
 		return
 	
-	print("=== Configuration carte : ", item.name, " ===")
-	
 	# Vérifier que tous les nodes existent
-	if not name_label:
-		push_error("name_label introuvable ! Vérifie la hiérarchie de shop_item_card.tscn")
-		return
-	
+	#if not name_label:
+		#push_error("name_label introuvable ! Vérifie la hiérarchie de shop_item_card.tscn")
+		#return
+	#
 	# Icône
 	if item.icon:
 		icon.texture = item.icon
-		print("✓ Icône chargée : ", item.icon.resource_path)
-	else:
-		print("⚠ Pas d'icône pour ", item.name)
+	
 	
 	# Textes
 	name_label.text = item.name
@@ -66,7 +62,7 @@ func update_appearance():
 	if item.is_purchased:
 		purchase_button.visible = false
 		status_label.visible = true
-		status_label.text = "✓ ACHETÉ"
+		status_label.text = "✓ DONE"
 		modulate = Color(0.7, 0.7, 0.7)
 	else:
 		purchase_button.visible = true
@@ -79,11 +75,4 @@ func update_appearance():
 			purchase_button.disabled = true
 
 func _on_purchase_pressed():
-	print("=== ACHAT DEMANDÉ ===")
-	print("Item : ", item.name)
-	print("Prix : ", item.price)
-	print("Coins actuels : ", GameManager.coins)
-	print("Peut acheter ? ", GameManager.coins >= item.price)
-	print("Déjà acheté ? ", item.is_purchased)
-	
 	emit_signal("purchase_requested", item)

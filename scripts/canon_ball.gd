@@ -1,4 +1,3 @@
-#extends Node2D
 extends Area2D
 
 var direction 
@@ -14,12 +13,9 @@ func _ready() -> void:
 	if is_instance_valid(self):
 		queue_free()
 	
-	
-	# Connexion des signaux
 	area_entered.connect(_on_area_entered)
 	body_entered.connect(_on_body_entered)
 
-	
 	
 func _physics_process(delta: float):
 	if not hit:
@@ -30,7 +26,6 @@ func setup(spawn_position: Vector2, fire_direction: float):
 	global_position = spawn_position
 	direction = fire_direction
 	
-
 
 func die():
 	hit = true
