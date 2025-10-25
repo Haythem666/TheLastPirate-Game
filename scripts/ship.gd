@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends CharacterBody2D
 
 # Vitesses
 @export var speed: float = 150.0
@@ -7,16 +7,14 @@ extends StaticBody2D
 # Flottement (oscillation)
 @export var float_amplitude: float = 5.0  # hauteur du mouvement
 @export var float_speed: float = 2.0      # vitesse de l’oscillation
-
 var base_y: float = 0.0                   # position verticale de base
 var float_timer: float = 0.0              # timer interne
-
 
 # État
 var is_player_near: bool = false
 var is_player_on_board: bool = false
 var player: Player = null
-var velocity: Vector2 = Vector2.ZERO
+#var velocity: Vector2 = Vector2.ZERO
 
 # Nodes
 @onready var ship_sprite: Sprite2D = $Sprite2D
@@ -82,7 +80,6 @@ func board_ship():
 	# Position du joueur sur le bateau
 	player.global_position = global_position
 	
-	print("Monté à bord du bateau!")
 
 func leave_ship():
 	if not player:
@@ -132,7 +129,8 @@ func control_ship(delta: float):
 				animation_player.play("idle")
 	
 	# Déplacer le bateau
-	position += velocity * delta
+	#position += velocity * delta
+	move_and_slide()	
 	
 	# Déplacer le joueur avec le bateau
 	if player:

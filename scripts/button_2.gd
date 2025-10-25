@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var state := "0"
-@export var sliding_platform_path: NodePath = "../y_plateform"
+@export var sliding_platform_path: NodePath = "../yPlateform"
 
 var sliding_platform_node: Node = null
 var bodies_on_button := []

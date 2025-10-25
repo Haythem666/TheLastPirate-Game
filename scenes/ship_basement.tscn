@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://5gdlusmlu77d"]
+[gd_scene load_steps=35 format=3 uid="uid://5gdlusmlu77d"]
 
 [ext_resource type="Script" uid="uid://63temy8lce85" path="res://scripts/ship_basement.gd" id="1_20has"]
 [ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="2_thhbe"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://cucqhax350vmx" path="res://scenes/y_plateform.tscn" id="20_i7pqe"]
 [ext_resource type="PackedScene" uid="uid://1s056ube34cb" path="res://scenes/ennemi_2.tscn" id="21_fyv0t"]
 [ext_resource type="PackedScene" uid="uid://cgujkx0s3v0k" path="res://scenes/chest_key.tscn" id="22_vjdvp"]
-[ext_resource type="PackedScene" uid="uid://c8ef23vqvrqol" path="res://scenes/canon.tscn" id="23_fyv0t"]
 [ext_resource type="PackedScene" uid="uid://du2icip2dhsul" path="res://scenes/button_2.tscn" id="24_ljik5"]
 [ext_resource type="PackedScene" uid="uid://bcy6m5lwm2rg1" path="res://scenes/checkpoint.tscn" id="24_vjdvp"]
 
@@ -1732,13 +1731,13 @@ position = Vector2(721, 141)
 position = Vector2(596, 143)
 
 [node name="Ennemi1" parent="." instance=ExtResource("16_6ribx")]
-position = Vector2(483, 236)
+position = Vector2(192, 238)
 
 [node name="Ennemi2" parent="." instance=ExtResource("16_6ribx")]
 position = Vector2(433, 366)
 
 [node name="Ennemi3" parent="." instance=ExtResource("16_6ribx")]
-position = Vector2(787, 237)
+position = Vector2(482, 237)
 
 [node name="Seashell" parent="." instance=ExtResource("17_ewj3w")]
 position = Vector2(870, 343)
@@ -1759,11 +1758,8 @@ position = Vector2(612, 382)
 [node name="ChestKey" parent="." instance=ExtResource("22_vjdvp")]
 position = Vector2(912, 349)
 
-[node name="canon" parent="." instance=ExtResource("23_fyv0t")]
-position = Vector2(173, 235)
-
 [node name="Checkpoint" parent="." instance=ExtResource("24_vjdvp")]
-position = Vector2(105, 86)
+position = Vector2(105, 83)
 
 [node name="Button2" parent="." instance=ExtResource("24_ljik5")]
-position = Vector2(592, 103)
+position = Vector2(446, 246)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cvrrmvlec1bxh"]
+[gd_scene load_steps=34 format=3 uid="uid://cvrrmvlec1bxh"]
 
 [ext_resource type="Texture2D" uid="uid://bg53tg1gdgv3q" path="res://assets/sprites/TheWorld/Midground/Terrain (32x32).png" id="1_rr1tt"]
 [ext_resource type="Texture2D" uid="uid://bd1bwngtxahg2" path="res://assets/sprites/TheWorld/Midground/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="2_7ewpb"]
@@ -13,11 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://dpveyfd3vwqqw" path="res://scenes/door.tscn" id="11_s0ibv"]
 [ext_resource type="PackedScene" uid="uid://cykauaq7kxmvu" path="res://scenes/room_1.tscn" id="12_bee8o"]
 [ext_resource type="PackedScene" uid="uid://chq0xt4vec2rl" path="res://scenes/plateform_1.tscn" id="12_g31h8"]
+[ext_resource type="PackedScene" uid="uid://bpraiq2e460m3" path="res://scenes/loot_cabin.tscn" id="12_s0ibv"]
 [ext_resource type="PackedScene" uid="uid://co3rxx2gdytyh" path="res://scenes/jumpad.tscn" id="13_hy5x3"]
 [ext_resource type="PackedScene" uid="uid://5gdlusmlu77d" path="res://scenes/ship_basement.tscn" id="13_q41qf"]
 [ext_resource type="PackedScene" uid="uid://vgnya3tw3exm" path="res://scenes/player_test.tscn" id="14_dmmei"]
-[ext_resource type="PackedScene" uid="uid://cgujkx0s3v0k" path="res://scenes/chest_key.tscn" id="16_bee8o"]
-[ext_resource type="PackedScene" uid="uid://bntetgkllf2ci" path="res://scenes/treasure_chest.tscn" id="17_y88yj"]
 [ext_resource type="PackedScene" uid="uid://dtiwmtnxpodq3" path="res://scenes/seashell.tscn" id="18_y88yj"]
 [ext_resource type="Texture2D" uid="uid://bawd2l7ory2sx" path="res://assets/sprites/newtransfer/arrow_plate_left.png" id="19_675ay"]
 [ext_resource type="PackedScene" uid="uid://jkuvllnmas8" path="res://scenes/ennemi_3.tscn" id="21_s0ibv"]
@@ -1691,10 +1690,11 @@ layer_3/name = "Decoration22"
 
 [node name="Door" parent="." instance=ExtResource("11_s0ibv")]
 position = Vector2(66, 77)
-next_scene = ExtResource("12_bee8o")
+next_scene = ExtResource("12_s0ibv")
 
 [node name="Door2" parent="." instance=ExtResource("11_s0ibv")]
 position = Vector2(66, 220)
+next_scene = ExtResource("12_bee8o")
 
 [node name="Door3" parent="." instance=ExtResource("11_s0ibv")]
 position = Vector2(67, 350)
@@ -1710,13 +1710,7 @@ position = Vector2(823, 364)
 position = Vector2(884, 193)
 
 [node name="PlayerTest" parent="." instance=ExtResource("14_dmmei")]
-position = Vector2(629, 362)
-
-[node name="ChestKey" parent="." instance=ExtResource("16_bee8o")]
-position = Vector2(579, 81)
-
-[node name="TreasureChest" parent="." instance=ExtResource("17_y88yj")]
-position = Vector2(432, 90)
+position = Vector2(895, 366)
 
 [node name="Seashell" parent="." instance=ExtResource("18_y88yj")]
 position = Vector2(688, 231)
@@ -1726,7 +1720,7 @@ position = Vector2(175, 243)
 texture = ExtResource("19_675ay")
 
 [node name="Ennemi3" parent="." instance=ExtResource("21_s0ibv")]
-position = Vector2(427, 230)
+position = Vector2(455, 223)
 
 [node name="Box" parent="." instance=ExtResource("22_kqmrt")]
 position = Vector2(462, 367)

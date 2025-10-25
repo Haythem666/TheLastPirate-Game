@@ -47,7 +47,6 @@ _data = {
 }
 
 [node name="Pearl" type="Area2D"]
-monitorable = false
 script = ExtResource("1_trrel")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
