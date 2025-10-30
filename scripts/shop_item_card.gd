@@ -33,22 +33,14 @@ func _apply_item_data():
 	if not item:
 		return
 	
-	# Vérifier que tous les nodes existent
-	#if not name_label:
-		#push_error("name_label introuvable ! Vérifie la hiérarchie de shop_item_card.tscn")
-		#return
-	#
-	# Icône
 	if item.icon:
 		icon.texture = item.icon
 	
 	
-	# Textes
 	name_label.text = item.name
 	description_label.text = item.description
 	price_label.text = str(item.price)
 	
-	# Connexion du bouton (une seule fois)
 	if not purchase_button.pressed.is_connected(_on_purchase_pressed):
 		purchase_button.pressed.connect(_on_purchase_pressed)
 	
@@ -68,7 +60,6 @@ func update_appearance():
 		purchase_button.visible = true
 		status_label.visible = false
 		
-		# Vérifier si on peut acheter
 		if GameManager.coins >= item.price:
 			purchase_button.disabled = false
 		else:

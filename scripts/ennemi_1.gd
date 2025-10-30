@@ -15,7 +15,6 @@ func _ready() -> void:
 	$AnimationPlayer.play("run")
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		

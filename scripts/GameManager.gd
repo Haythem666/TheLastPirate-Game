@@ -10,6 +10,8 @@ var player : Player
 
 var player_max_health : int = 3
 
+var has_chest_key : bool = false
+
 
 func respawn_player():
 	player.health = player.max_health
@@ -24,7 +26,6 @@ func respawn_player():
 func gain_coins(coins_gained: int):
 	coins += coins_gained
 	emit_signal("gained_coins", coins_gained)
-	#on peut utiliser coins_gained pour activer des trucs(un ennemi devient plis fort)
 
 func save_player_health(max_health: int):
 	player_max_health = max_health

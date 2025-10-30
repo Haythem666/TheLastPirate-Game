@@ -12,22 +12,18 @@ func _ready():
 
 
 func _process(delta):
-	# Si le joueur est dans la zone et appuie sur "attack"
 	if $AreaLever.overlaps_body($"../PlayerTest") and Input.is_action_just_pressed("attack"):
 		_toggle_lever()
 
 
 func _toggle_lever():
-	# Changer l'état
 	if state == "0":
 		state = "1"
 	else:
 		state = "0"
 	
-	# Mettre à jour l'apparence
 	_update_lever_appearance()
 	
-	# Jouer l'animation inverse
 	_play_platform_anim()
 
 

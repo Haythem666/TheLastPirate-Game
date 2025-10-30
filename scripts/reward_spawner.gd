@@ -1,7 +1,5 @@
 extends Node
 
-
-# Force de lancement
 const LAUNCH_FORCE_MIN = 150.0
 const LAUNCH_FORCE_MAX = 300.0
 const LAUNCH_ANGLE_VARIATION = 60.0
@@ -12,19 +10,15 @@ static func spawn_coins(position: Vector2, count: int, parent: Node):
 	for i in range(count):
 		var coin = coin_scene.instantiate()
 		
-		# Direction aléatoire vers le haut
 		var angle = randf_range(-LAUNCH_ANGLE_VARIATION, LAUNCH_ANGLE_VARIATION) - 90
 		var direction = Vector2.from_angle(deg_to_rad(angle))
 		var force = randf_range(LAUNCH_FORCE_MIN, LAUNCH_FORCE_MAX)
 		
-		# Petit décalage
 		var spawn_offset = Vector2(randf_range(-10, 10), randf_range(-5, 5))
 		
-		# Ajouter au niveau
 		parent.add_child(coin)
 		
-		# Configuration comme récompense (après l'ajout)
-		coin.setup_as_reward(position + spawn_offset+Vector2(0, -30), direction * force, 1)
+		coin.setup_as_reward(position + spawn_offset+Vector2(0, -15), direction * force, 1)
 
 static func spawn_diamonds(position: Vector2, count: int, parent: Node):
 	
@@ -33,7 +27,6 @@ static func spawn_diamonds(position: Vector2, count: int, parent: Node):
 	for i in range(count):
 		var diamond = coin_scene.instantiate()
 		
-		# Direction aléatoire
 		var angle = randf_range(-LAUNCH_ANGLE_VARIATION, LAUNCH_ANGLE_VARIATION) - 90
 		var direction = Vector2.from_angle(deg_to_rad(angle))
 		var force = randf_range(LAUNCH_FORCE_MIN * 1.3, LAUNCH_FORCE_MAX * 1.3)
@@ -42,8 +35,7 @@ static func spawn_diamonds(position: Vector2, count: int, parent: Node):
 		
 		parent.add_child(diamond)
 		
-		# Diamant = valeur 10
-		diamond.setup_as_reward(position + spawn_offset+Vector2(0, -40), direction * force, 10)
+		diamond.setup_as_reward(position + spawn_offset+Vector2(0, -30), direction * force, 10)
 		
 		
 

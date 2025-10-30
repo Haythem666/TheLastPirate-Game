@@ -6,6 +6,21 @@
 [ext_resource type="Texture2D" uid="uid://t10ogfhov2fn" path="res://assets/Pirate Treasure/Sprites/Blue Diamond/03.png" id="3_p5v7i"]
 [ext_resource type="Texture2D" uid="uid://b2jgg7dn3tf1f" path="res://assets/Pirate Treasure/Sprites/Blue Diamond/04.png" id="4_0fuo3"]
 
+[sub_resource type="Animation" id="Animation_okr8r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_0a7ml")]
+}
+
 [sub_resource type="Animation" id="Animation_0a7ml"]
 resource_name = "idle"
 length = 0.3
@@ -21,21 +36,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("1_0a7ml"), ExtResource("2_up2nb"), ExtResource("3_p5v7i"), ExtResource("4_0fuo3")]
-}
-
-[sub_resource type="Animation" id="Animation_okr8r"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_0a7ml")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bd64o"]

@@ -41,5 +41,6 @@ func die():
 	var spawned_debris= debris.instantiate()
 	spawned_debris.global_position = position + Vector2(0, 8)
 	spawned_debris.get_child(1).play("crumble")
-	get_tree().get_root().get_child(1).add_child(spawned_debris)
+	get_parent().add_child(spawned_debris)
+	
 	queue_free()

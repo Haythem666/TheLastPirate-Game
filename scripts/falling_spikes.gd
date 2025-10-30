@@ -21,8 +21,7 @@ func _on_player_detect_area_entered(area: Area2D) -> void:
 	if area.get_parent() is Player:
 		await get_tree().create_timer(0.3).timeout
 		fall()
-#		area.get_parent().die()
-#maybe add animation
+
 
 func fall():
 	current_speed = speed

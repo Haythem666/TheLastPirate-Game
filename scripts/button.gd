@@ -38,8 +38,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			_toggle_button()
 			
 
-
-
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body in bodies_on_button:
 		bodies_on_button.erase(body)

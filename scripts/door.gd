@@ -1,21 +1,14 @@
 extends Node2D
 
-@export var next_scene: PackedScene   # à remplir dans Level1, vide dans Level2
-#@export var is_exit: bool = false     # coche dans Level2 pour la porte d’arrivée
+@export var next_scene: PackedScene   
 
 var opening = false
 
 func _ready():
-	#if is_exit:
-		# Si c’est une porte d’arrivée → elle se ferme toute seule
-	#	$AnimationPlayer.play("closing")
-	#else:
-		# Sinon → état fermé par défaut
-		$AnimationPlayer.play("closing")
+	$AnimationPlayer.play("closing")
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	#if not is_exit and not opening:
 	if not opening:
 		opening = true
 		$AnimationPlayer.play("opening")

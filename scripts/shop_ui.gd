@@ -14,7 +14,6 @@ func _ready():
 	visible = false
 	close_button.pressed.connect(_on_close_pressed)
 	ShopManager.coins_updated.connect(_on_coins_updated)
-	ShopManager.item_purchased.connect(_on_item_purchased)
 
 func _input(event):
 	if event.is_action_pressed("shop_toggle"):
@@ -28,12 +27,10 @@ func toggle_shop():
 		refresh_shop()
 
 func refresh_shop():
-	# Vider les grilles
 	clear_grid(grid_attacks)
 	clear_grid(grid_abilities)
 	clear_grid(grid_health)
 	
-	# Remplir avec les items
 	for item in ShopManager.get_available_items():
 		var card = item_card_scene.instantiate()
 		card.setup(item)
@@ -47,7 +44,6 @@ func refresh_shop():
 			"health":
 				grid_health.add_child(card)
 	
-	# Mettre à jour l'affichage des coins
 	_on_coins_updated(GameManager.coins)
 
 func clear_grid(grid: GridContainer):
@@ -58,26 +54,14 @@ func _on_purchase_requested(item: ShopItem):
 	
 	if ShopManager.purchase_item(item):
 		
-		play_purchase_animation()
 		refresh_shop()
 	else:
-		
-		play_insufficient_funds_animation()
+		pass
 
 func _on_coins_updated(amount: int):
 	coins_label.text = str(amount)
 
-func _on_item_purchased(item: ShopItem):
-	# Animation ou son de succès
-	pass
+
 
 func _on_close_pressed():
 	toggle_shop()
-
-func play_purchase_animation():
-	# Animation de succès
-	pass
-
-func play_insufficient_funds_animation():
-	# Animation de shake du label de coins
-	pass

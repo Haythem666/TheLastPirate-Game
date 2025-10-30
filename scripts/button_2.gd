@@ -29,13 +29,11 @@ func _play_platform_anim():
 		return
 
 	var tween = create_tween()
-	var move_distance = 100.0  # distance verticale à bouger (modifie selon ton besoin)
-	var duration = 1.0         # durée de l’animation (en secondes)
+	var move_distance = 60.0  
+	var duration = 1.0         
 
-	# Position actuelle
 	var start_pos = sliding_platform_node.position
 
-	# Nouvelle position selon l’état
 	var target_y = start_pos.y + move_distance if state == "1" else start_pos.y - move_distance
 
 	tween.tween_property(sliding_platform_node, "position:y", target_y, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -47,7 +45,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if state == "0":
 			_toggle_button()
 	
-
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

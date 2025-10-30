@@ -19,7 +19,6 @@ var is_dashing: bool = false
 var has_chest_key: bool = false
 
 
-
 var normal_gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var drowning_gravity = 50  
 
@@ -34,9 +33,9 @@ var max_health = 3
 var health = 0
 var can_take_damage = true
 
-# Projectile de l'épée
+# sword
 var thrown_sword_scene = preload("res://scenes/thrown_sword.tscn")
-var can_throw_sword: bool = false  # Sera débloqué via la boutique
+var can_throw_sword: bool = false 
 
 
 func _ready() -> void:
@@ -75,42 +74,44 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
-	# Flip du sprite selon la direction
+	
 	if Input.is_action_pressed("left"):
 		sprite_2d.scale.x = -abs(sprite_2d.scale.x)
 		$SwordEffect.scale.x= -abs($SwordEffect.scale.x) 
 		$SwordEffect.position = Vector2(-30,0)
 		$Area2D.scale.x = abs($Area2D.scale.x)* -1
 		
+		$AttackArea.scale.x = -abs($AttackArea.scale.x)
+		$AttackArea.position.x = -abs($AttackArea.position.x)
+		
 	elif Input.is_action_pressed("right"):
 		sprite_2d.scale.x = abs(sprite_2d.scale.x)
 		$SwordEffect.scale.x= abs($SwordEffect.scale.x)
 		$SwordEffect.position = Vector2(30,0)
 		$Area2D.scale.x = abs($Area2D.scale.x)
+		$AttackArea.scale.x = abs($AttackArea.scale.x)
+		$AttackArea.position.x = abs($AttackArea.position.x)
 		
-	# Saut
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		jump_sound.play()
 
-	# Déplacement horizontal
 	var direction := Input.get_axis("left", "right")
 	if direction != 0:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	# Applique le mouvement + collisions
 	move_and_slide()
 	
+	#to push the box
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider is RigidBody2D :
-			collider.linear_velocity.x = velocity.x * 1.2  # pousse la box
+			collider.linear_velocity.x = velocity.x * 1.2 
 
 
-	# Update animation
 	update_animation()
 	
 	if position.y >= 1000:
@@ -119,12 +120,6 @@ func _physics_process(delta: float) -> void:
 func attack(anim_name : String="attack", damage: int = 1):
 	
 	var overlapping_objects = $AttackArea.get_overlapping_areas()
-	
-	#for area in overlapping_objects:
-	#	var parent = area.get_parent()
-	#	parent.queue_free()
-	#parent.take_damage()
-		#ici on vient de tuer le chest 
 		
 	for area in overlapping_objects:
 		if area.get_parent().is_in_group("enemies"):
@@ -134,23 +129,20 @@ func attack(anim_name : String="attack", damage: int = 1):
 	animation_player.play(anim_name)
 	attack_sound.play()
 
-# Nouvelle fonction pour débloquer des attaques
 func unlock_attack(item: ShopItem):
 	unlocked_attacks.append(item)
 
-# Nouvelle fonction pour le dash
 func perform_dash():
 	is_dashing = true
 	var dash_direction = 1 if sprite_2d.scale.x > 0 else -1
 	velocity.x = dash_speed * dash_direction
 	
-	# Animation ou effet visuel du dash
-	modulate = Color(1, 1, 1, 0.5)  # Semi-transparent
+	modulate = Color(1, 1, 1, 0.5)  
 	
 	await get_tree().create_timer(dash_duration).timeout
 	
 	is_dashing = false
-	modulate = Color(1, 1, 1, 1)  # Opaque
+	modulate = Color(1, 1, 1, 1)  
 	
 func start_drowning():
 	drowning = true
@@ -166,14 +158,14 @@ func update_animation() -> void:
 		return
 		
 	if !attacking && !hit:
-		if not is_on_floor():  # perso en l'air
+		if not is_on_floor(): 
 			if velocity.y < 0:
 				animation_player.play("jump")
 				run_sound.stop()
 			else:
 				animation_player.play("fall")
 				run_sound.stop()
-		else:  # perso au sol
+		else:  
 			if velocity.x != 0:
 				animation_player.play("run")
 				if !run_sound.playing:
@@ -195,8 +187,7 @@ func take_damage(damage_amount : int):
 		
 		health -= damage_amount
 		update_ui()
-		#var ui_manager = get_node("/root/Level1/UIManager")
-		#ui_manager.update_health_display(health, max_health)
+		
 		
 		if health <= 0:
 			animation_player.play("dead")
@@ -221,20 +212,15 @@ func throw_sword_projectile():
 	if not can_throw_sword:
 		return
 	
-	# Créer l'épée
 	var sword = thrown_sword_scene.instantiate()
 	
-	# Position de départ (devant le joueur)
 	var spawn_offset = Vector2(30, 0) if sprite_2d.scale.x > 0 else Vector2(-30, 0)
 	var spawn_position = global_position + spawn_offset
 	
-	# Direction (droite ou gauche selon l'orientation du joueur)
 	var throw_direction = Vector2.RIGHT if sprite_2d.scale.x > 0 else Vector2.LEFT
 	
-	# Configurer l'épée
 	sword.setup(throw_direction, spawn_position)
 	
-	# Ajouter au niveau (pas au joueur !)
 	get_tree().root.add_child(sword)
 	
 	
@@ -248,7 +234,6 @@ func update_ui():
 
 
 func _load_purchased_items():
-	# Recharger toutes les attaques achetées
 	unlocked_attacks.clear()
 	for item in ShopManager.get_purchased_items():
 		match item.item_type:
@@ -260,5 +245,4 @@ func _load_purchased_items():
 				elif item.id == "throw_sword":
 					can_throw_sword = true
 			"health":
-				# La vie max est déjà gérée par GameManager
 				pass

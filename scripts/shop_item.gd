@@ -9,7 +9,6 @@ class_name ShopItem
 @export var item_type: String  # "attack", "health", "ability" 
 @export var is_purchased: bool = false
 
-# Pour les attaques
 @export var attack_animation: String
 @export var attack_damage: int
 @export var attack_input: String  # ex: "attack2", "attack3"

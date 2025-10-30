@@ -11,7 +11,6 @@ func _ready():
 	
 func load_shop_items():
 	
-	# Attaque rapide
 	var quick_attack = ShopItem.new()
 	quick_attack.id = "quick_attack"
 	quick_attack.name = "Quick Attack"
@@ -24,7 +23,6 @@ func load_shop_items():
 	quick_attack.attack_input = "quick_attack"
 	available_items.append(quick_attack)
 	
-	# Attaque lourde
 	var heavy_attack = ShopItem.new()
 	heavy_attack.id = "heavy_attack"
 	heavy_attack.name = "Heavy Attack"
@@ -41,24 +39,22 @@ func load_shop_items():
 	throw_sword.id = "throw_sword"
 	throw_sword.name = "Throw Sword"
 	throw_sword.description = "Throw your sword with [Ctrl]"
-	throw_sword.price = 150
+	throw_sword.price = 120
 	throw_sword.item_type = "ability"
 	throw_sword.attack_animation = "thrown_sword"
 	throw_sword.icon = load("res://assets/sprites/MainPerso/Sword/22-Sword Spinning/Sword Spinning 01.png")
 	throw_sword.attack_damage = 3
 	available_items.append(throw_sword)
 	
-	# Vie supplémentaire
 	var extra_health = ShopItem.new()
 	extra_health.id = "extra_health"
 	extra_health.name = "+1 Health"
 	extra_health.description = "Gain 1 health"
-	extra_health.price = 75
+	extra_health.price = 50
 	extra_health.item_type = "health"
 	extra_health.icon= load("res://assets/sprites/Objects/heartIdle.png")
 	available_items.append(extra_health)
 	
-	# Dash
 	var dash = ShopItem.new()
 	dash.id = "dash"
 	dash.name = "Dash"
@@ -81,7 +77,6 @@ func purchase_item(item: ShopItem) -> bool:
 	item.is_purchased = true
 	purchased_items.append(item)
 	
-	# Appliquer l'effet de l'item
 	apply_item_effect(item)
 	
 	emit_signal("item_purchased", item)
@@ -94,7 +89,6 @@ func apply_item_effect(item: ShopItem):
 	
 	match item.item_type:
 		"attack":
-			# Ajouter l'attaque au joueur
 			player.unlock_attack(item)
 		"health":
 			player.max_health += 1
